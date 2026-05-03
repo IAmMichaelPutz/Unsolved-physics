@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .uebung-karte {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .uebung-inhalt {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .uebung-text {
+            flex: 2;
+        }
+        .uebung-medien {
+            flex: 1;
+            min-width: 200px;
+        }
+        .mathe-block {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="uebung-liste">
+        <div id="uebung4" class="uebung-karte">
+            <h3 class="uebung-titel">Pendel auf beweglichem Wagen</h3>
+            <div class="uebung-inhalt">
+                <div class="uebung-text">
+                    <p>Ein ebenes Pendel der Masse m hängt an einem starren, masselosen Stab der Länge l im homogenen Gravitationsfeld der Erde. Das Pendel ist an einer Masse M aufgehängt, die sich reibungsfrei entlang einer horizontalen Achse bewegen kann. Das Pendel kann nur in der Ebene schwingen, die von dieser Achse und der Richtung des Gravitationsfeldes der Erde aufgespannt wird. Es wirken keine weiteren Kräfte.</p>
+                    
+                    <p>1. Stellen Sie die Lagrange-Funktion des Systems in geeigneten Koordinaten auf.</p>
+                    <p>2. Geben Sie die Erhaltungsgrößen des Systems einschließlich ihrer physikalischen Bedeutung an.</p>
+                </div>
+                <div class="uebung-medien">
+                    <img src="pics/pendelum-moving-cart.png" width="300" alt="Pendel auf beweglichem Wagen">
+                </div>
+            </div>
+            <details>
+                <summary>Lösung anzeigen</summary>
+                <div class="loesung">
+                    <h4>1. Lagrange-Funktion:</h4>
+                    <p>Wir wählen als verallgemeinerte Koordinaten die x-Position x = x_M der Masse M und den Winkel φ.</p>
+                    <div class="mathe-block">
+                        \begin{align}
+                        x_m &= x + l\sin(\phi) \tag{8} \\
+                        \dot{x}_m &= \dot{x} + l\dot{\phi}\cos(\phi) \tag{9} \\
+                        y_m &= l\cos(\phi) \tag{10} \\
+                        \dot{y}_m &= -l\dot{\phi}\sin(\phi) \tag{11}
+                        \end{align}
+                    </div>
+
+                    <p>Kinetische Energie:</p>
+                    <div class="mathe-block">
+                        \begin{align} 
+                        T &= \frac{M}{2}\dot{x}^2 + \frac{m}{2}(\dot{x}_m^2 + \dot{y}_m^2) \tag{12} \\
+                        &= \frac{M+m}{2}\dot{x}^2 + ml\dot{x}\dot{\phi}\cos(\phi) + \frac{m}{2}l^2\dot{\phi}^2 \tag{13}
+                        \end{align}
+                    </div>
+
+                    <p>Setzung des Nullpunkts des Gravitationspotentials auf die x-Achse:</p>
+                    <div class="mathe-block">
+                        \[ U = -mgy_m = -mgl\cos(\phi) \tag{14} \]
+                    </div>
+
+                    <p>Damit ergibt sich die Lagrange-Funktion:</p>
+                    <div class="mathe-block">
+                        \[ L = \frac{M+m}{2}\dot{x}^2 + ml\dot{x}\dot{\phi}\cos(\phi) + \frac{m}{2}l^2\dot{\phi}^2 + mgl\cos(\phi) \tag{15} \]
+                    </div>
+
+                    <h4>2. Erhaltungsgrößen:</h4>
+                    <p>Da nur die konservative Gravitationskraft wirkt, ist die Energie E = T + U eine Erhaltungsgröße</p>
+                    <p>Zusätzlich hängt L nicht explizit von x ab, sodass x eine zyklische Koordinate ist und der konjugierte Impuls erhalten bleibt:</p>
+                    <div class="mathe-block">
+                        \[ \frac{\partial L}{\partial\dot{x}} = (M+m)\dot{x} + ml\dot{\phi}\cos(\phi) = M\dot{x} + m\dot{x}_m \tag{16} \]
+                    </div>
+                    <p>⇒ Der Gesamtimpuls/Schwerpunktsimpuls in x-Richtung ist erhalten</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .uebung-karte {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .uebung-inhalt {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .uebung-text {
+            flex: 2;
+        }
+        .uebung-medien {
+            flex: 1;
+            min-width: 200px;
+        }
+        .mathe-block {
+            margin: 1em 0;
+        }
+        .gleichung-nummer {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="uebung-liste">
+        <div id="uebung5" class="uebung-karte">
+            <h3 class="uebung-titel">5 Rotierender Massenpunkt</h3>
+            <div class="uebung-inhalt">
+                <div class="uebung-text">
+                    <p>Betrachten Sie einen masselosen Ring, der mit konstanter Winkelgeschwindigkeit ω im Gravitationsfeld der Erde rotiert, auf dem eine Masse m reibungsfrei gleiten kann.</p>
+                    
+                    <p>i) Stellen Sie die Lagrange-Funktion auf und bestimmen Sie eine Erhaltungsgröße.</p>
+                    <p>ii) Bestimmen Sie die Gleichgewichtsposition θ und zeigen Sie, dass diese von 0 verschieden sein kann.</p>
+                </div>
+                <div class="uebung-medien">
+                    <img src="pics/rotating-mass-point.png" width="300" alt="Rotierender Massenpunkt">
+                </div>
+            </div>
+            <details>
+                <summary>Lösung anzeigen</summary>
+                <div class="loesung">
+                    <h4>Teil 1: Lagrange-Funktion und Erhaltungssatz</h4>
+                    <p>Die z-Achse zeigt nach unten und der Nullpunkt ist im Zentrum des Rings. Für die Lagrange-Funktion gilt allgemein:</p>
+                    <div class="mathe-block">
+                        \[ \mathcal{L} = T - U = \frac{m}{2}(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - (mgz) \tag{1} \]
+                    </div>
+
+                    <p>Damit in Kugelkoordinaten (siehe Vorlesung):</p>
+                    <div class="mathe-block">
+                        \[ \mathcal{L} = \frac{m}{2}(r^2\dot{\theta}^2 + r^2\dot{\varphi}^2\sin^2\theta) + mgr\cos\theta \tag{2} \]
+                    </div>
+
+                    <p>Beachte: r und \(\dot{\varphi} = \omega\) sind Konstanten.</p>
+                    <p>Die Euler-Lagrange-Gleichungen für den Winkel θ ergeben:</p>
+                    <div class="mathe-block">
+                        \[ \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{\theta}} - \frac{\partial\mathcal{L}}{\partial\theta} \]
+                    </div>
+                    <div class="mathe-block">
+                        \[ \to mr^2\ddot{\theta} = mr^2\omega^2\sin\theta\cos\theta - mgr\sin\theta \tag{3} \]
+                    </div>
+
+                    <p>Da \(\frac{\partial\mathcal{L}}{\partial\varphi} = 0\) ist, ist φ eine zyklische Koordinate und wir erhalten die Erhaltungsgröße (Drehimpulserhaltung):</p>
+                    <div class="mathe-block">
+                        \[ \frac{\partial\mathcal{L}}{\partial\dot{\varphi}} = const. = mr^2\sin^2\theta\dot{\varphi} =: l(= L_z) \tag{4} \]
+                    </div>
+
+                    <h4>Teil 2: Gleichgewichtsposition</h4>
+                    <p>In der Gleichgewichtsposition ist \(\ddot{\theta} = 0\), d.h. der Winkel θ ändert sich zeitlich nicht. Aus der Bewegungsgleichung (3) mit \(\ddot{\theta} = 0\) folgt:</p>
+                    <div class="mathe-block">
+                        \[ \cos\theta = \frac{g}{r\omega^2} \tag{5} \]
+                    </div>
+
+                    <p>Fallunterscheidung:</p>
+                    <div class="mathe-block">
+                        \begin{align}
+                        \text{Falls }\frac{g}{r\omega^2} &> 1, \text{ also }\frac{g}{r} > \omega^2 \text{ dann ist die einzige Lösung }\theta = 0 \tag{6} \\
+                        \text{Falls }\frac{g}{r\omega^2} &< 1, \text{ also }\frac{g}{r} < \omega^2 \text{ dann erhalten wir beide Lösungen: }\theta = \pm \arccos(\frac{g}{r\omega^2}) \tag{7}
+                        \end{align}
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

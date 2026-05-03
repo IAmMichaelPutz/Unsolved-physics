@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 12 - Sputtering and Plasma Chemistry</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .highlight-box {
+            border: 2px solid red;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-label {
+            text-align: right;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .note {
+            background-color: #f5f5f5;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 4px solid #666;
+        }
+        .process-diagram {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+        .arrow {
+            font-size: 24px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-number">Page 1-5</div>
+    
+    <!-- Previous content remains... -->
+
+    <section class="section">
+        <h2>4.6 Some Last Thoughts on Sputtering</h2>
+        
+        <h3>(i) Target Integrity in Magnetron Sputtering</h3>
+        <ul>
+            <li>Only 10-30% of target is actually used</li>
+            <li>Due to racetrack/plasma ring formation</li>
+            <li>Results in inhomogeneous material loss</li>
+        </ul>
+        
+        <div class="note">
+            <p>Effects:</p>
+            <ul>
+                <li>Target outside of racetrack can become insulating (e.g., by oxidation)</li>
+                <li>Can charge up, leading to arcing</li>
+                <li>Racetrack deepens until it (spontaneously) breaks</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            Target maintenance is very important!
+        </div>
+
+        <h3>(ii) Effect of Periodic Table</h3>
+        <p>Sputtering rate is element-specific → each target will require element-specific voltages</p>
+
+        <h3>(iii) Geometry and Crystallographic Effects</h3>
+        <p>Emission of target atoms is reflected by the lattice symmetry</p>
+        <ul>
+            <li>In FCC: preferred [110] ejection</li>
+            <li>In BCC: preferred [111] ejection</li>
+        </ul>
+
+        <div class="note">
+            Whenever the ions penetrate deeper in between the lattice planes, the sputtering yield decreases (atoms cannot get out).
+            [Note: not always the case, especially for semiconductors]
+        </div>
+
+        <section class="section">
+            <h2>4.7 Plasma Chemistry and Etching</h2>
+
+            <h3>4.7.1 Reaction Rates</h3>
+            <p>Two main types of reactions:</p>
+            <div class="formula">
+                1. Molecule-molecule reaction:<br>
+                \[A + B \rightarrow C\]
+                (described by "normal" chemistry K(T))
+            </div>
+            
+            <div class="formula">
+                2. Electron-atom/electron-molecule:<br>
+                \[e^- + A \rightarrow C\]
+                \[\frac{dn_c}{dt} = K(E,T) \cdot n_e n_A\]
+            </div>
+
+            <div class="highlight-box">
+                Plasma generated reactions can significantly enhance reactivity in chemical vapor processes, even at lower temperatures!
+            </div>
+
+            <h3>4.7.2 Plasma and Ion Beam Etching</h3>
+            
+            <div class="process-diagram">
+                <div>Initial Film</div>
+                <div class="arrow">→</div>
+                <div>Resist Coating</div>
+                <div class="arrow">→</div>
+                <div>Development</div>
+            </div>
+
+            <p>Examples of etching processes:</p>
+            <ul>
+                <li>Wet etching in liquid</li>
+                <li>Dry etching (in plasma)
+                    <ul>
+                        <li>Ar ion plasma</li>
+                        <li>CF₄ - O₂ plasma</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div class="note">
+                <p>Ion beam patterning (EIBA) can be used without resist:</p>
+                <ul>
+                    <li>Patterning by direct control of the beam via steering electronics</li>
+                    <li>Removes only areas you define in the electronic control</li>
+                    <li>Much slower though → only pattern "small" areas and scientific samples</li>
+                </ul>
+            </div>
+        </section>
+    </section>
+
+    <footer>
+        <p>Homework Discussion Next Time!</p>
+    </footer>
+
+</body>
+</html>

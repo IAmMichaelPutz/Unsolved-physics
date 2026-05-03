@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Thorium-Quelle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Thorium-Quelle</h1>
+
+    <div class="task">
+        <p>
+            Thorium-229 ist ein α-Strahler mit einer Teilchenenergie von 4.85 MeV. Zehn Prozent der von 5 g $^{229}$Th emittierten α-Teilchen werden zu einem punktförmigen parallelen Strahl gebündelt und auf eine 4 µm dicke Goldfolie ($Z_{Au} = 79$) gelenkt. Ein Detektor mit einer kreisförmigen Öffnung ($r = 15$ mm) befindet sich in 2 m Abstand vom Auftreffpunkt des α-Strahls unter einem Winkel von 60° zur Strahlachse.
+        </p>
+
+        <ol type="a">
+            <li>Erkläre in ein bis zwei Sätzen den Begriff differentieller Wirkungsquerschnitt dσ/dΩ.</li>
+            <li>
+                Die Luminosität L ist das Produkt aus Strahlfluss Φ und Anzahl der Targetteilchen im Strahlquerschnitt. Berechne die Luminosität L des oben beschriebenen Aufbaus.
+            </li>
+            <li>
+                Wie groß ist die Zählrate im Detektor? Verwende zur Berechnung eine Luminosität von L = $10^{30}$ s$^{-1}$cm$^{-2}$.
+                <br>
+                <em>Hinweise:</em>
+                <ul>
+                    <li>Der Ausdruck für die Aktivität eines radioaktiven Stoffes kann aus dem exponentiellen Zerfallsgesetz (N(t) = N₀e$^{-λt}$ mit λ = ln 2/t$_{1/2}$) hergeleitet werden.</li>
+                    <li>Die Zählrate $\dot{N}$ setzt sich aus der Luminosität L, dem Wirkungsquerschnitt σ und dem abgedeckten Raumwinkel ΔΩ zusammen: $\dot{N} = L \cdot \frac{dσ}{dΩ} \cdot ΔΩ$</li>
+                    <li>Der Streuquerschnitt kann auf der gesamten Detektoroberfläche als konstant angenommen werden.</li>
+                </ul>
+            </li>
+        </ol>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösungen:</h3>
+        <ol type="a">
+            <li>
+                Der differentielle Wirkungsquerschnitt $\frac{dσ(E,θ)}{dΩ}$ beschreibt die Winkelabhängigkeit des Wirkungsquerschnitts σ.
+            </li>
+            <br>
+            <li>
+                Der Strahlfluss entspricht 10 % der Aktivität A(t) der Quelle zum Zeitpunkt t = 0. Man bestimmt diese über die negative Ableitung des Zerfallsgesetzes:
+                $$A(t) = -\frac{d}{dt}N(t) = λN_0e^{-λt}$$
+
+                Hierbei ist N₀ die Anzahl der Thorium-Kerne in der Quelle, N$_A$ die Avogadrokonstante, m$_Q$ die Masse der Thoriumquelle und M$_Q$ deren Molmasse:
+                $$N_0 = N_A \cdot \frac{m_Q}{M_Q} = 6.023 \cdot 10^{23} \text{ mol}^{-1} \cdot \frac{5\text{ g}}{229\text{ g/mol}} = 1.315 \cdot 10^{22}$$
+
+                Damit ergibt sich:
+                $$A(0) = λN_0 = \frac{\ln 2}{t_{1/2}}N_0 = \frac{\ln 2}{7880\text{ a}} \cdot 1.315 \cdot 10^{22} = 3.665 \cdot 10^{10}\text{ s}^{-1}$$
+
+                Die Anzahl N$_T$ der Targetteilchen ergibt sich aus der Dicke d$_T$, Dichte ρ$_T$ und Molmasse M$_T$ des Targets zu:
+                $$N_T = N_A \cdot \frac{ρ_T}{M_T} \cdot d_T = 6.023 \cdot 10^{23}\text{ mol}^{-1} \cdot \frac{19.32\text{ g/cm}^3}{229.0\text{ g/mol}} \cdot 4 \cdot 10^{-4}\text{ cm} = 2.033 \cdot 10^{19}\text{ cm}^{-2}$$
+
+                Damit ergibt sich eine Luminosität von:
+                $$L = 0.1 \cdot A(0) \cdot N_T = 0.1 \cdot 3.665 \cdot 10^{10}\text{ s}^{-1} \cdot 2.033 \cdot 10^{19}\text{ cm}^{-2} = 7.45 \cdot 10^{28}\text{ s}^{-1}\text{cm}^{-2}$$
+            </li>
+            <br>
+            <li>
+                Die in einem Detektor (Fläche A, Abstand R) gemessene Zählrate $\dot{N}$ hängt von der Energie E, dem Winkel θ zwischen Strahlachse und gestreutem Strahl und dem vom Detektor überdeckten Raumwinkel ΔΩ ab:
+                $$\dot{N}(E, θ, ΔΩ) = L \cdot \frac{dσ(E, θ)}{dΩ} \cdot ΔΩ$$
+
+                Der Wirkungsquerschnitt der Reaktion ist der Rutherfordsche Streuquerschnitt unter 60°. Mit $\frac{e^2}{4πε_0} = 1.44\text{ MeV} \cdot \text{fm}$ ergibt sich:
+                $$\frac{dσ}{dΩ} = \left(\frac{1}{4πε_0} \cdot \frac{Z_αZ_{Au}e^2}{4E}\right)^2 \frac{1}{\sin^4 \frac{θ}{2}} = \left(1.44\text{ MeV} \cdot \text{fm}\frac{2 \cdot 79}{4 \cdot 4.85\text{ MeV}}\right)^2 \frac{1}{\sin^4 \frac{60°}{2}} = 2.2 \cdot 10^3\text{ fm}^2$$
+
+                Der Bruchteil des Raumwinkels, der vom Detektor überdeckt wird, ist:
+                $$ΔΩ = \frac{r^2π}{4R^2π} = \frac{(0.015\text{ m})^2}{4(2.0\text{ m})^2} = 1.41 \cdot 10^{-5}$$
+
+                Zusammen ergibt sich damit eine Streurate im Detektor von:
+                $$\dot{N}(E, θ, ΔΩ) = L \cdot \frac{dσ(E, θ)}{dΩ} \cdot ΔΩ = 10^{30}\text{ s}^{-1}\text{cm}^{-2} \cdot 2.2 \cdot 10^3\text{ fm}^2 \cdot 1.41 \cdot 10^{-5} = 310\text{ s}^{-1}$$
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

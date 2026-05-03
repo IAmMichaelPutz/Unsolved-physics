@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 10 - Page 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+        .formula-label {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+        .note {
+            font-style: italic;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-number">Page 2</div>
+
+    <div class="section">
+        <h2>Ionization and Current Analysis</h2>
+        
+        <div class="formula">
+            \[\gamma\left(e^{\alpha d}-1\right) = 1\]
+            <div class="formula-label">Gas Breakdown Condition</div>
+        </div>
+
+        <div class="formula">
+            \[\alpha = \frac{1}{\lambda_{mfp}} \exp\left(-\frac{E_{ion}}{eE\lambda_{mfp}}\right) = \frac{A \cdot p}{E} \exp\left(-\frac{-E_{ion} \cdot d}{UE}\right)\]
+            <div class="formula-label">Ionization Coefficient</div>
+        </div>
+
+        <p class="note">See lecture 9 for details</p>
+
+        <div class="formula">
+            \[e^{\alpha d} = \frac{1}{\gamma} + 1 \Rightarrow \alpha d = \ln(1 + \frac{1}{\gamma})\]
+            <div class="formula-label">Breakdown Condition Simplified</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Current Analysis</h2>
+        
+        <div class="subsection">
+            <h3>Transport Model</h3>
+            <div class="formula">
+                \[I = jA = \Phi \cdot A \cdot q\]
+                <div class="formula-label">Current Transport Equation</div>
+            </div>
+
+            <div class="formula">
+                \[j = \Phi q = \frac{n}{4}\langle v \rangle \cdot q\]
+                <div class="formula-label">Current Density</div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3>Typical Values</h3>
+            <ul>
+                <li>Typical n ~ 10¹⁶ 1/m³ in Ar working gas</li>
+                <li>\[\langle v \rangle = \sqrt{\frac{8kT}{\pi m}}\]</li>
+                <li>j<sub>el</sub> = 38 mA/cm²</li>
+                <li>j<sub>Ar</sub> = 21 μA/cm²</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            <p>j<sub>el</sub> >> j<sub>Ar</sub></p>
+            <p>Electrons govern dynamics</p>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <p>Surfaces on floating potentials or insulators will charge negatively in glow discharges!</p>
+        <p class="note">(Will need to find a solution for insulators!)</p>
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Potentialmulde - Quantenmechanische Berechnung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 2: Potentialmulde</h2>
+        
+        <p>Gegeben sei eine rechteckförmige Potentialmulde der Breite b > 0 und der Tiefe -V₀ mit V₀ > 0</p>
+
+        <p>$V(x) = \begin{cases} 
+            0 & x < 0 \text{ (Bereich I)} \\
+            -V_0 & 0 < x < b \text{ (Bereich II)} \\
+            0 & x > b \text{ (Bereich III)}
+        \end{cases}$</p>
+
+        <p>Eine ebene Materiewelle (Energie E > 0, Masse m) treffe von links auf diese Potentialmulde. Der Betrag des Wellenvektors in den drei Bereichen soll mit k₁, k₂ bzw. k₃ bezeichnet werden.</p>
+
+        <p><strong>(a)</strong> Die Energie E des Teilchens sei nun fest vorgegeben. Berechnen Sie die Muldentiefe V₀ in Abhängigkeit der Energie E, so dass gilt: k₂ = 4k₁.</p>
+
+        <p><strong>(b)</strong> Die Muldentiefe erfüllt nun die Bedingung aus (a) (d.h. k₂ = 4k₁). Geben Sie für alle drei Bereiche I, II und III die zugehörigen, resultierenden Ortswellenfunktionen φ₁(x), φ₂(x) und φ₃(x) mit allgemeinen Amplitudenkoeffizienten an.</p>
+
+        <p><strong>(c)</strong> Stellen Sie die Gleichungen auf, welche die Ermittlung der Amplitudenkoeffizienten aus (b) erlauben.</p>
+
+        <p><strong>(d)</strong> Betrachten Sie nun zusätzlich den Spezialfall λ₁ = b/2, wobei λ₁ die Materiewellenlänge im Bereich I bezeichnet. Berechnen Sie die Wahrscheinlichkeit T, mit der das Teilchen die Potentialmulde überwindet.</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p><strong>(a)</strong> Für die Beträge der Wellenvektoren gilt:</p>
+        <p>$k_I = \frac{1}{\hbar}\sqrt{2mE} \equiv k_{III}$</p>
+        <p>$k_{II} = \frac{1}{\hbar}\sqrt{2m(E + V_0)}$</p>
+        <p>Quadriert man die Bedingung k₂ = 4k₁, so ergibt sich V₀ = 15E.</p>
+
+        <p><strong>(b)</strong> In Bereich I und II besteht die Ortswellenfunktion φ₁,₂(x) aus einer einfallenden und einer reflektierten Welle. In Bereich II besteht die Ortswellenfunktion φ₃ nur aus einer transmittierten Welle. Mit der Bedingung aus (a) erhält man somit:</p>
+        
+        <p>$\phi(x) = \begin{cases} 
+            Ae^{ik_Ix} + Be^{-ik_Ix} & x < 0 \\
+            Ce^{4ik_Ix} + De^{-4ik_Ix} & 0 < x < b \\
+            Ee^{ik_Ix} & x > b
+        \end{cases}$</p>
+
+        <p><strong>(c)</strong> Aus der Anschluss- und Stetigkeitsbedingung an der Stelle x = 0 ergibt sich:</p>
+        <p>$A + B = C + D$</p>
+        <p>$A - B = 4(C - D)$</p>
+        
+        <p>Aus der Anschluss- und Stetigkeitsbedingung an der Stelle x = b ergibt sich:</p>
+        <p>$Ce^{4ik_Ib} + De^{-4ik_Ib} = Ee^{ik_Ib}$</p>
+        <p>$4(Ce^{4ik_Ib} - De^{-4ik_Ib}) = Ee^{ik_Ib}$</p>
+
+        <p><strong>(d)</strong> Die Transmissionswahrscheinlichkeit T ist das Betragsquadrat des Amplitudenkoeffizienten E der transmittierten Ortswellenfunktion φ₃. Wählt man o.B.d.A. den Koeffizienten A = 1 und verwendet die Beziehung:</p>
+        <p>$k_I = \frac{2\pi}{\lambda_I} = \frac{4\pi}{b}$</p>
+        
+        <p>so erhält man aus den Gleichungen aus (c):</p>
+        <p>$B = C + D - 1$</p>
+        <p>$5C - 3D = 2$</p>
+        <p>$C + D = E$</p>
+        <p>$4(C - D) = E$</p>
+        
+        <p>Daraus ergibt sich C = 10/16, D = 6/16 und somit E = 1. Damit erhält man für die Transmissionswahrscheinlichkeit:</p>
+        <p>$T = |E|^2 = 1$</p>
+        
+        <p>Die einfallende Welle wird also vollständig transmittiert. Dies passiert immer wenn die Breite einer Potentialmulde (o.a. Barriere) einem Vielfachen der de-Broglie-Wellenlänge entspricht.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

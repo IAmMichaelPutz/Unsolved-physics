@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsolved Physics Fun - Aktion und Reaktion</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <style>
+        :root {
+            --primary: #0099ff;
+            --secondary: #6366f1;
+            --background: #fafafa;
+            --text: #1a1a1a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .exercise-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .exercise-title {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: var(--text);
+            border-bottom: 2px solid var(--primary);
+            padding-bottom: 0.5rem;
+        }
+
+        .exercise-content {
+            display: flex;
+            gap: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .exercise-text {
+            flex: 2;
+        }
+
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .exercise-media img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .math-block {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(0,0,0,0.02);
+            border-radius: 8px;
+        }
+
+        details {
+            margin-top: 2rem;
+        }
+
+        summary {
+            cursor: pointer;
+            padding: 1rem;
+            background: var(--primary);
+            color: white;
+            border-radius: 8px;
+            font-weight: 500;
+        }
+
+        .solution {
+            margin-top: 1.5rem;
+            padding: 1.5rem;
+            background: rgba(0,0,0,0.02);
+            border-radius: 8px;
+        }
+
+        .solution h4 {
+            color: var(--primary);
+            margin: 1.5rem 0 1rem;
+        }
+
+        .exercise-media img {
+            max-width: 400px;
+             max-height: 400px;
+            object-fit: contain;
+            width: auto;
+            height: auto;
+        }
+
+    @media (max-width: 768px) {
+        .nav-menu {
+            display: none;
+        }
+    
+        .exercise-content {
+             flex-direction: column;
+        }
+    
+        .exercise-media {
+            order: -1;
+        }
+
+        .exercise-media img {
+            max-width: 100%;
+        }
+    }
+        
+
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Unsolved Physics Fun</div>
+            <nav class="nav-menu">
+                <a href="/">Kurse</a>
+                <a href="/blog">Blog</a>
+                <a href="/jobs">Jobs</a>
+                <a href="/data">Datenportal</a>
+                <button class="nav-button">Login</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="exercise-card">
+            <h2 class="exercise-title">Newton´s 3. Hautpsatz: Actio = Reactio</h2>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>Zwei punktförmige Körper gleicher Masse m bewegen sich im homogenen Gravitationsfeld der Erde reibungsfrei auf einer vertikalen bzw. einer um 45° geneigten Linie. Sie sind durch eine ideale Feder mit Federkonstante k verbunden, die im entspannten Zustand die Länge l = 0 hat. Es wirken keine weiteren Kräfte.</p>
+                    
+                    <p>a) Stellen Sie die Lagrange-Funktion in den Variablen y₁ und y₂ auf, den vertikalen Komponenten der Massenpunktkoordinaten.</p>
+                    <p>b) Leiten Sie die Bewegungsgleichungen her.</p>
+                    <p>c) Bestimmen Sie die Gleichgewichtslage.</p>
+                    <p>d) Zeigen Sie, dass sich mit neuen Koordinaten ξ₁ und ξ₂, die die Auslenkung aus der Gleichgewichtslage beschreiben, die Lagrange-Funktion vereinfacht zu:</p>
+                    <div class="math-block">
+                        \[ L = \frac{m}{2}(2\dot{\xi}_1^2 + \dot{\xi}_2^2) - \frac{k}{2}(2\xi_1^2 + \xi_2^2 - 2\xi_1\xi_2) \]
+                    </div>
+                </div>
+                <div class="exercise-media">
+                    <img src="./pics/actio-reactio.png" alt="Aktion-Reaktions-System" style="max-width: 400px; max-height: 400px; object-fit: contain;">
+                </div>
+            </div>
+
+            <details>
+                <summary>Lösung anzeigen</summary>
+                <div class="solution">
+                    <h4>a) Lagrange-Funktion:</h4>
+                    <div class="math-block">
+                        \begin{align}
+                        T &= \frac{1}{2}m(2\dot{y}_1^2 + \dot{y}_2^2) \tag{1} \\
+                        U &= -mg(y_1 + y_2) + \frac{1}{2}k[y_1^2 + (y_2-y_1)^2] \tag{2} \\
+                        L &= \frac{1}{2}m(2\dot{y}_1^2 + \dot{y}_2^2) + mg(y_1 + y_2) - \frac{1}{2}k(2y_1^2 + y_2^2 - 2y_1y_2) \tag{3}
+                        \end{align}
+                    </div>
+
+                    <h4>b) Bewegungsgleichungen:</h4>
+                    <div class="math-block">
+                        \begin{align}
+                        \ddot{y}_1 &= \frac{g}{2} - \frac{k}{2m}(2y_1 - y_2) \tag{4} \\
+                        \ddot{y}_2 &= g - \frac{k}{m}(y_2 - y_1) \tag{5}
+                        \end{align}
+                    </div>
+
+                    <h4>c) Gleichgewichtslage:</h4>
+                    <div class="math-block">
+                        \begin{align}
+                        2y_1 - y_2 &= \frac{mg}{k} =: y_0 \tag{6} \\
+                        y_2 - y_1 &= \frac{mg}{k} = y_0 \tag{7}
+                        \end{align}
+                    </div>
+
+                    <p>Daraus folgt:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        y_2 &= \frac{3}{2}y_1 \tag{8} \\
+                        y_1^{(0)} &= 2y_0 \tag{9} \\
+                        y_2^{(0)} &= 3y_0 \tag{10}
+                        \end{align}
+                    </div>
+
+                    <h4>d) Neue Koordinaten:</h4>
+                    <div class="math-block">
+                        \begin{align}
+                        \xi_1 &= y_1 - y_1^{(0)} = y_1 - 2y_0 \tag{11} \\
+                        \xi_2 &= y_2 - y_2^{(0)} = y_2 - 3y_0 \tag{12}
+                        \end{align}
+                    </div>
+
+                    <p>Das Einsetzen dieser Koordinaten in die Lagrange-Funktion und anschließendes Vereinfachen ergibt die geforderte Form.</p>
+                </div>
+            </details>
+        </div>
+    </main>
+</body>
+</html>

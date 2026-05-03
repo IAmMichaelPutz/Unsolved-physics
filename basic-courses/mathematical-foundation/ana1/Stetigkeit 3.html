@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Blatt 8 - Aufgabe 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Stetigkeit 3</h2>
+        <p>Seien $a,b \in \mathbb{R}$ mit $a < b$. Zeigen Sie, dass die Einschränkung der Parabel $f: [a,b] \to \mathbb{R}$, $x \mapsto x^2$ gleichmäßig stetig ist.</p>
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Es gilt</p>
+        $$x \in [a,b] \implies |x| \leq \max\{|a|,|b|\}$$
+        
+        <p>Für alle $\varepsilon > 0$ setzen wir deswegen</p>
+        $$\delta(\varepsilon) := \min\left\{1, \frac{\varepsilon}{2\max\{|a|,|b|\} + 1}\right\}$$
+        
+        <p>Daraus folgt, dass für alle $x \in [a,b]$ und alle $\varepsilon > 0$ gilt</p>
+        $$0 < \delta(\varepsilon) \leq \delta(x,\varepsilon)$$
+        
+        <p>wobei $\delta(x,\varepsilon)$ die Funktion aus Aufgabe 1 ist. Für alle $x,y \in [a,b]$ und alle $\varepsilon > 0$ gilt dann</p>
+        $$|x-y| < \delta(\varepsilon) \implies |x-y| < \delta(x,\varepsilon) \stackrel{\text{nach Aufgabe 1}}{\implies} |f(x) - f(y)| < \varepsilon$$
+        
+        <p>Daraus folgt, dass $f: [a,b] \to \mathbb{R}$, $x \mapsto x^2$ gleichmäßig stetig ist.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

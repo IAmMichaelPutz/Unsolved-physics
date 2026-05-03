@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .uebung-karte {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .uebung-inhalt {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .uebung-text {
+            flex: 2;
+        }
+        .uebung-medien {
+            flex: 1;
+            min-width: 200px;
+        }
+        .mathe-block {
+            margin: 1em 0;
+        }
+        .gleichung-nummer {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="uebung-liste">
+        <div id="uebung6" class="uebung-karte">
+            <h3 class="uebung-titel">6 Fallender Stab</h3>
+            <div class="uebung-inhalt">
+                <div class="uebung-text">
+                    <p>Ein masseloser Stab der Länge l hat an einem Ende eine Punktmasse m befestigt. Der Stab steht auf einem reibungsfreien Tisch. Bei kleinen Auslenkungen aus der vertikalen Position fällt der Stab aufgrund der Schwerkraft.</p>
+                    
+                    <p>i) Stellen Sie die Bewegungsgleichung mithilfe der Lagrange-Funktion auf.</p>
+                    <p>ii) Lösen Sie die Bewegungsgleichung für die Anfangsbedingungen</p>
+                    <div class="mathe-block">
+                        \[ \phi(0) = \phi_0, \dot{\phi}(0) = 0 \tag{1} \]
+                    </div>
+                    <p>unter Verwendung der Kleinwinkelnäherung.</p>
+                </div>
+                <div class="uebung-medien">
+                    <img src="pics/Ebenes Pendel.png" width="300" alt="Ebenes Pendel">
+                </div>
+            </div>
+            <details>
+                <summary>Lösung anzeigen</summary>
+                <div class="loesung">
+                    <h4>Teil 1: Aufstellen der Bewegungsgleichung</h4>
+                    <p>Als verallgemeinerte Koordinate verwenden wir den Winkel φ des Stabs zur Vertikalen. Damit gilt für die kinetische und potentielle Energie in ebenen Polarkoordinaten:</p>
+                    <div class="mathe-block">
+                        \begin{align}
+                        T &= \frac{m}{2}l^2\dot{\phi}^2 \tag{2} \\
+                        V &= mgl\cos\phi \tag{3} \\
+                        \mathcal{L} &= \frac{m}{2}l^2\dot{\phi}^2 - mgl\cos\phi \tag{4}
+                        \end{align}
+                    </div>
+                    <p>Mit der Euler-Lagrange-Gleichung erhalten wir die Bewegungsgleichung:</p>
+                    <div class="mathe-block">
+                        \[ ml^2\ddot{\phi} = mgl\sin\phi \tag{5} \]
+                    </div>
+                    <h4>Teil 2: Kleinwinkelnäherung</h4>
+                    <p>In der Kleinwinkelnäherung nimmt die Bewegungsgleichung folgende Form an:</p>
+                    <div class="mathe-block">
+                        \[ \ddot{\phi} = \frac{g}{l}\phi \tag{6} \]
+                    </div>
+                    <p>Wir machen den Ansatz φ(t) = C exp(λt) zur Lösung des Anfangswertproblems. Einsetzen liefert die charakteristische Gleichung für λ:</p>
+                    <div class="mathe-block">
+                        \[ \lambda^2 - \frac{g}{l} = 0 \to \lambda_{1,2} = \pm\sqrt{\frac{g}{l}} \tag{7} \]
+                    </div>
+                    <div class="mathe-block">
+                        \[ \phi(t) = C_1e^{\sqrt{\frac{g}{l}}t} + C_2e^{-\sqrt{\frac{g}{l}}t} \tag{8} \]
+                    </div>
+                    <p>Setzen wir die Anfangsbedingungen ein und verwenden die Definition \(\cosh(x) = \frac{e^x + e^{-x}}{2}\), erhalten wir als Lösung:</p>
+                    <div class="mathe-block">
+                        \[ \phi(t) = \phi_0\cosh\left(\sqrt{\frac{g}{l}}t\right) \tag{9} \]
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

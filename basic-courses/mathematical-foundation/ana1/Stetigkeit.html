@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Stetigkeit</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Stetigkeit</h2>
+        <p>Untersuchen Sie jeweils die angegebene Funktion auf Stetigkeit, gleichmäßige Stetigkeit und Lipschitz-stetigkeit auf dem angegebenen Definitionsbereich.</p>
+        
+        <p>(a) $$f: (1,\infty) \to \mathbb{R} \text{ mit } f(x) := \frac{\cos(\sqrt{x})}{x^2}$$</p>
+        
+        <p>(b) $$g: [0,1] \to \mathbb{R} \text{ mit } g(x) := x^{\frac{1}{3}} - x$$</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p><strong>(a) Behauptung:</strong> Die Funktion $f: (1,\infty) \to \mathbb{R}$ mit $f(x) := \frac{\cos(\sqrt{x})}{x^2}$ ist Lipschitzstetig, also insbesondere stetig und gleichmäßig stetig, auf $(1,\infty)$.</p>
+        
+        <p><strong>Beweis:</strong> Die Funktion $f$ ist auf $(1,\infty)$ als Verkettung differenzierbarer Funktionen differenzierbar auf $(1,\infty)$. Für $x \in (1,\infty)$ gilt außerdem:</p>
+        
+        $$|f'(x)| = \left|\frac{\frac{1}{2}\sin(\sqrt{x})\sqrt{x}+2\cos(\sqrt{x})}{x^3}\right| \leq \frac{1}{2x^{\frac{5}{2}}} + \frac{2}{x^3} \leq \frac{5}{2}$$
+        
+        <p>Damit ist $f'$ beschränkt auf $(1,\infty)$ und $f$ nach Vorlesung auf $(1,\infty)$ Lipschitzstetig.</p>
+        
+        <p><strong>(b) Behauptung:</strong> Die Funktion $g: [0,1] \to \mathbb{R}$ mit $g(x) := x^{\frac{1}{3}} - x$ ist gleichmäßig stetig, also insbesondere stetig, auf $[0,1]$, aber nicht Lipschitzstetig.</p>
+        
+        <p><strong>Beweis:</strong> Es sei $x_0 \in [0,1]$ und $(x_n)_{n\in\mathbb{N}}$ in $[0,1]$ mit $x_n \stackrel{n\to\infty}{\longrightarrow} x_0$. Dann folgt</p>
+        
+        $$g(x_n) = x_n^{\frac{1}{3}} - x_n \stackrel{n\to\infty}{\longrightarrow} x_0^{\frac{1}{3}} - x_0 = g(x_0)$$
+        
+        <p>und damit ist $g$ stetig auf $[0,1]$. Da $[0,1]$ beschränkt und abgeschlossen ist, folgt nach Vorlesung sofort die gleichmäßige Stetigkeit von $g$ auf $[0,1]$.</p>
+        
+        <p>Um zu zeigen, dass $g$ auf $[0,1]$ nicht Lipschitzstetig ist, führen wir einen Widerspruchsbeweis.</p>
+        
+        <p><strong>Annahme:</strong> $g$ ist auf $[0,1]$ Lipschitzstetig. Dann existiert $L \geq 0$ mit $|g(x) - g(y)| \leq L|x - y|$ für alle $x,y \in [0,1]$. Setzen wir $y = 0$ und $x \in (0,1)$ erhalten wir:</p>
+        
+        $$x^{\frac{1}{3}} - x = |g(x)| = |g(x) - g(0)| \leq L|x| = Lx \implies x^{\frac{1}{3}} - x \leq Lx \implies x^{\frac{1}{3}} \leq (L+1)x$$
+        
+        $$\implies x^{\frac{1}{3}} - (L+1)x \leq 0 \implies x \geq \frac{1}{(L+1)^{\frac{3}{2}}}$$
+        
+        <p>und wegen $\frac{1}{(L+1)^{\frac{3}{2}}} > 0$ dies ist ein Widerspruch zu $x \in (0,1)$.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

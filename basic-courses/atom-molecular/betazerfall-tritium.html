@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Betazerfall von Tritium</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .note {
+            background-color: #fff3cd;
+            border: 1px solid #ffeeba;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 4: Betazerfall von Tritium</h2>
+        
+        <p>Beim β⁻-Zerfall zerfällt in einem Atomkern ein Neutron in ein Proton, ein Elektron und ein Elektronantineutrino $(n \rightarrow p^+ + e^- + \bar{\nu}_e)$. Ein radioaktives Tritiumatom ³H wandelt sich durch den Betazerfall in ein ³He⁺-Ion um.</p>
+
+        <p>Die Wellenfunktion des Hüllenelektrons, das sich vor dem Zerfall im Grundzustand befindet, bleibe beim Zerfall ungestört.</p>
+        
+        <p>Wie groß ist die Wahrscheinlichkeit P, dass sich das Hüllenelektron des ³He⁺-Ions bei einer Messung im 1s-Zustand befindet?</p>
+
+        <div class="note">
+            <p>In einem wasserstoffähnlichen Atom lautet die Wellenfunktion für ein Elektron im Grundzustand:</p>
+            <p>$\psi_Z = \frac{1}{\sqrt{\pi}}\left(\frac{Z}{a_0}\right)^{3/2} e^{-\frac{Zr}{a_0}}$</p>
+        </div>
+
+        <div class="note">
+            <p>Folgendes Integral könnte hilfreich sein:</p>
+            <p>$\int_0^\infty dr\, r^n e^{-ar} = \frac{n!}{a^{n+1}}$</p>
+        </div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p>Vor dem Zerfall befindet sich das Elektron im Grundzustand φ des Tritiumatoms. Die Kernladungszahl beträgt Z = 1. Es gilt also:</p>
+
+        <p>$\phi = \psi_{Z=1} = \frac{1}{\sqrt{\pi}}\left(\frac{1}{a_0}\right)^{3/2} e^{-\frac{r}{a_0}}$</p>
+
+        <p>Nach dem Zerfall befindet sich das Elektron weiterhin im Zustand φ, der nun allerdings nicht mehr der Grundzustand des Heliumions (Z = 2) ist. Denn der Grundzustand von ³He⁺ lautet:</p>
+
+        <p>$\psi_{Z=2} = \frac{1}{\sqrt{\pi}}\left(\frac{2}{a_0}\right)^{3/2} e^{-\frac{2r}{a_0}}$</p>
+
+        <p>Wir suchen nun also den Koeffizienten der Projektion von ψ_{Z=2} auf φ = ψ_{Z=1}. Die Wahrscheinlichkeit das Elektron im 1s-Zustand zu finden beträgt dann:</p>
+
+        <p>$P = |\langle\psi_{Z=2}|\psi_{Z=1}\rangle|^2 = \left|\int d^3r\, \psi^*_{Z=1}\psi_{Z=2}\right|^2$</p>
+
+        <p>$= \left|\int_0^\infty dr\, 4\pi r^2\psi^*_{Z=1}\psi_{Z=2}\right|^2$</p>
+
+        <p>$= \left|4\left(\frac{2}{a_0^2}\right)^{3/2} \int_0^\infty dr\, e^{-\frac{3r}{a_0}}\right|^2$</p>
+
+        <p>$= \left(\frac{16\sqrt{2}}{27}\right)^2 \approx 0.702$</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

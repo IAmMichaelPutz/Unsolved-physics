@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .uebung-karte {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .uebung-inhalt {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .uebung-text {
+            flex: 2;
+        }
+        .uebung-medien {
+            flex: 1;
+            min-width: 200px;
+        }
+        .mathe-block {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div id="uebung2" class="uebung-karte">
+        <h3 class="uebung-titel">Zykloiden-Halfpipe (***)</h3>
+        <div class="uebung-inhalt">
+            <div class="uebung-text">
+                <p>Ein Massenpunkt gleitet reibungsfrei im Gravitationsfeld der Erde auf einer invertierten Zykloide (ähnlich einer Halfpipe). Diese Zykloide kann wie folgt parametrisiert werden:</p>
+                <div class="mathe-block">
+                    \[ \mathbf{r}(\phi) = \begin{pmatrix} x(\phi) \\ y(\phi) \end{pmatrix} = a\begin{pmatrix} \phi - \sin\phi \\ 1 + \cos\phi \end{pmatrix}, \quad 0 \leq \phi \leq 2\pi \]
+                </div>
+                
+                <p>a) Bestimmen Sie die Lagrange-Funktion mit φ als verallgemeinerter Koordinate.</p>
+                
+                <p>b) Zeigen Sie, dass dies zur folgenden Bewegungsgleichung führt:</p>
+                <div class="mathe-block">
+                    \[ \ddot{\phi} + \frac{1}{2}\dot{\phi}^2\cot\frac{\phi}{2} - \frac{g}{2a}\cot\frac{\phi}{2} = 0 \]
+                </div>
+                <p>und verwenden Sie die Substitution u = cos(φ/2), um diese Gleichung drastisch zu vereinfachen.</p>
+                
+                <p>Hinweis: \(\cot\frac{\phi}{2} = \frac{\sin\phi}{1-\cos\phi}\)</p>
+                
+                <p>c) Geben Sie die allgemeine Lösung der Bewegungsgleichung und die Lösung für φ(t=0) = φ₀ > 0 und φ̇(0) = 0 an. Wie lauten die Gleichungen für x(t) und y(t)? Was zeichnet dieses System aus?</p>
+            </div>
+            <div class="uebung-medien">
+                <img src="pics/cycloid-half-pipe.png" width="300" alt="Zykloiden-Halfpipe">
+            </div>
+        </div>
+        <details>
+            <summary>Lösung anzeigen</summary>
+            <div class="loesung">
+                <h4>a) Lagrange-Funktion:</h4>
+                <div class="mathe-block">
+                    \begin{align}
+                    U &= mgy = mga(1 + \cos\phi) \tag{1} \\
+                    T &= \frac{1}{2}m(\dot{x}^2 + \dot{y}^2) = \frac{1}{2}ma^2[\dot{\phi}^2(1-\cos\phi)^2 + \dot{\phi}^2\sin^2\phi] \tag{2} \\
+                    &= ma^2\dot{\phi}^2(1-\cos\phi) \tag{3} \\
+                    L &= T - U = ma^2\dot{\phi}^2(1-\cos\phi) - mga(1+\cos\phi) \tag{4}
+                    \end{align}
+                </div>
+
+                <h4>b) Bewegungsgleichung:</h4>
+                <p>Aus der Euler-Lagrange-Gleichung:</p>
+                <div class="mathe-block">
+                    \begin{align}
+                    \frac{d}{dt}\frac{\partial L}{\partial\dot{\phi}} &= 2ma^2[\ddot{\phi}(1-\cos\phi) + \dot{\phi}^2\sin\phi] \tag{5} \\
+                    \frac{\partial L}{\partial\phi} &= ma^2\dot{\phi}^2\sin\phi + mga\sin\phi \tag{6}
+                    \end{align}
+                </div>
+
+                <p>Mit der Substitution u = cos(φ/2):</p>
+                <div class="mathe-block">
+                    \[ \ddot{u} + \frac{g}{4a}u = 0 \tag{7} \]
+                </div>
+
+                <h4>c) Lösung:</h4>
+                <p>Allgemeine Lösung:</p>
+                <div class="mathe-block">
+                    \[ u(t) = A\cos(\omega t + \psi_0), \quad \omega = \frac{1}{2}\sqrt{\frac{g}{a}} \tag{8} \]
+                </div>
+                
+                <p>Mit Anfangsbedingungen:</p>
+                <div class="mathe-block">
+                    \[ \phi(t) = 2\arccos\left(\cos\frac{\phi_0}{2}\cos\omega t\right) \tag{9} \]
+                </div>
+
+                <p>Besondere Eigenschaft: Die Zeit bis zum Erreichen des tiefsten Punktes ist unabhängig von der Startposition:</p>
+                <div class="mathe-block">
+                    \[ t = \frac{\pi}{2\omega} \tag{10} \]
+                </div>
+                
+                <p>Diese Eigenschaft wird als Tautochrone bezeichnet - alle Teilchen erreichen den Boden in der gleichen Zeit, unabhängig von der Starthöhe.</p>
+            </div>
+        </details>
+    </div>
+</body>
+</html>

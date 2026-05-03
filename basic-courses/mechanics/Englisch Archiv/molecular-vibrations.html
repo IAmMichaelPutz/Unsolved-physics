@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+        .equation-number {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-list">
+        <div id="exercise2" class="exercise-card">
+            <h3 class="exercise-title">2 Molecular Vibrations (Exam Problem)</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>A diatomic molecule can perform vibrations as well as rotational movements. For simplicity, only movements in a fixed plane shall be considered. The potential is given by \(U(r) = \frac{1}{2}\omega_0^2(r-r_0)^2\), where \(\mu = \frac{m_1m_2}{m_1+m_2}\) is the reduced mass, r the relative distance, and r₀ the equilibrium distance for x = 0.</p>
+                    
+                    <p>i) Show that in an inertial system where the center of mass rests at the origin, the molecule is described by the following Lagrange function:</p>
+                    <div class="math-block">
+                        \[ \mathcal{L} = \frac{\mu}{2}(\dot{r}^2 + r^2\dot{\varphi}^2) - U(r) \tag{1} \]
+                    </div>
+                </div>
+                <div class="exercise-media">
+                    <img src="pics/molecular-vibrations.png" width="300" alt="Molecular Vibrations">
+                    <p>Only rotations and vibrations in this plane are considered.</p>
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <p>First, we need to consider which generalized coordinates to use. The geometry of the problem offers φ and r. To express the position vectors of mass points 1 and 2 in φ and r, we use the center of mass (problem statement), i.e.:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        \mathbf{S} &= \frac{m_1\mathbf{r_1} + m_2\mathbf{r_2}}{m_1 + m_2} = 0 \Rightarrow m_1\mathbf{r_1} + m_2\mathbf{r_2} = 0 \tag{2} \\
+                        \mathbf{r} &= \mathbf{r_1} - \mathbf{r_2} \tag{3}
+                        \end{align}
+                    </div>
+                    <p>After brief calculation one finds:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        \mathbf{r_1} &= \frac{m_2}{m_1 + m_2}\mathbf{r} \tag{4} \\
+                        \mathbf{r_2} &= -\frac{m_1}{m_1 + m_2}\mathbf{r} \tag{5}
+                        \end{align}
+                    </div>
+                    <p>For the kinetic energy:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        T &= \frac{m_1}{2}\dot{\mathbf{r_1}}^2 + \frac{m_2}{2}\dot{\mathbf{r_2}}^2 \tag{6} \\
+                        &= \frac{m_1^2}{2(m_1 + m_2)^2}\dot{\mathbf{r}}^2 + \frac{m_2^2}{2(m_1 + m_2)^2}\dot{\mathbf{r}}^2 \tag{7} \\
+                        &= \frac{1}{2}\frac{m_1m_2}{m_1 + m_2}\dot{\mathbf{r}}^2 = \frac{\mu}{2}\dot{\mathbf{r}}^2 \tag{8}
+                        \end{align}
+                    </div>
+                    <p>Now introducing the plane polar coordinates φ and r (see lecture) gives:</p>
+                    <div class="math-block">
+                        \[ T = \frac{\mu}{2}(\dot{r}^2 + r^2\dot{\varphi}^2) \tag{9} \]
+                    </div>
+                    <p>For the Lagrange function follows:</p>
+                    <div class="math-block">
+                        \[ \mathcal{L} = \frac{\mu}{2}(\dot{r}^2 + r^2\dot{\varphi}^2) - U(r) \tag{10} \]
+                    </div>
+
+                    <p>ii) State 2 conserved quantities with justification.</p>
+                    <p>Solution:</p>
+                    <p>Looking at the Lagrange function more closely, one sees that \(\frac{\partial\mathcal{L}}{\partial\varphi} = 0\). Thus φ is a cyclic coordinate and from</p>
+                    <div class="math-block">
+                        \[ \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{\varphi}} = 0 \tag{11} \]
+                    </div>
+                    <p>follows the conserved quantity:</p>
+                    <div class="math-block">
+                        \[ \frac{\partial\mathcal{L}}{\partial\dot{\varphi}} = const. = \mu r^2\dot{\varphi} =: l \tag{12} \]
+                    </div>
+                    <p>l corresponds to the magnitude of angular momentum. The total energy E = T + U is also conserved since the Lagrange function is not explicitly time-dependent.</p>
+
+                    <p>iii) Set up the equation of motion and simplify it. Express the equation for radial motion through the distance ρ = r - r₀ from equilibrium position.</p>
+                    <p>Solution:</p>
+                    <p>The Euler-Lagrange equation for the radial component \(\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{r}} - \frac{\partial\mathcal{L}}{\partial r} = 0\) gives:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        \frac{d}{dt}\mu\dot{r} &= \mu r\dot{\varphi}^2 - \mu\omega_0^2(r-r_0) \tag{13} \\
+                        \mu\ddot{r} - \mu r\dot{\varphi}^2 + \mu\omega_0^2(r-r_0) &= 0 \tag{14}
+                        \end{align}
+                    </div>
+                    <p>With the relation \(\mu r^2\dot{\varphi} = l\):</p>
+                    <div class="math-block">
+                        \[ \mu\ddot{r} - \mu r\frac{l^2}{\mu^2r^4} + \mu\omega_0^2(r-r_0) = 0 \tag{15} \]
+                    </div>
+                    <p>With r - r₀ = ρ and \(\dot{r} = \dot{\rho}\) follows the equation of motion:</p>
+                    <div class="math-block">
+                        \[ \ddot{\rho} - \frac{l^2}{\mu^2(\rho+r_0)^3} + \omega_0^2\rho = 0 \tag{16} \]
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

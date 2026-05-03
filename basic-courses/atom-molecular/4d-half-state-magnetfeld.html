@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>4D1/2 Zustand im Magnetfeld</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .figure {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 7: ⁴D₁/₂ im Magnetfeld</h2>
+        
+        <p>Warum spaltet ein ⁴D₁/₂ Zustand im schwachen Magnetfeld nicht auf?</p>
+        
+        <p><em>(Hinweis: Lande-Faktor)</em></p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p>Für den ⁴D₁/₂ Zustand gilt l = 2, s = 3/2, j = 1/2. Der Landé-Faktor beträgt dann:</p>
+
+        <p>$g_j = 1 + \frac{\frac{1}{2} \cdot \frac{3}{2} - 2 \cdot 3 + \frac{1}{2} \cdot \frac{3}{2}}{2 \cdot \frac{1}{2} \cdot \frac{3}{2}} = 0$</p>
+
+        <p>Somit ist die Aufspaltung ebenfalls Null. Eine anschauliche Erklärung liefert das Vektormodell.</p>
+        
+        <p>Das magnetische Moment μⱼ präzediert im Magnetfeld um die Richtung von J. Zur Berechnung von gⱼ muss man die Projektion von μⱼ auf J betrachten. Hier jedoch steht das magnetische Moment senkrecht auf J, so dass seine Projektion und damit gⱼ Null ist.</p>
+
+        <div class="figure">
+            <img src="/api/placeholder/400/300" alt="Vektormodell der Drehimpulse und magnetischen Momente für den 4D1/2 Zustand">
+            <p><em>Kopplung der Drehimpulse und der magnetischen Momente im Vektormodell für den ⁴D₁/₂ Zustand</em></p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

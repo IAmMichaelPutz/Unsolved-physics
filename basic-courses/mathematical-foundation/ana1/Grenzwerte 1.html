@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Grenzwerte 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 3</h2>
+        <p>Bestimmen Sie die folgenden Grenzwerte:</p>
+        $$\lim_{n\to\infty} \frac{2^n}{n!}, \quad \lim_{n\to\infty} \frac{n!}{n^n}, \quad \lim_{n\to\infty} \frac{n^3}{2^n}$$
+        
+        <p>Welche von den Folgen $2^n$ oder $n!$, resp. $n!$ oder $n^n$, resp. $n^3$ oder $2^n$ "wächst schneller" wenn $n \to \infty$? Ordnen Sie die Folgen $2^n$, $n!$, $n^n$ und $n^3$ nach der Wachstumsgeschwindigkeit.</p>
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>1) Zu $\lim_{n\to\infty} \frac{2^n}{n!}$: Für alle $n \geq 3$ gilt</p>
+        $$\frac{2^n}{n!} = \frac{2^n}{n \cdot (n-1) \cdot ... \cdot 2 \cdot 1} \leq \frac{4}{n}$$
+        
+        <p>Da</p>
+        $$\lim_{n\to\infty} \frac{4}{n} = 4 \lim_{n\to\infty} \frac{1}{n} = 4 \cdot 0 = 0$$
+        
+        <p>folgt aus der Behauptung 1 mit $a_n = \frac{2^n}{n!}$, $b_n = \frac{4}{n}$ und $N_0 = 3$</p>
+        $$\lim_{n\to\infty} \frac{2^n}{n!} = 0$$
+        
+        <p>2) Zu $\lim_{n\to\infty} \frac{n!}{n^n}$: Für alle $n \geq 2$ gilt</p>
+        $$\frac{n!}{n^n} = \frac{n \cdot (n-1) \cdot ... \cdot 2 \cdot 1}{n \cdot n \cdot ... \cdot n} = \frac{n-1}{n} \cdot \frac{n-2}{n} \cdot ... \cdot \frac{1}{n} \leq \frac{1}{n}$$
+        
+        <p>Da</p>
+        $$\lim_{n\to\infty} \frac{1}{n} = 0$$
+        
+        <p>folgt mit der gleichen Behauptung</p>
+        $$\lim_{n\to\infty} \frac{n!}{n^n} = 0$$
+        
+        <p>3) Zu $\lim_{n\to\infty} \frac{n^3}{2^n}$: Für alle $n \geq 4$ gilt</p>
+        $$2^n = (1 + 1)^n = \sum_{k=0}^n \binom{n}{k} \geq \binom{n}{4} = \frac{n(n-1)(n-2)(n-3)}{24} \geq \frac{n^4}{4^4}$$
+        
+        <p>Also</p>
+        $$\frac{n^3}{2^n} \leq \frac{n^3}{n^4/4^4} = \frac{4^4}{n}$$
+        
+        <p>Da</p>
+        $$\lim_{n\to\infty} \frac{4^4}{n} = 4^4 \lim_{n\to\infty} \frac{1}{n} = 0$$
+        
+        <p>folgt mit der Behauptung</p>
+        $$\lim_{n\to\infty} \frac{n^3}{2^n} = 0$$
+
+        <p>Seien $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ positive Folgen, so dass</p>
+        $$\lim_{n\to\infty} \frac{a_n}{b_n} = 0$$
+        
+        <p>Für jedes $K > 0$ gibt es ein $N \in \mathbb{N}$, so dass für alle $n \geq N$ gilt:</p>
+        $$\frac{a_n}{b_n} < \frac{1}{K} \implies K a_n < b_n$$
+        
+        <p>Das interpretiert man in Worten so: Für ein beliebig großes $K > 0$ wird $b_n$ zumindest $K$-mal größer als $a_n$ für alle $n \in \mathbb{N}$ groß genug. Es ist jetzt klar, in welchem Sinne $(b_n)_{n\in\mathbb{N}}$ schneller als $(a_n)_{n\in\mathbb{N}}$ wächst. Deshalb definieren wir</p>
+        $$b_n \succ a_n :\iff \lim_{n\to\infty} \frac{a_n}{b_n} = 0$$
+        
+        <p>Oben haben wir gezeigt, dass</p>
+        $$n^n \succ n!, \quad n! \succ 2^n \text{ und } 2^n \succ n^3$$
+        
+        <p>Wir würden jetzt gerne folgern, dass</p>
+        $$n^n \succ n! \succ 2^n \succ n^3$$
+        
+        <p>Dafür müssen wir noch entweder $n^n \succ 2^n, n^3$ und $n! \succ n^3$ zeigen, oder allgemein die Transitivität der Relation $\succ$ beweisen. Wir beweisen die Transitivität: Seien $(a_n)_{n\in\mathbb{N}}$, $(b_n)_{n\in\mathbb{N}}$ und $(c_n)_{n\in\mathbb{N}}$ positive Folgen, so dass</p>
+        $$c_n \succ b_n \text{ und } b_n \succ a_n$$
+        
+        <p>Dann folgt mithilfe der Produktregel für Grenzwerte</p>
+        $$\lim_{n\to\infty} \frac{a_n}{c_n} = \lim_{n\to\infty} \frac{a_n}{b_n} \cdot \frac{b_n}{c_n} = \lim_{n\to\infty} \frac{a_n}{b_n} \cdot \lim_{n\to\infty} \frac{b_n}{c_n} = 0 \cdot 0 = 0$$
+        
+        <p>Daraus folgt $c_n \succ a_n$. Die Transitivität ist dadurch bewiesen.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

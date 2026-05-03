@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+        .equation-number {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-list">
+        <div id="exercise4" class="exercise-card">
+            <h3 class="exercise-title">4 Noether's Theorem</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>Consider the Lagrange function of a particle in a homogeneous magnetic field \(\mathbf{B} = B\mathbf{e}_z\):</p>
+                    <div class="math-block">
+                        \[ \mathcal{L} = \frac{m}{2}(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - \frac{eB}{2}(x\dot{y} - y\dot{x}) \tag{1} \]
+                    </div>
+                    <p>and the infinitesimal transformation</p>
+                    <div class="math-block">
+                        \begin{align}
+                        x &\Rightarrow \tilde{x} = x - \epsilon y \tag{2} \\
+                        y &\Rightarrow \tilde{y} = y - \epsilon x \tag{3} \\
+                        z &\Rightarrow \tilde{z} = z \tag{4} \\
+                        t &\Rightarrow \tilde{t} = t \tag{5}
+                        \end{align}
+                    </div>
+                    <p>Show that the quantity \(m(x\dot{y} - y\dot{x}) - \frac{eB}{2}(x^2 + y^2)\) is a conserved quantity.</p>
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <p>First, we verify that the Lagrange function remains invariant under the transformation.</p>
+                    <div class="math-block">
+                        \begin{align}
+                        \tilde{T} &= \frac{m}{2}((\dot{x} - \epsilon\dot{y})^2 + (\dot{y} - \epsilon\dot{x})^2 + \dot{z}^2) \tag{6} \\
+                        &= \frac{m}{2}(\dot{x}^2 - \epsilon\dot{x}\dot{y} + \dot{y}^2\epsilon^2 + \dot{y}^2 - \epsilon\dot{x}\dot{y} + \dot{x}^2\epsilon^2 + \dot{z}^2) = T \tag{7}
+                        \end{align}
+                    </div>
+                    <p>Here, the quadratic terms in ε were neglected (ε ≪ 1)</p>
+                    
+                    <div class="math-block">
+                        \begin{align}
+                        \tilde{U} &= \frac{eB}{2}((x - \epsilon y)(\dot{y} - \epsilon\dot{x}) - (y - \epsilon x)(\dot{x} - \epsilon\dot{y})) = U \tag{8} \\
+                        \tilde{\mathcal{L}} = \tilde{T} - \tilde{U} &= \frac{m}{2}(\dot{x}^2 + \dot{y}^2 + \dot{z}^2) - \frac{eB}{2}(x\dot{y} - y\dot{x}) = \mathcal{L} \tag{9}
+                        \end{align}
+                    </div>
+                    <p>Thus, the Lagrange function is indeed invariant. We can now apply Noether's theorem, using the notation from the lecture. (ψ₁ = -y; ψ₂ = x; ψ₃ = 0; φ = 0)</p>
+                    <div class="math-block">
+                        \[ Q = \sum_{i=1}^3 \frac{\partial\mathcal{L}}{\partial\dot{q_i}}\psi_i = \frac{\partial\mathcal{L}}{\partial\dot{x}}\psi_1 + \frac{\partial\mathcal{L}}{\partial\dot{y}}\psi_2 + \frac{\partial\mathcal{L}}{\partial\dot{z}}\psi_3 \tag{10} \]
+                    </div>
+                    <p>Substituting and simplifying yields the claimed conservation law.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

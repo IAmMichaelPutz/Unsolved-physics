@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Konvergenz von Potenzreihen 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 3 (je 1,5 Punkte)</h2>
+        
+        <p>(a) Bestimmen Sie alle $x \in \mathbb{R}$, sodass die Potenzreihe $$\sum_{n=1}^{\infty} \frac{x^{3n}}{2^nn}$$ konvergiert.</p>
+        
+        <p>(b) Es sei $f: (-1,1) \to \mathbb{R}$ mit $f(x) := \frac{1}{x^3+1}$. Bestimmen Sie eine reelle Folge $(a_n)_{n\in\mathbb{N}_0}$ mit</p>
+        $$f(x) = \sum_{n=0}^{\infty} a_nx^n \text{ für } x \in (-1,1)$$
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p><strong>(a) Behauptung:</strong> Die Potenzreihe $$\sum_{n=1}^{\infty} \frac{x^{3n}}{2^nn}$$ konvergiert genau dann, wenn $x \in [-2^{\frac{1}{3}}, 2^{\frac{1}{3}}]$.</p>
+        
+        <p><strong>Beweis:</strong> Wir definieren $(a_n)_{n\in\mathbb{N}_0}$ durch $a_n := \frac{1}{2^nn}$ und $y := x^3$. Der Konvergenzradius der Reihe $\sum_{n=1}^{\infty} a_ny^n$ ist gegeben durch $r = 2$, denn:</p>
+        
+        $$\sqrt[n]{|a_n|} = \frac{1}{2\sqrt[n]{n}} \stackrel{n\to\infty}{\longrightarrow} \frac{1}{2}$$
+        
+        <p>Also konvergiert $\sum_{n=1}^{\infty} a_nx^{3n}$ absolut wenn $x^3 \in (-2,2)$. An der Stelle $x = -2^{\frac{1}{3}}$ gilt:</p>
+        
+        $$\sum_{n=1}^{\infty} a_nx^{3n} = \sum_{n=1}^{\infty} \frac{(-1)^n}{n}$$
+        
+        <p>und letztere Reihe divergiert nach Vorlesung.</p>
+        
+        <p><strong>(b) Behauptung:</strong> Für $(a_n)_{n\in\mathbb{N}_0}$ definiert durch</p>
+        $$a_n := \begin{cases}
+            (-1)^n, & n = 3k \text{ für ein } k \in \mathbb{N}_0, \\
+            0, & \text{sonst},
+        \end{cases}$$
+        
+        <p>gilt $\sum_{n=0}^{\infty} a_nx^n = f(x)$ für $x \in (-1,1)$, wobei $f: (-1,1) \to \mathbb{R}$ durch $f(x) := \frac{1}{x^3+1}$ definiert ist.</p>
+        
+        <p><strong>Beweis:</strong> Für $x \in (-1,1)$ gilt $|(-x)^3| < 1$ und daher:</p>
+        
+        $$f(x) = \frac{1}{x^3+1} = \frac{1}{1-(-x^3)} = \sum_{k=0}^{\infty}(-1)^k x^{3k}$$
+        
+        <p>Für $(a_n)_{n\in\mathbb{N}_0}$ mit</p>
+        $$a_n := \begin{cases}
+            (-1)^n, & n = 3k \text{ für ein } k \in \mathbb{N}_0, \\
+            0, & \text{sonst},
+        \end{cases}$$
+        
+        <p>gilt daher $f(x) = \sum_{n=0}^{\infty} a_nx^n$ für $x \in (-1,1)$.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

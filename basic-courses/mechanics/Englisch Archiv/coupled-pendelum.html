@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+
+
+        <!-- Exercise 5 -->
+        <div id="exercise5" class="exercise-card">
+            <h3 class="exercise-title">Coupled Pendulums</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>Three identical mathematical pendulums (mass m, length l) are connected by two ideal springs of the same spring constant k and move in Earth's homogeneous gravitational field. The length of each unloaded spring equals the distance between the suspension points of the two pendulums it connects.</p>
+                    
+                    <p>1. Formulate the Lagrangian for small displacements.</p>
+                    <p>2. Derive the equations of motion.</p>
+                    <p>3. Show through calculation that the eigenfrequencies of the system are:</p>
+                    <div class="math-block">
+                        \[ \omega_1^2 = \frac{g}{l} + \frac{k}{m}, \quad \omega_2^2 = \frac{g}{l}, \quad \omega_3^2 = \frac{g}{l} + \frac{3k}{m} \tag{17} \]
+                    </div>
+                </div>
+                <div class="exercise-media">
+                    <img src="/api/placeholder/200/200" alt="Coupled Pendulums System">
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <h4>1. Lagrangian:</h4>
+                    <p>Kinetic energy in matrix form:</p>
+                    <div class="math-block">
+                        \[ T = \frac{1}{2}\dot{\vec{\alpha}}\cdot M\dot{\vec{\alpha}} = \frac{1}{2}\dot{\vec{\alpha}}\cdot\begin{pmatrix}ml^2 & 0 & 0\\0 & ml^2 & 0\\0 & 0 & ml^2\end{pmatrix}\dot{\vec{\alpha}} \tag{18} \]
+                    </div>
+
+                    <p>Potential energy including gravitational and spring terms:</p>
+                    <div class="math-block">
+                        \[ U = \frac{1}{2}\vec{\alpha}\cdot\begin{pmatrix}mgl+kl^2 & -kl^2 & 0\\-kl^2 & mgl+2kl^2 & -kl^2\\0 & -kl^2 & mgl+kl^2\end{pmatrix}\vec{\alpha} \tag{19} \]
+                    </div>
+
+                    <h4>2. Equations of Motion:</h4>
+                    <div class="math-block">
+                        \[ M\ddot{\vec{\alpha}} + A\vec{\alpha} = 0 \tag{20} \]
+                    </div>
+
+                    <h4>3. Eigenfrequencies:</h4>
+                    <p>From characteristic equation:</p>
+                    <div class="math-block">
+                        \[ \det(A - \omega^2M) = 0 \tag{21} \]
+                    </div>
+                    <p>Leads to the stated eigenfrequencies after calculation.</p>
+                </div>
+            </details>
+        </div>
+    </div>
+<body>
+        

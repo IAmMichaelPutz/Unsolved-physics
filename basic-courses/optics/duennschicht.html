@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Dünnschichtinterferenz - Experimentalphysik 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .image-container {
+            text-align: center;
+            margin: 20px 0;
+        }
+        .sub-task {
+            margin-left: 20px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dünnschichtinterferenz</h1>
+    <div class="task">
+        <p>Sie bestrahlen eine dünne Schicht mit Brechungsindex $n_S = 1,4$, die auf einer Glasplatte mit Brechungsindex $n_G = 1,5$ aufgetragen ist, mit monochromatischem Licht. Das Licht der Wellenlänge $\lambda = 500$ nm fällt hierbei unter einem Winkel von $\alpha = 45°$ auf die Oberfläche.</p>
+        
+        <div class="sub-task">
+            <strong>a)</strong> Skizzieren Sie den Strahlengang, wenn das Licht an beiden Grenzflächen reflektiert wird.
+        </div>
+        
+        <div class="sub-task">
+            <strong>b)</strong> Für welche Schichtdicken $d$ sehen Sie für das reflektierte Licht konstruktive Interferenz?
+        </div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>a) Strahlengang:</h3>
+        <div class="image-container">
+            <img src="/api/placeholder/400/300" alt="Strahlengang der Dünnschichtinterferenz" />
+        </div>
+
+        <h3>b) Schichtdicken für konstruktive Interferenz:</h3>
+        <p>Zunächst kann der Winkel $\beta$ mit Snellius berechnet werden:</p>
+        <p>$n_L \sin \alpha = n_S \sin \beta \rightarrow \beta = 30,4°$ (13)</p>
+        
+        <p>Aus der Geometrie lassen sich die folgenden 3 Relationen erkennen:</p>
+        <p>1) $s_1 \cos \beta = d$ (14)</p>
+        <p>2) $s_1 \sin \beta = b$ (15)</p>
+        <p>3) $2b \sin \alpha = s_2$ (16)</p>
+        
+        <p>Für den gesamten optischen Wegunterschied $\Delta s$ der beiden Strahlen muss für konstruktive Interferenz gelten:</p>
+        <p>$\Delta s = m\lambda, m \in \mathbb{N}$ (17)</p>
+        
+        <p>wobei</p>
+        <p>$\Delta s = 2n_Ss_1 - s_2$ (18)</p>
+        <p>$= \frac{2dn_S}{\cos \beta} - 2b \sin \alpha$ (19)</p>
+        <p>$= \frac{2dn_S}{\cos \beta} - 2s_1 \sin \beta \sin \alpha$ (20)</p>
+        <p>$= \frac{2dn_S}{\cos \beta} - \frac{2d}{\cos \beta} \sin \beta \sin \alpha$ (21)</p>
+        
+        <p>und man erhält auf die Schichtdicke $d$ aufgelöst:</p>
+        <p>$d_m = \frac{m\lambda \cos \beta}{2(n_S - \sin \beta \sin \alpha)}$ (22)</p>
+        
+        <p>Zwei mögliche Dicken wären: $d_1 = 62,0nm$, bzw. $d_2 = 124,1nm$</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

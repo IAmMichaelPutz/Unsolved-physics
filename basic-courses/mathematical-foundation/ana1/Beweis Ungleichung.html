@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Beweis einer Ungleichung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 1</h2>
+        <p>Zeigen Sie, dass für alle $x, y \in \mathbb{R}$ gilt:</p>
+        $$|xy| \leq \frac{1}{2}(x^2 + y^2)$$
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p><strong>Alternative 1:</strong> Für jedes $x, y \in \mathbb{R}$ tritt einer den folgenden Fälle auf:</p>
+        
+        <p>1) $xy \geq 0$: Weil Quadratzahlen nicht-negativ sind, gilt</p>
+        $$0 \leq (x - y)^2 = x^2 - 2xy + y^2$$
+        <p>Nach Addition von $2xy$ zu beiden Seiten und Division durch 2 bekommt man</p>
+        $$|xy| = xy \leq \frac{1}{2}(x^2 + y^2)$$
+        
+        <p>2) $xy < 0$: Ähnlich wie oben gilt</p>
+        $$0 \leq (x + y)^2 = x^2 + 2xy + y^2$$
+        <p>Nach Abzug von $2xy$ von beiden Seiten und Division durch 2 bekommt man</p>
+        $$|xy| = -xy \leq \frac{1}{2}(x^2 + y^2)$$
+        
+        <p>In beiden Fällen ist die Ungleichung erfüllt und dadurch ist sie bewiesen.</p>
+        
+        <p><strong>Alternative 2:</strong> Weil beide Seiten der Ungleichung nicht-negativ sind, ist sie äquivalent (sieh (5) unten) zu der quadrierten Ungleichung</p>
+        $$x^2y^2 \leq \frac{1}{4}(x^2 + y^2)^2 = \frac{1}{4}(x^4 + 2x^2y^2 + y^4)$$
+        $$-x^2y^2 \qquad 0 \leq \frac{1}{4}(x^4 - 2x^2y^2 + y^4) = \frac{1}{4}(x^2 - y^2)^2$$
+        
+        <p>Die letzte Ungleichung gilt für alle $x, y \in \mathbb{R}$, weil Quadratzahlen nicht-negativ sind. Dadurch ist die ursprüngliche Ungleichung bewiesen.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

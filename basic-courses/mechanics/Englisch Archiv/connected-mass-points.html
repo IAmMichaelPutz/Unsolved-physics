@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-list">
+        <!-- Exercise 1 -->
+        <div id="exercise1" class="exercise-card">
+
+        <!-- Exercise 2 -->
+        <div id="exercise2" class="exercise-card">
+            <h3 class="exercise-title">Connected Mass Points</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>Two mass points m and M are connected by a massless string of constant length l = r + s. The mass can rotate on the plane with a varying partial length r. The string leads through a hole in the plane to M, where mass m hangs on the taut string (with the also varying partial length s = l - r).</p>
+                    
+                    <p>1. Set up the Lagrangian of the system in suitable coordinates.</p>
+                    <p>2. Determine the equations of motion and constants of motion. State under which conditions M accelerates upward or downward.</p>
+                </div>
+                <div class="exercise-media">
+                    <img src="/api/placeholder/200/200" alt="Connected mass points system">
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <p>We choose as generalized coordinates the length r and angle φ.</p>
+                    <div class="math-block">
+                        \begin{align}
+                        T &= \frac{M}{2}\dot{s}^2 + \frac{m}{2}(\dot{r}^2 + r^2\dot{\phi}^2) \tag{1} \\
+                        &= \frac{M}{2}\left(\frac{d}{dt}(l-r)\right)^2 + \frac{m}{2}(\dot{r}^2 + r^2\dot{\phi}^2) \tag{2} \\
+                        &= \frac{m+M}{2}\dot{r}^2 + \frac{m}{2}r^2\dot{\phi}^2 \tag{3}
+                        \end{align}
+                    </div>
+
+                    <p>Setting the zero point of gravitational potential in the plane:</p>
+                    <div class="math-block">
+                        \[ U = -Mg(r-l) \tag{4} \]
+                    </div>
+
+                    <p>The Lagrangian of the system:</p>
+                    <div class="math-block">
+                        \[ \mathcal{L} = \frac{M+m}{2}\dot{r}^2 + \frac{m}{2}r^2\dot{\phi}^2 - Mg(r-l) \tag{5} \]
+                    </div>
+
+                    <h4>Constants of Motion:</h4>
+                    <p>φ is cyclic coordinate ⇔ \(\frac{\partial\mathcal{L}}{\partial\phi} = 0\) ⇔ \(\frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{\phi}} = 0\) ⇔ \(\frac{\partial\mathcal{L}}{\partial\dot{\phi}} = mr^2\dot{\phi}\) is constant (angular momentum of m in the plane).</p>
+
+                    <h4>Equation of Motion for r:</h4>
+                    <div class="math-block">
+                        \[ (M+m)\ddot{r} - mr\dot{\phi}^2 + Mg = 0 \tag{6} \]
+                    </div>
+
+                    <p>M accelerates upward ⇔ \(\ddot{r} > 0\) ⇔ \(mr\dot{\phi}^2 > Mg\) (the centrifugal force of m must be greater than the gravitational force of M)</p>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

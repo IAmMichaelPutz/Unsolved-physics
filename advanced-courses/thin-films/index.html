@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vorlesungsnotizen Navigator</title>
+    <!-- MathJax Einbindung -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$']],
+                displayMath: [['$$','$$']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            min-height: 500px;
+        }
+        .navigation {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:disabled {
+            background-color: #ccc;
+            cursor: not-allowed;
+        }
+        button:hover:not(:disabled) {
+            background-color: #0056b3;
+        }
+        #pageContent {
+            margin: 20px 0;
+            line-height: 1.6;
+        }
+        #pageNumber {
+            font-weight: bold;
+        }
+        select {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ddd;
+        }
+        .loading {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+        }
+        .error {
+            color: #dc3545;
+            padding: 10px;
+            border-left: 3px solid #dc3545;
+            background-color: #f8d7da;
+        }
+        .formula {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Düne Filme - Vorlesungsnotizen Navigator</h1>
+        
+        <div class="navigation">
+            <button id="prevBtn" onclick="prevPage()">Vorherige Seite</button>
+            <div>
+                Seite <span id="pageNumber">1</span> von 36
+                <select id="pageSelect" onchange="goToPage(this.value)">
+                    <!-- Options will be added by JavaScript -->
+                </select>
+            </div>
+            <button id="nextBtn" onclick="nextPage()">Nächste Seite</button>
+        </div>
+
+        <div id="pageContent">
+            <h2>1.5 Surface Tension + Surface Stress</h2>
+            <p>⇒ Now we move from infinite solids to surface and ambient conditions</p>
+            
+            <img src="/api/placeholder/400/200" alt="Diagram showing pulling on infinitely extended slab" />
+            <p><em>Pulling on infinitely extended slab with cleavage area</em></p>
+            
+            <p>Solid will not cleave spontaneously, additional energy needed</p>
+            
+            <div class="formula">
+                $E = \gamma \cdot A$ <br>
+                <em>Energy required for surface creation</em>
+            </div>
+            
+            <p>⇒ Internal energy U changes!</p>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 36;
+        let pageCache = {};
+
+        // Dropdown-Menü mit Seitenzahlen füllen
+        const pageSelect = document.getElementById('pageSelect');
+        for (let i = 1; i <= totalPages; i++) {
+            const option = document.createElement('option');
+            option.value = i;
+            option.text = `Seite ${i}`;
+            pageSelect.appendChild(option);
+        }
+
+        async function loadPage(pageNum) {
+            if (pageCache[pageNum]) {
+                return pageCache[pageNum];
+            }
+
+            try {
+                const response = await fetch(`lecture-notes-${pageNum}.html`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const content = await response.text();
+                pageCache[pageNum] = content;
+                return content;
+            } catch (error) {
+                console.error('Error loading page:', error);
+                return `<p class="error">Fehler beim Laden von Seite ${pageNum}: ${error.message}</p>`;
+            }
+        }
+
+        async function updatePage() {
+            const contentDiv = document.getElementById('pageContent');
+            contentDiv.innerHTML = '<p class="loading">Lade Seite...</p>';
+            
+            document.getElementById('pageNumber').textContent = currentPage;
+            contentDiv.innerHTML = await loadPage(currentPage);
+            
+            // MathJax neu rendern nach Seitenwechsel
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+            pageSelect.value = currentPage;
+        }
+
+        async function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                await updatePage();
+            }
+        }
+
+        async function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                await updatePage();
+            }
+        }
+
+        async function goToPage(pageNum) {
+            currentPage = parseInt(pageNum);
+            await updatePage();
+        }
+
+        // Tastaturnavigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowLeft') prevPage();
+            if (e.key === 'ArrowRight') nextPage();
+        });
+
+        // Initialisierung
+        updatePage();
+    </script>
+</body>
+</html>

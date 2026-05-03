@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 4 - Gas Flow Regimes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .section {
+            margin: 2em 0;
+        }
+        .subsection {
+            margin: 1em 0;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 10px;
+            margin: 1em 0;
+        }
+        .formula {
+            margin: 1em 0;
+            text-align: center;
+        }
+        .formula-label {
+            text-align: right;
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 0.5em;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        .exercise {
+            background-color: #f5f5f5;
+            padding: 20px;
+            margin: 1em 0;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Previous content remains the same -->
+
+    <div class="section">
+        <h2>2.3 Conductance</h2>
+        <p>Assume we are in the molecular flow regime!</p>
+
+        <div class="subsection">
+            <p>Consider gas flow Q through an opening (orifice) of area A, separating areas/chambers of pressure P₁ and P₂</p>
+            <img src="/api/placeholder/400/150" alt="Gas flow through orifice diagram">
+        </div>
+
+        <p>The orifice is assumed to be 2D (not extended along gas flow direction)</p>
+
+        <div class="highlight-box">
+            <div class="formula">
+                \[ Q \sim \Delta P = |P_2 - P_1| \]
+                \[ Q = C \cdot |P_2-P_1| \]
+            </div>
+            <p class="formula-label">C: conductance</p>
+        </div>
+
+        <div class="highlight-box">
+            <div class="formula">
+                \[ \text{[C]} = \frac{\text{liters}}{\text{s}} \]
+                \[ \text{[R]} = \frac{P_a \cdot \text{[C]}}{\text{[s]}} = \frac{j}{s} \]
+            </div>
+        </div>
+
+        <p>C depends on:</p>
+        <div style="display: flex; justify-content: space-between;">
+            <div>
+                <h4>Molecular Flow:</h4>
+                <ul>
+                    <li>Geometry of the duct</li>
+                    <li>Mass of the gas molecule</li>
+                    <li>Temperature of gas</li>
+                </ul>
+            </div>
+            <div>
+                <h4>Viscous Flow Regime:</h4>
+                <ul>
+                    <li>Viscosity</li>
+                    <li>Pressure</li>
+                    <li>Reynolds's number</li>
+                </ul>
+            </div>
+        </div>
+
+        <p class="highlight-box">C is much lower in molecular flow regime!</p>
+
+        <div class="subsection">
+            <h3>Orifice Conductance Calculation</h3>
+            <div class="formula">
+                \[ \phi = \frac{P}{\sqrt{2\pi m k_B T}} \]
+                \[ \frac{dN}{dt} = (\phi_2 - \phi_1) \cdot A \]
+                \[ Q = \frac{d}{dt}(PV) = \frac{d}{dt}(NkT) = \frac{dN}{dt}k_BT \]
+                \[ Q = A\sqrt{\frac{k_B T}{2\pi m}} \Delta P \]
+            </div>
+
+            <div class="highlight-box">
+                <div class="formula">
+                    \[ C_0 \sim A\sqrt{\frac{T}{m}} \]
+                    \[ C_0 \sim A\sqrt{\frac{T}{m}} \sim D^2 \]
+                </div>
+                <p>Orifice conductance</p>
+            </div>
+
+            <p>At room temperature:</p>
+            <div class="formula">
+                \[ C \sim 11.7 \cdot A \left[\frac{l}{s}\right] \]
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Homework 1</h2>
+        
+        <div class="exercise">
+            <h3>Exercise 1: FCC neighbors</h3>
+            <img src="/api/placeholder/300/300" alt="FCC lattice diagram">
+            
+            <h4>Reference Point Distances:</h4>
+            <ol>
+                <li>1st nearest neighbor:
+                    <div class="formula">
+                        \[ d_{1nn} = \frac{a}{\sqrt{2}} \]
+                    </div>
+                </li>
+                <li>2nd nearest neighbor:
+                    \[ d_{2nn} = a \]
+                </li>
+                <li>3rd nearest neighbor:
+                    \[ d_{3nn} = \sqrt{d^2 + \left(\frac{a}{2}\right)^2} = \sqrt{\frac{3}{2}}a \]
+                </li>
+            </ol>
+        </div>
+
+        <div class="exercise">
+            <h3>BCC Lattice Analysis</h3>
+            <img src="/api/placeholder/300/300" alt="BCC lattice diagram">
+            
+            <p>Nearest Neighbor Distances:</p>
+            <ul>
+                <li>1st NN (corners): \[ d_{1nn} = \frac{\sqrt{3}}{2}a \]</li>
+                <li>2nd NN (next center): \[ d_{2nn} = a \]</li>
+                <li>3rd NN (face diagonal): \[ d_{3nn} = \sqrt{2}a \]</li>
+            </ul>
+        </div>
+    </div>
+
+</body>
+</html>

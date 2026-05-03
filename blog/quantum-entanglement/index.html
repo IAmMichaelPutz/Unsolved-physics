@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quantenverschränkung: Von Einstein bis zur Quantenkommunikation | Quantenphysik verstehen</title>
+    
+    <meta name="description" content="Ein umfassender Artikel über Quantenverschränkung, von Einsteins 'spukhafte Fernwirkung' bis zu modernen Anwendungen in der Quantenkryptographie.">
+    <meta name="keywords" content="Quantenverschränkung, Einstein, EPR-Paradoxon, Bell-Ungleichungen, Quantenkryptographie">
+    
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        h1 {
+            color: #2c3e50;
+            border-bottom: 2px solid #2c3e50;
+            padding-bottom: 10px;
+            font-size: 2.2em;
+        }
+        h2 {
+            color: #34495e;
+            margin-top: 30px;
+            font-size: 1.8em;
+        }
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .quote {
+            font-style: italic;
+            border-left: 4px solid #2c3e50;
+            padding-left: 20px;
+            margin: 20px 0;
+        }
+        .formula {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', Courier, monospace;
+            overflow-x: auto;
+        }
+        .book-section {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .book-card {
+            background: white;
+            padding: 15px;
+            border-radius: 8px;
+            width: 200px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <article>
+        <header>
+            <h1>Quantenverschränkung: Von Einstein bis zur Quantenkommunikation</h1>
+        </header>
+
+        <div class="section">
+            <h2>Einsteins "spukhafte Fernwirkung"</h2>
+            <p>Im Jahr 1935 veröffentlichte Albert Einstein zusammen mit Boris Podolsky und Nathan Rosen das berühmte EPR-Paradoxon. Einstein konnte die Vorstellung einer instantanen Wechselwirkung zwischen verschränkten Teilchen nicht akzeptieren und äußerte seinen berühmten Einwand:</p>
+            
+            <div class="quote">
+                "Ich kann aber nicht ernsthaft daran glauben, weil die Theorie mit dem Grundsatz unvereinbar ist, dass die Physik eine Realität in Zeit und Raum darstellen soll, ohne spukhafte Fernwirkungen."
+            </div>
+
+            <div class="formula">
+                |ψ⟩ = (|↑⟩₁|↓⟩₂ - |↓⟩₁|↑⟩₂)/√2
+            </div>
+            <p>Diese Formel beschreibt den verschränkten Zustand zweier Spin-1/2-Teilchen im Singlett-Zustand.</p>
+        </div>
+
+        <div class="section">
+            <h2>Meilensteine der Quantenverschränkung</h2>
+            
+            <h3>1. Bells Ungleichungen (1964)</h3>
+            <p>John Stewart Bell revolutionierte die Debatte um die Quantenmechanik mit seiner mathematischen Formulierung, die erstmals einen experimentellen Test zwischen der Quantenmechanik und lokalen realistischen Theorien ermöglichte. Seine Ungleichungen zeigten, dass keine lokale verborgene Variablentheorie die Vorhersagen der Quantenmechanik reproduzieren kann.</p>
+            
+            <div class="formula">
+                |E(a,b) - E(a,c)| ≤ 1 + E(b,c)
+            </div>
+            
+            <p>Diese Ungleichung beschreibt die maximal möglichen Korrelationen zwischen Messungen an verschiedenen Teilchen in einer lokalen realistischen Theorie. Die Quantenmechanik verletzt diese Grenze um den Faktor √2, was als "Bell-Verletzung" bekannt ist.</p>
+
+            <div class="experiment-box">
+                <strong>Experimentelle Bedeutung:</strong> Bells Arbeit wandelte eine philosophische Debatte in eine testbare wissenschaftliche Hypothese um. Die Ungleichungen ermöglichten erstmals konkrete Experimente zur Überprüfung der "spukhaften Fernwirkung".
+            </div>
+
+            <h3>2. Aspect-Experimente (1982)</h3>
+            <p>Alain Aspect und sein Team an der Universität Paris-Sud führten die ersten überzeugenden experimentellen Tests der Bell-Ungleichungen durch. Sie verwendeten Calcium-Atome zur Erzeugung verschränkter Photonenpaare und entwickelten ein ausgeklügeltes System zur Messung ihrer Polarisation.</p>
+
+            <div class="formula">
+                P(θ₁,θ₂) = ½ cos²(θ₁ - θ₂)
+            </div>
+
+            <p>Diese Formel beschreibt die Wahrscheinlichkeit für koinzidente Detektionen bei verschiedenen Polarisatoreinstellungen (θ₁,θ₂). Die Messergebnisse zeigten eine klare Verletzung der Bell-Ungleichungen mit einer statistischen Signifikanz von über 40 Standardabweichungen.</p>
+
+            <div class="experiment-box">
+                <strong>Technische Innovation:</strong> Aspects Team verwendete schnelle Polarisationsmessungen (Schaltzeit: 10 ns) und variable Analysatoren, um Lokalitätsschlupflöcher zu schließen. Die Photonen waren 12 Meter voneinander entfernt, als ihre Polarisation gemessen wurde.
+            </div>
+
+            <h3>3. Zeilinger-Experimente (1997-2018)</h3>
+            <p>Anton Zeilinger und seine Gruppe erreichten mehrere Durchbrüche in der experimentellen Quantenverschränkung:</p>
+            
+            <ul>
+                <li><strong>1997:</strong> Erste Demonstration der Quantenteleportation eines unbekannten Quantenzustands</li>
+                <li><strong>2007:</strong> Verschränkung zwischen La Palma und Teneriffa über 144 km</li>
+                <li><strong>2012:</strong> Quantenverschränkung über 143 km durch die turbulente Atmosphäre</li>
+                <li><strong>2018:</strong> Satellitenbasierte Verteilung verschränkter Photonen über 1200 km</li>
+            </ul>
+
+            <div class="formula">
+                |ψ⟩ₜₑₗₑ = ½(|00⟩₁₂|ψ⟩₃ + |01⟩₁₂σₓ|ψ⟩₃ + |10⟩₁₂σᵧ|ψ⟩₃ + |11⟩₁₂σᵧ|ψ⟩₃)
+            </div>
+
+            <p>Diese Formel beschreibt den Quantenzustand bei der Teleportation, wobei σₓ und σᵧ die Pauli-Matrizen sind und |ψ⟩₃ der zu teleportierende Zustand ist.</p>
+
+            <div class="experiment-box">
+                <strong>Technologische Bedeutung:</strong> Zeilingers Experimente legten den Grundstein für praktische Anwendungen der Quantenverschränkung in der Quantenkryptographie und Quantenkommunikation. Der Satellit Micius demonstrierte erstmals die globale Quantenkommunikation.
+            </div>
+
+            <h3>4. Moderne Entwicklungen (2019-2024)</h3>
+            <p>Die jüngsten Entwicklungen konzentrieren sich auf die Skalierung und praktische Anwendung der Quantenverschränkung:</p>
+            <ul>
+                <li><strong>Quantenrepeater:</strong> Entwicklung von Quantenspeichern und Fehlerkorrektur für längere Übertragungsstrecken</li>
+                <li><strong>Multipartite Verschränkung:</strong> Erzeugung und Kontrolle verschränkter Zustände mit mehr als zwei Teilchen</li>
+                <li><strong>Hybride Systeme:</strong> Kombination verschiedener Quantensysteme (Photonen, Ionen, Supraleitende Qubits)</li>
+            </ul>
+
+            <div class="formula">
+                ρₙ = |W⟩⟨W| = 1/n(|100...0⟩ + |010...0⟩ + ... + |000...1⟩)
+            </div>
+
+            <p>Diese Formel beschreibt einen n-Teilchen W-Zustand, eine wichtige Form der Multiteilchenverschränkung für Quantennetzwerke.</p>
+        </div>
+
+        <div class="section">
+            <h2>Aktuelle Anwendungen</h2>
+            <ul>
+                <li><strong>Quantenkryptographie:</strong> Abhörsichere Kommunikation durch verschränkte Photonenpaare</li>
+                <li><strong>Quantencomputer:</strong> Verschränkte Qubits als Grundlage für Quantenalgorithmen</li>
+                <li><strong>Quantenrepeater:</strong> Überwindung von Distanzlimitierungen in Quantennetzwerken</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Weiterführende Literatur</h2>
+            <div class="book-section">
+                <div class="book-card">
+                    <img src="/api/placeholder/180/250" alt="Verschränkte Welt">
+                    <h3>Verschränkte Welt</h3>
+                    <p>Anton Zeilinger</p>
+                </div>
+                <div class="book-card">
+                    <img src="/api/placeholder/180/250" alt="Einstein's Spuk">
+                    <h3>Einstein's Spuk</h3>
+                    <p>Anton Zeilinger</p>
+                </div>
+                <div class="book-card">
+                    <img src="/api/placeholder/180/250" alt="Quantum Entanglement">
+                    <h3>Quantum Entanglement</h3>
+                    <p>Jürgen Audretsch</p>
+                </div>
+            </div>
+        </div>
+    </article>
+</body>
+</html>

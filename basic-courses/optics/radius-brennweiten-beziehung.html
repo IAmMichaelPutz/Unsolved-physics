@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Radius-Brennweiten-Beziehung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Radius-Brennweiten-Beziehung</h1>
+    
+    <div class="task">
+        <p>Ein Glaskörper hat eine konvex gewölbte Oberfläche mit Radius R. Skizzieren sie den Verlauf eines Strahls der erst im Abstand h parallel zur optischen Achse verläuft, die Grenzfläche im Winkel α trifft, im Winkel β wieder verlässt und die optische Achse am Brennpunkt (innerhalb des Glaskörpers) im Winkel γ kreuzt.</p>
+        
+        <p>Benutzen sie das Snelliussche Gesetz:</p>
+        <p>$n_1\sin\alpha = n_2\sin\beta$</p>
+        
+        <p>sowie den Strahlensatz und die Kleinwinkelnäherung um einen Ausdruck für die Brennweite in Abhängigkeit des Radius und den Brechungsindices zu finden.</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <div class="diagram">
+            <img src="/api/placeholder/600/300" alt="Strahlenverlauf an gewölbter Oberfläche">
+        </div>
+
+        <p>Aus der Abbildung lässt sich ablesen, dass gilt:</p>
+        <p>$h = R \cdot \sin\alpha = f \cdot \tan\gamma$</p>
+        
+        <p>Aus der Dreiecksgleichung folgt $\gamma = \alpha - \beta$, also gilt für die Brennweite:</p>
+        <p>$f = \frac{R \cdot \sin\alpha}{\tan(\alpha - \beta)}$</p>
+        
+        <p>Mit der Kleinwinkelnäherung folgt:</p>
+        <p>$f = \frac{R \cdot \alpha}{\alpha - \beta}$</p>
+        
+        <p>Und über das Snelliussche Gesetz:</p>
+        <p>$f = \frac{R \cdot \alpha}{\alpha - (\frac{n_1}{n_2})\alpha}$</p>
+        
+        <p>Also ergibt sich die finale Formel:</p>
+        <p>$f = \frac{R \cdot n_2}{n_2 - n_1}$</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

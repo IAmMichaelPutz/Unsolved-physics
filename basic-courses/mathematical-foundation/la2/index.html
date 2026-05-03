@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsolved Physics Fun - Lineare Algebra 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <style>
+        :root {
+            --primary: #0099ff;
+            --secondary: #6366f1;
+            --background: #fafafa;
+            --text: #1a1a1a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .topic-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .topic-card h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-list a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s ease;
+        }
+
+        .topic-list a:hover {
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0;
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Unsolved Physics Fun</div>
+            <nav class="nav-menu">
+                <a href="/">Kurse</a>
+                <a href="/blog">Blog</a>
+                <a href="/jobs">Jobs</a>
+                <a href="/data">Datenportal</a>
+                <button class="nav-button">Login</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Lineare Algebra 2</h1>
+
+        <!-- Vektorräume und Lineare Abbildungen -->
+        <h2 class="section-title">Vektorräume und Lineare Abbildungen</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Vektorräume</h3>
+                <ul class="topic-list">
+                    <li><a href="Vektorraeume.html">Grundlagen Vektorräume</a></li>
+                    <li><a href="Untervektorraeume.html">Untervektorräume</a></li>
+                    <li><a href="Basis.html">Basis und Dimension</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Lineare Abbildungen</h3>
+                <ul class="topic-list">
+                    <li><a href="Lineare_Abbildungen.html">Grundlagen Lineare Abbildungen</a></li>
+                    <li><a href="Kern_Bild.html">Kern und Bild</a></li>
+                    <li><a href="Dimensionssatz.html">Dimensionssatz</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Matrixdarstellung</h3>
+                <ul class="topic-list">
+                    <li><a href="Matrixdarstellung.html">Matrixdarstellung linearer Abbildungen</a></li>
+                    <li><a href="Basiswechsel.html">Basiswechsel</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Innere Produkte und Orthogonalität -->
+        <h2 class="section-title">Innere Produkte und Orthogonalität</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Inneres Produkt</h3>
+                <ul class="topic-list">
+                    <li><a href="Inneres_Produkt.html">Grundlagen Inneres Produkt</a></li>
+                    <li><a href="Norm.html">Norm und Metrik</a></li>
+                    <li><a href="Cauchy_Schwarz.html">Cauchy-Schwarz-Ungleichung</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Orthogonalität</h3>
+                <ul class="topic-list">
+                    <li><a href="Orthogonalitaet.html">Orthogonale Vektoren</a></li>
+                    <li><a href="Orthonormalbasis.html">Orthonormalbasis</a></li>
+                    <li><a href="Gram_Schmidt.html">Gram-Schmidt-Verfahren</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Orthogonale Abbildungen</h3>
+                <ul class="topic-list">
+                    <li><a href="Orthogonale_Abbildungen.html">Orthogonale Transformationen</a></li>
+                    <li><a href="Orthogonale_Matrizen.html">Orthogonale Matrizen</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Eigenwerte und Diagonalisierung -->
+        <h2 class="section-title">Eigenwerte und Diagonalisierung</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Eigenwerttheorie</h3>
+                <ul class="topic-list">
+                    <li><a href="Eigenwerte.html">Eigenwerte und Eigenvektoren</a></li>
+                    <li><a href="Charakteristisches_Polynom.html">Charakteristisches Polynom</a></li>
+                    <li><a href="Eigenraeume.html">Eigenräume</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Diagonalisierung</h3>
+                <ul class="topic-list">
+                    <li><a href="Diagonalisierbarkeit.html">Diagonalisierbarkeit</a></li>
+                    <li><a href="Diagonalisierung.html">Diagonalisierung von Matrizen</a></li>
+                    <li><a href="Hauptachsentransformation.html">Hauptachsentransformation</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Spezielle Matrizen</h3>
+                <ul class="topic-list">
+                    <li><a href="Symmetrische_Matrizen.html">Symmetrische Matrizen</a></li>
+                    <li><a href="Normale_Matrizen.html">Normale Matrizen</a></li>
+                    <li><a href="Jordan.html">Jordansche Normalform</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

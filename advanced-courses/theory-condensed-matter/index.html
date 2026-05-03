@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kondensierte Materie - Unsolved Physics Fun</title>
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #001f3f, #003366);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        
+        h1 {
+            color: white;
+            text-align: center;
+            font-size: 2.5em;
+            margin-bottom: 50px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            padding: 20px;
+        }
+        
+        .tile {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 15px;
+            padding: 25px;
+            text-align: center;
+            text-decoration: none;
+            color: #003366;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 120px;
+        }
+        
+        .tile:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+            background: white;
+        }
+        
+        h2 {
+            margin: 0;
+            font-size: 1.3em;
+            color: #003366;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Kondensierte Materie</h1>
+        <div class="grid">
+            <a href="crystal-electron-dynamics.html" class="tile">
+                <h2>Kristallelektronen - Dynamik</h2>
+            </a>
+            <a href="dielectric.html" class="tile">
+                <h2>Dielektrische Eigenschaften</h2>
+            </a>
+            <a href="semiconductor.html" class="tile">
+                <h2>Halbleiter</h2>
+            </a>
+            <a href="magnetism.html" class="tile">
+                <h2>Magnetismus</h2>
+            </a>
+            <a href="superconductivity.html" class="tile">
+                <h2>Supraleitung</h2>
+            </a>
+        </div>
+    </div>
+</body>
+</html>

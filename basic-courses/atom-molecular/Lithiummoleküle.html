@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Lithiummoleküle</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .equation {
+            margin: 15px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aufgabe 8: Lithiummoleküle</h1>
+    
+    <div class="task">
+        <p>Lithium kommt als zwei Isotopen vor, $^6$Li und $^7$Li, mit jeweils 3 Protonen und 3 bzw. 4 Neutronen. Der Gleichgewichtsabstand $r_0$ in den Molekülen H$^6$Li und H$^7$Li sei gleich groß. Die Frequenz $\nu$ entspreche dem Übergang zwischen den Rotationszuständen $j = 1$ und $j = 0$. Experimentell wird zwischen beiden Molekülsorten ein Frequenzunterschied $\Delta\nu$ von $\Delta\nu = \nu(\text{H}^6\text{Li}) - \nu(\text{H}^7\text{Li}) = 10^{10}$ Hz beobachtet. Die Moleküle sollen als starre Rotatoren betrachtet werden.</p>
+        
+        <p><strong>a)</strong> Berechnen Sie den Gleichgewichtsabstand $r_0$.</p>
+        
+        <p><strong>b)</strong> Berechnen Sie für beide Molekülsorten die Energie des Übergangs von $j = 1$ nach $j = 0$.</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>a) Berechnung des Gleichgewichtsabstands</h3>
+        
+        <p>Die Energie $E_j$ eines Rotationsniveaus mit der Drehimpulsquantenzahl $j$ berechnet sich über:</p>
+        
+        <div class="equation">
+            $E_j = \frac{\hbar^2}{2I}j(j + 1)$
+        </div>
+        
+        <p>mit $j = 0, 1, 2, ...$ und dem Trägheitsmoment $I$ des Moleküls</p>
+        
+        <div class="equation">
+            $I = \mu r_0^2 = \frac{m_H \cdot m_{Li}}{m_H + m_{Li}}r_0^2$
+        </div>
+
+        <p>Die Frequenz des Übergangs zwischen den Niveaus mit den Quantenzahlen $j = 0$ und $j = 1$ beträgt:</p>
+        
+        <div class="equation">
+            $h\nu_{1\rightarrow0} = \Delta E_{1\rightarrow0} = E(j = 1) - E(j = 0) = \frac{\hbar^2}{I}$
+        </div>
+        
+        <div class="equation">
+            $\Rightarrow \nu_{1\rightarrow0} = \frac{\hbar^2}{hI} = \frac{\hbar}{2\pi I}$
+        </div>
+
+        <p>Aus dem Frequenzunterschied zwischen Molekülen H$^6$Li und H$^7$Li kann der Gleichgewichtsabstand $r_0$ berechnet werden:</p>
+        
+        <div class="equation">
+            $\Delta\nu = \nu_6 - \nu_7 = \frac{\hbar}{2\pi r_0^2}\left(\frac{1}{\mu_6} - \frac{1}{\mu_7}\right)$
+        </div>
+        
+        <div class="equation">
+            $\Rightarrow r_0^2 = \frac{\hbar}{2\pi\Delta\nu}\left(\frac{1}{\mu_6} - \frac{1}{\mu_7}\right)$
+        </div>
+
+        <p>Mit $\mu_6$ und $\mu_7$ den jeweiligen reduzierten Massen folgt:</p>
+        
+        <div class="equation">
+            $r_0 = 1.55$ Å
+        </div>
+
+        <h3>b) Berechnung der Übergangsenergien</h3>
+        
+        <p>Einsetzen in</p>
+        <div class="equation">
+            $E_j = \frac{\hbar^2}{2I}j(j + 1)$
+        </div>
+        
+        <p>liefert:</p>
+        <div class="equation">
+            $E_6 = 2.02$ meV
+        </div>
+        <div class="equation">
+            $E_7 = 1.98$ meV
+        </div>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lecture 2 - Page 6</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [['$','$'], ['\\(','\\)']],
+                displayMath: [['$$','$$'], ['\\[','\\]']],
+                processEscapes: true
+            }
+        });
+    </script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            position: relative;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .section {
+            margin: 25px 0;
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+        .subsection {
+            margin: 20px 0;
+            font-weight: bold;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 10px;
+            margin: 15px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            padding: 10px;
+            background-color: #f8f8f8;
+        }
+        .formula-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+            font-style: italic;
+        }
+        .placeholder-image {
+            width: 100%;
+            max-width: 600px;
+            margin: 20px auto;
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="section">1.5 Surface Tension + Surface Stress</div>
+
+    <p>⇒ Now we move from infinite solids to surface and ambient conditions</p>
+
+    <img src="/api/placeholder/600/200" alt="Diagram showing pulling on infinitely extended slab" class="placeholder-image"/>
+    <div class="formula-label">Pulling on infinitely extended slab with cleavage area</div>
+
+    <p>Solid will not cleave spontaneously, additional energy needed</p>
+
+    <div class="formula">
+        $$E = \frac{\gamma \cdot A}{\text{surface tension}}$$
+        <div class="formula-label">Energy required for surface creation</div>
+    </div>
+
+    <p>⇒ Internal energy U changes!</p>
+
+    <div class="formula">
+        $$U = TS - pV + \mu N + \gamma A \quad (*)$$
+        <div class="formula-label">Fundamental thermodynamic relation</div>
+    </div>
+
+    <p>In equilibrium, the semi-infinite solid always co-exists with its vapor</p>
+
+    <img src="/api/placeholder/600/300" alt="Diagram showing solid-vapor interface with labels" class="placeholder-image"/>
+    <div class="formula-label">Interface diagram with solid and vapor phases</div>
+
+    <p>At the surface, atoms will move away from their original lattice sites to compensate for new conditions</p>
+
+    <p>⇒ Distortion $\epsilon_{ij}$</p>
+
+    <div class="formula">
+        $$U = U(S, V, N, A\epsilon_{ij})$$
+        <div class="formula-label">Internal energy as function of entropy, volume, particle number, and distortion</div>
+    </div>
+
+    <div class="formula">
+        $$I \quad dU = \frac{\partial U}{\partial S}dS + \frac{\partial U}{\partial V}dV + \frac{\partial U}{\partial N}dN + A\frac{\partial U}{\partial \epsilon_{ij}}d\epsilon_{ij}$$
+        <div class="formula-label">Differential form with $\frac{\partial U}{\partial \epsilon_{ij}}$ = surface stress $\sigma_{ij}$</div>
+    </div>
+
+    <div class="highlight-box">
+        $$\sigma_{ij} = c_{ijkl}\epsilon_{kl}$$
+        <div class="formula-label">Hooke's Law</div>
+    </div>
+
+</body>
+</html>

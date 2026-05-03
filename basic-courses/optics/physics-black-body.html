@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Schwarzer Körper</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Schwarzer Körper</h1>
+
+    <div class="task">
+        <p>Außerhalb der Erdatmosphäre misst man das Maximum des Sonnenspektrums bei einer Wellenlänge von λ = 465 nm</p>
+        
+        <div class="question">
+            <strong>a)</strong> Betrachten Sie die Sonne näherungsweise als schwarzen Strahler und bestimmen Sie die Oberflächentemperatur T<sub>S</sub> der Sonne.
+        </div>
+        <div class="question">
+            <strong>b)</strong> Die vom Merkur ausgesandte Schwarzkörperstrahlung entspricht einer Temperatur von T<sub>M</sub> = 442,5 K. Bestimmen Sie den Abstand r des Merkurs von der Sonne unter der Annahme thermischen Gleichgewichts und eines kreisförmigen Orbits. Der Radius der Sonne beträgt R<sub>S</sub> = 6,96 · 10⁵ km, der des Merkurs ist R<sub>M</sub> = 2439,7 km. (Nehmen Sie an, dass die Oberfläche des Merkurs nicht reflektierend ist!)
+        </div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p><strong>a)</strong> Mit dem Wienschen Verschiebungsgesetz erhält man sofort die Lösung für die gesuchte Temperatur:</p>
+        <p>$\lambda_{max} = \frac{b}{T}$</p>
+        <p>$\rightarrow T = \frac{b}{\lambda_{max}} = 6237$ K</p>
+
+        <p><strong>b)</strong> Die abgestrahlte Leistung der Sonne beträgt nach dem Stefan-Boltzmann-Gesetz:</p>
+        <p>$P_S = 4\pi R_S^2\sigma T_S^4$</p>
+        <p>mit σ als Stefan-Boltzmann-Konstante. Damit nun Gleichgewicht vorherrscht, muss die vom Merkurs absorbierte Strahlungsleistung gleich seiner emittierten sein:</p>
+        
+        <p>$P_{abs} = P_S\frac{\pi R_M^2}{4\pi r^2} = 4\pi R_M^2\sigma T_M^4 = P_{em}$</p>
+        
+        <p>Setzt man nun noch die Strahlungsleistung P<sub>S</sub> der Sonne ein, muss nur noch nach r aufgelöst werden:</p>
+        
+        <p>$\rightarrow r^2 = \frac{T_S^4}{T_M^4}\frac{R_S^2}{4}$</p>
+        <p>$r = 6,914 \cdot 10^{10}$ m</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

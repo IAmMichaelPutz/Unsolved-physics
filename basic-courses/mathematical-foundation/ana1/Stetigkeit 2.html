@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Blatt 8 - Aufgabe 2</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Stetigkeit 2</h2>
+        <p>Zeigen Sie, dass die Parabel $f: \mathbb{R} \to \mathbb{R}$, $x \mapsto x^2$ nicht gleichmäßig stetig ist.</p>
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Nehmen wir an, dass die Parabel $f: \mathbb{R} \to \mathbb{R}$ gleichmäßig stetig ist und leiten wir einen Widerspruch her. Sei also $\delta > 0$, so dass</p>
+        $$|x^2 - y^2| < 1 \text{ für alle } x,y \in \mathbb{R} \text{ mit } |x-y| < \delta$$
+        
+        <p>Ohne Einschränkung der Allgemeinheit können wir annehmen, dass</p>
+        $$\delta \leq 1$$
+        
+        <p>Wir definieren</p>
+        $$y(x) := x - \frac{\delta}{\sqrt{2}} \text{ für alle } x \in \mathbb{R}$$
+        
+        <p>Dann gilt</p>
+        $$|x - y(x)| = \frac{\delta}{\sqrt{2}} < \delta \text{ für alle } x \in \mathbb{R}$$
+        
+        <p>und zugleich</p>
+        $$|x^2 - y(x)^2| = \left|x^2 - \left(x - \frac{\delta}{\sqrt{2}}\right)^2\right| = \left|\sqrt{2}\delta x - \frac{\delta^2}{2}\right| \geq \sqrt{2}\delta |x| - \frac{\delta^2}{2} \geq \delta |x| - \frac{1}{2} \text{ für alle } x \in \mathbb{R}$$
+        
+        <p>Für alle $x \in \mathbb{R}$ mit $|x| \geq \frac{3}{2\delta}$, zum Beispiel für $x = \frac{3}{2\delta}$, ist dann aber</p>
+        $$|x^2 - y(x)^2| \geq \delta |x| - \frac{1}{2} \geq \frac{3}{2} - \frac{1}{2} = 1$$
+        
+        <p>was im Widerspruch zu der Wahl von $\delta$ steht.</p>
+
+        <p><strong>Bemerkung:</strong></p>
+        <p>Stetige Funktionen $f: [a,b] \to \mathbb{R}$ sind immer gleichmäßig stetig (das kommt später). Die gleichmäßige Stetigkeit einer stetigen Funktion $f: \mathbb{R} \to \mathbb{R}$ hängt deshalb nur von ihren Eigenschaften "in dem Unendlichen" ab.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

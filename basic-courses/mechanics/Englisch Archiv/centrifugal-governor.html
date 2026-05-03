@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-list">
+        <!-- Exercise 3 -->
+        <div id="exercise3" class="exercise-card">
+            <h3 class="exercise-title">Centrifugal Governor</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>A point m₂ moves along a vertical axis and is connected by a massless rod of length R to two masses m₁. The system is suspended at point A by two additional massless rods of length R and rotates with constant angular velocity ω around the axis. The mass points are subject to gravity.</p>
+                    
+                    <p>1. Choose ϑ as the generalized coordinate. Determine the Lagrangian of the system.</p>
+                    <p>2. Let m₂ = 0. Show that ϑ satisfies the equation of motion:</p>
+                    <div class="math-block">
+                        \[ \ddot{\vartheta} = \left(\omega^2\cos(\vartheta) - \frac{g}{R}\right)\sin(\vartheta) \tag{1} \]
+                    </div>
+                    <p>3. What condition must the angular velocity ω satisfy for the centrifugal governor to rise up, i.e., for ϑ = 0 to be unstable to small perturbations? Develop the equation of motion around ϑ = 0 up to second order.</p>
+                </div>
+                <div class="exercise-media">
+                    <img src="pics/centrifugal-governor.png" width="300" alt="Centrifugal Governor System">
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <h4>Part 1:</h4>
+                    <p>For z₁ = R cos(ϑ), z₂ = 2R cos(ϑ) ⇒ \(\dot{z}_2 = -2R\dot{\vartheta}\sin(\vartheta)\)</p>
+                    <div class="math-block">
+                        \begin{align}
+                        T &= 2\cdot\frac{m_1}{2}(R^2\sin^2(\vartheta)\omega^2 + R^2\dot{\vartheta}^2) + \frac{m_2}{2}\dot{z}_2^2 \tag{2} \\
+                        &= m_1(R^2\sin^2(\vartheta)\omega^2 + R^2\dot{\vartheta}^2) + 2m_2R^2\dot{\vartheta}^2\sin^2(\vartheta) \tag{3}
+                        \end{align}
+                    </div>
+
+                    <p>Setting the zero point of gravitational potential at height of point A:</p>
+                    <div class="math-block">
+                        \[ U = -2m_1gz_1 - m_2gz_2 = -2m_1gR\cos(\vartheta) - 2m_2gR\cos(\vartheta) \tag{4} \]
+                    </div>
+
+                    <h4>Part 2:</h4>
+                    <p>For m₂ = 0, the equation of motion becomes:</p>
+                    <div class="math-block">
+                        \[ 2m_1R^2\ddot{\vartheta} - 2m_1R^2\omega^2\sin(\vartheta)\cos(\vartheta) + 2m_1gR\sin(\vartheta) = 0 \tag{5} \]
+                    </div>
+
+                    <h4>Part 3:</h4>
+                    <p>Developing around ϑ = 0:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        \ddot{\vartheta} &\approx (\omega^2 - \frac{g}{R})\vartheta \tag{6} \\
+                        \ddot{\vartheta} + (\frac{g}{R} - \omega^2)\vartheta &= 0 \tag{7}
+                        \end{align}
+                    </div>
+
+                    <p>For \(\frac{g}{R} - \omega^2 > 0\), this corresponds to harmonic oscillator, force counteracts displacement from ϑ = 0 ⇒ stable against displacements!</p>
+                    
+                    <p>For \(\frac{g}{R} - \omega^2 < 0\), force supports displacement ⇒ unstable against displacements, centrifugal governor rises up for \(\omega^2 > \frac{g}{R}\)!</p>
+                </div>
+            </details>
+        </div>
+
+    </div>
+<body>
+        

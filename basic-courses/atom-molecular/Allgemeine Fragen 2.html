@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Experimentalphysik 4 - Kurzfragen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        ol {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Experimentalphysik 4 - Kurzfragen</h1>
+
+    <div class="task">
+        <ol>
+            <li>Wie ist der Erwartungswert eines Operators definiert? Was bedeutet er?</li>
+            <li>Bestimme die spektroskopischen Symbole für den Grundzustands des Elements Tantal mit der Elektronenkonfiguration (Xe)$4f^{14}5d^36s^2$ sowie für die angeregte Konfiguration (Xe)$4f^{14}5d^5$.</li>
+            <li>Können die Übergänge $^3P_2 \rightarrow {^3P_0}$ und $^8S_{7/2} \rightarrow {^6P_{7/2}}$ stattfinden (Begründung!)?</li>
+            <li>Ist der Bohrsche Radius für ein (fiktives) Atom aus einem Proton und einem Kaon-Antiteilchen $K^-$ ($m_{K^-} \approx 1000m_e$) größer oder kleiner als der des Wasserstoffatoms?</li>
+            <li>Erkläre, was beim Auger-Prozess passiert. Wie heißt ein dazu vergleichbarer Prozess für Valenzelektronen?</li>
+            <li>Welche Bedingung nahm Bohr bei der Entwicklung des Atommodells an?</li>
+            <li>Was ist der Darwin-Term?</li>
+            <li>Gibt es ein $H_2$ Molekül, bei dem beide Atome im Grundzustand sind? Warum oder warum nicht?</li>
+        </ol>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <ol>
+            <li>
+                Der Erwartungswert eines Operators $\hat{A}$ zur Funktion $\psi$ ist definiert als:
+                $\langle A \rangle = \int d^3r \psi^*\hat{A}\psi$
+                <br><br>
+                $\langle A \rangle$ ist der Mittelwert der dem Operator $\hat{A}$ zugeordneten Observablen $A$, also der Wert, den man im Mittel messen wird.
+            </li>
+            <br>
+            <li>
+                Nach den Hundschen Regeln ist im Grundzustand $S=\frac{3}{2}$, $L=3$ und damit $J=\frac{3}{2}$. Also ist das spektroskopische Symbol $^4F_{3/2}$.<br><br>
+                In der angeregten Konfiguration ist $S=\frac{5}{2}$, $L=0$ und $J=\frac{5}{2}$, womit sich das spektroskopische Symbol $^6S_{5/2}$ ergibt.
+            </li>
+            <br>
+            <li>
+                Der Übergang $^3P_2 \rightarrow {^3P_0}$ ist verboten wegen $\Delta J = 2$.<br><br>
+                Der Übergang $^8S_{7/2} \rightarrow {^6P_{7/2}}$ kann wegen $\Delta S \neq 0$ nicht stattfinden.
+            </li>
+            <br>
+            <li>
+                Der Bohrsche Radius für dieses Atom ist $r_{n,K^-} = a_0\frac{n^2}{Z}\frac{m_e}{\mu_{p,K^-}}$. Wegen der größeren Masse des Kaon-Antiteilchens ist auch die reduzierte Masse $\mu_{p,K^-}$ größer und damit der Bohrsche Radius des betrachteten Atoms kleiner als der des Wasserstoffatoms.
+            </li>
+            <br>
+            <li>
+                Beim Auger-Prozess wird ein Elektron aus einer inneren Schale herausgeschlagen (beispielsweise durch Anregung mit Röntgen- oder γ-Strahlung). Das entstandene Loch wird mit einem Elektron aus einer darüber liegenden Schale aufgefüllt. Dabei wird Energie frei. Wird diese Energie an ein drittes Elektron in einer weiter außen liegenden Schale abgegeben und dieses dadurch ionisiert, spricht man vom Auger-Prozess.<br><br>
+                Ein dazu ähnlicher Prozess, bei der das zuerst angeregte Elektron ein Valenzelektron ist, heißt Autoionisation.
+            </li>
+            <br>
+            <li>
+                1. Elektronen bewegen sich auf Kreisbahnen.<br>
+                2. Die Bewegung ist strahlungsfrei. (Kraftansatz)<br>
+                3. Der Elektronen bewegen sich als stehende Welle, d.h. $2\pi r = n\lambda$.
+            </li>
+            <br>
+            <li>
+                Der Darwin-Term ist ein relativistischer Korrekturterm im Hamiltonoperator. Er beschreibt die Wechselwirkung des Elektrons mit dem Kern, der sich in einem kleinen Volumen bewegt. Diese Bewegung nennt man auch Zitterbewegung.
+            </li>
+            <br>
+            <li>
+                Nein, das würde das Pauli-Prinzip verletzen. Wären beide Atome im Grundzustand, würden sie durch dieselben Quantenzahlen beschrieben werden. Eine Molekülbindung würde zu einer räumlichen Überlappung der Elektronenorbitale führen. Das Pauli-Prinzip verbietet aber Fermionen, im selben Zustand am selben Ort zu sein.
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

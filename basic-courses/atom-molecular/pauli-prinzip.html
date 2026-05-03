@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Pauli-Prinzip und Gesamtdrehimpuls des Atoms</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 15px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f5f5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 5: Pauli-Prinzip, Gesamtdrehimpuls des Atoms</h2>
+        
+        <p>Gemäß dem Pauli-Verbot kann jeder Quantenzustand für Elektronen nur mit einem Elektron besetzt werden. Auch in Mehrelektronenatomen werden dabei die Elektronenzustände durch vier Quantenzahlen, hier (n, l, ml, ms) beschrieben. Im Grundzustand sind die am stärksten gebundenen Zustände besetzt. Innerhalb einer Elektronenschale werden die Zustände mit niedrigerem l zuerst besetzt, da diese in Mehrelektronenatomen stärker gebunden sind.</p>
+
+        <p><strong>(a)</strong> Geben Sie an, wie viele Elektronen sich bei Helium, Neon (Z = 10), Phosphor (Z = 15) und Kupfer (Z = 29) jeweils in der K-, L-, M- und N-Schale befinden!</p>
+
+        <p><strong>(b)</strong> Geben Sie für alle in (a) genannten Elemente an, wie viele Elektronen einen Bahndrehimpuls von l = 0 und wie viele einen Bahndrehimpuls von l = 2 besitzen!</p>
+
+        <p><strong>(c)</strong> Geben Sie alle Quantenzahlen für die beiden Elektronen im Grundzustand von Helium an!</p>
+
+        <p><strong>(d)</strong> Drei stabile Neon-Isotope mit 10, 11 und 12 Neutronen im Kern sind bekannt. Ist es prinzipiell möglich mit einem oder mehreren dieser Isotope ein Bose-Einstein-Kondensat zu erzeugen und wenn ja mit welchen(m)? Begründen Sie ihre Antwort!</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p><strong>(a)</strong> Die Schalen werden nacheinander entsprechend der ansteigenden Energie aufgefüllt, wobei zu beachten ist, dass sich in jedem Zustand höchstens ein Elektron befinden darf. Man erhält:</p>
+        
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>K-Schale</th>
+                <th>L-Schale</th>
+                <th>M-Schale</th>
+                <th>N-Schale</th>
+            </tr>
+            <tr>
+                <td>Helium</td>
+                <td>2</td>
+                <td>0</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Neon</td>
+                <td>2</td>
+                <td>8</td>
+                <td>0</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Phosphor</td>
+                <td>2</td>
+                <td>8</td>
+                <td>5</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Kupfer</td>
+                <td>2</td>
+                <td>8</td>
+                <td>18</td>
+                <td>1</td>
+            </tr>
+        </table>
+
+        <p><strong>(b)</strong> In jeder Schale gibt es 2 Zustände mit l = 0, ab der L-Schale 6 Zustände mit l = 1 und ab der M-Schale 10 Zustände mit l = 2. Die Zustände in einer Schale werden nacheinander entsprechend aufsteigender Quantenzahl besetzt. Damit lautet das Ergebnis:</p>
+
+        <table>
+            <tr>
+                <th>Element</th>
+                <th>l = 0</th>
+                <th>l = 2</th>
+            </tr>
+            <tr>
+                <td>Helium</td>
+                <td>2</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Neon</td>
+                <td>4</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Phosphor</td>
+                <td>6</td>
+                <td>0</td>
+            </tr>
+            <tr>
+                <td>Kupfer</td>
+                <td>7</td>
+                <td>10</td>
+            </tr>
+        </table>
+
+        <p><strong>(c)</strong> Die Quantenzahlen der Elektronen im Grundzustand von Helium lauten:</p>
+        <ul>
+            <li>n₁ = 0, l₁ = 0, ml₁ = 0, ms₁ = 1/2</li>
+            <li>n₂ = 0, l₂ = 0, ml₂ = 0, ms₂ = -1/2</li>
+        </ul>
+
+        <p><strong>(d)</strong> Bose-Einstein-Kondensate können nur mit Bosonen erzeugt werden. Bosonen sind alle Atome, bei denen die Gesamtzahl von Protonen, Neutronen und Elektronen gerade ist. Neutrales Neon besitzt jeweils eine gerade Zahl von Protonen und Elektronen, damit sind diejenigen Isotope mit einer geraden Zahl von Neutronen (²⁰Ne mit 10 und ²²Ne mit 12 Neutronen) Bosonen und können ein Bose-Einstein-Kondensat bilden.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

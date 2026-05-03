@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Blatt 6 - Aufgabe 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Konvergenz von Reihen 6</h2>
+        <p>Sei $\tau: \mathbb{N} \to \mathbb{N}$ eine Bijektion. Nehmen Sie an, dass ein $d > 0$ existiert, so dass</p>
+        $$|\tau(n) - n| \leq d \text{ für alle } n \in \mathbb{N}$$
+        <p>Zeigen Sie:</p>
+        $$\sum_{n=1}^{\infty} a_n \text{ konvergiert } \iff \sum_{n=1}^{\infty} a_{\tau(n)} \text{ konvergiert}$$
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Zunächst bemerken wir, dass die umgekehrte Implikation "⇐=" aus der Implikation "⇒" mit den Daten $a'_n := a_{\tau(n)}$ und $\tau'(n) := \tau^{-1}(n)$ für alle $n \in \mathbb{N}$ folgt. Die Inverse $\tau'$ ist nämlich auch eine beschränkte Umordnung, weil</p>
+        $$|\tau'(n) - n| = |\tau^{-1}(n) - \tau(\tau^{-1}(n))| \leq d \text{ für alle } n \in \mathbb{N}$$
+
+        <p>Wir beweisen noch "⇒". Sei also $\sum_{n=1}^{\infty} a_n$ konvergent. Wir bezeichnen</p>
+        $$D := \lceil d \rceil \geq 1$$
+        
+        <p>Sei $\varepsilon > 0$ beliebig. Nach dem Cauchyschen Konvergenzkriterium für $\sum_{n=1}^{\infty} a_n$ gibt es ein $n'_0 \in \mathbb{N}$, so dass für alle $n \geq m \geq n'_0$ gilt</p>
+        $$\left|\sum_{k=m}^n a_k\right| < \frac{\varepsilon}{4D}$$
+        
+        <p>Wir setzen $n_0 := n'_0 + D$. Seien $n \geq m \geq n_0$ beliebig. Wir bezeichnen</p>
+        $$A := \tau(\{m, m+1,\ldots,n\}) \text{ und } B := \{m-D, m-D+1,\ldots,n+D\}$$
+        
+        <p>Weil die Umordnung $\tau$ durch $d$ beschränkt ist, gilt</p>
+        $$A \subset B$$
+        
+        <p>Weil die Umordnung $\tau$ injektiv ist, gilt</p>
+        $$|A| = |\{m,m+1,\ldots,n\}| = n-m+1$$
+        
+        <p>Daraus folgt</p>
+        $$|B\setminus A| = |B| - |A| = (n+D-(m-D)+1) - (n-m+1) = 2D$$
+        
+        <p>Aus der Injektivität von $\tau$ folgt weiter</p>
+        $$\sum_{k=m}^n a_{\tau(k)} = \sum_{k\in A} a_k$$
+        
+        <p>Wir bemerken noch, dass</p>
+        $$k \in B \implies k \geq m-D \geq n_0-D = n'_0$$
+        
+        <p>Jetzt machen wir die folgenden Abschätzungen:</p>
+        $$\left|\sum_{k=m}^n a_{\tau(k)}\right| = \left|\sum_{k\in A} a_k\right| = \left|\sum_{k\in B} a_k - \sum_{k\in B\setminus A} a_k\right|$$
+        $$\leq \left|\sum_{k\in B} a_k\right| + \left|\sum_{k\in B\setminus A} a_k\right|$$
+        $$= \left|\sum_{k=m-D}^{n+D} a_k\right| + \left|\sum_{k\in B\setminus A} a_k\right|$$
+        $$\leq \left|\sum_{k=m-D}^{n+D} a_k\right| + \sum_{k\in B\setminus A} |a_k| < \frac{\varepsilon}{4D} + |B\setminus A|\frac{\varepsilon}{4D} = \frac{\varepsilon}{4D} + \frac{\varepsilon}{2} < \varepsilon$$
+        
+        <p>Deshalb konvergiert $\sum_{n=1}^{\infty} a_{\tau(n)}$ nach dem Cauchyschen Konvergenzkriterium.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

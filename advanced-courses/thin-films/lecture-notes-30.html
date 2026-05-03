@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 11 - AC/HF/RF Sputtering</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #666;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-label {
+            text-align: right;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-number">Page 2</div>
+
+    <div class="section">
+        <h2>4.3 Electron Confinement by Magnetic Fields</h2>
+
+        <div class="subsection">
+            <h3>Force on the Electron</h3>
+            <div class="formula">
+                \[ \vec{F}_L = m\frac{d\vec{v}}{dt} = q(\vec{E} + \vec{v} \times \vec{B}) \]
+            </div>
+
+            <p>If \(\vec{v} \perp \vec{B}\):</p>
+            <ul>
+                <li>Velocity component ⊥ \(\vec{B}\)</li>
+                <li>Forces electrons on circular path</li>
+            </ul>
+
+            <div class="formula">
+                \[ F_C = \frac{m}{r}v_\perp^2 = \frac{m}{r}(v\sin\theta)^2 \]
+                \[ F_L = q \cdot \frac{v\sin\theta}{v_\perp} \cdot B \]
+                \[ \Rightarrow r = \frac{mv\sin\theta}{qB} \]
+            </div>
+
+            <div class="diagram">
+                <img src="/api/placeholder/400/200" alt="Diagram showing electron motion in magnetic field">
+            </div>
+
+            <p>\(\vec{B} \perp \vec{E}\) - Cycloidal motion of electrons with frequency:</p>
+            <div class="formula">
+                \[ \omega_c = \frac{qB}{m} \]
+            </div>
+        </div>
+
+        <div class="highlight-box">
+            With the help of magnetic field, we can define a new cathode/anode geometry to keep electrons confined for sufficient times → wrap path into a circle!
+        </div>
+
+        <p>It becomes possible to build the entire sputtering system into one device → sputter gun</p>
+    </div>
+
+    <div class="section">
+        <h2>Sputtering Limitations</h2>
+        
+        <div class="highlight-box">
+            Notes:
+            <ul>
+                <li>If incident particle energy is too low → no momentum transfer to target atoms → no sputtering</li>
+                <li>If incident particle energy is too high → implantation</li>
+            </ul>
+        </div>
+        
+        <div class="subsection">
+            <h3>Key Points</h3>
+            <ul>
+                <li>Electrodes now do not need to be conductors</li>
+                <li>Ions cannot follow fully and stay approx. at their positions</li>
+                <li>Energy only accelerates electrons for plasma generation</li>
+            </ul>
+        </div>
+
+        <div class="highlight-box">
+            Note: Surfaces at floating potentials still charge negatively! Insulating targets therefore self-bias to negative potential → behaves like DC target for ions!
+        </div>
+    </div>
+
+    <div class="diagram">
+        <img src="/api/placeholder/500/300" alt="Detailed sputter gun diagram showing shield, target, spacer, and magnetic field configuration">
+    </div>
+
+</body>
+</html>

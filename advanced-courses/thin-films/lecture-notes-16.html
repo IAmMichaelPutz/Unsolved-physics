@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 5 - Pumping Speed and Vacuum Pumps (continued)</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f9fa;
+        }
+        .formula-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+        }
+        .graph {
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-number">Page 2-5</div>
+
+    <div class="section">
+        <h2>Pump Down Time</h2>
+        <div class="formula">
+            \[\Delta Q = Q - Q_p\]
+            <div class="formula-label">Change in flow rate</div>
+        </div>
+
+        <div class="formula">
+            \[\frac{dp(t)}{dt} = -\frac{S_p}{V}[p - \frac{Q_p}{S_p}]\]
+            <div class="formula-label">Pump down equation</div>
+        </div>
+
+        <div class="formula">
+            \[p(t) = (p_i - p_0)\exp(-\frac{S_p}{V}t) + p_0\]
+            <div class="formula-label">Pressure as function of time</div>
+        </div>
+
+        <div class="highlight-box">
+            \[\frac{p(t)-p_0}{p_i-p_0} = \exp(-\frac{S_p}{V}t)\]
+            <div class="formula-label">Time constant form</div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Flow Regimes</h2>
+        <div class="graph">
+            <img src="/api/placeholder/400/300" alt="Pressure vs Time Graph">
+            <p>Different flow regimes:</p>
+            <ul>
+                <li>Viscous flow (seconds to minutes)</li>
+                <li>Intermediate flow</li>
+                <li>Molecular flow (hours)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Vacuum Pumps</h2>
+        <div class="subsection">
+            <h3>A) Gas Transfer Pumps</h3>
+            <p>Removes gas molecules from the chamber permanently</p>
+            <ul>
+                <li>Lubricated pumps: Need liquids for preventing mechanical damage/sealing</li>
+                <li>Oil-free pumps: Used as backup pumps in large systems</li>
+                <li>Turbo molecular pump:
+                    <ul>
+                        <li>Main idea: Change of momentum of residual gas molecules towards exhaust direction</li>
+                        <li>Rotation speed: 20,000 - 80,000 rpm (~300 - 1,000 Hz)</li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>B) Gas Entrapment</h3>
+            <p>Particles are condensed or chemically/physically bound to surfaces inside the pump</p>
+            <ul>
+                <li>Needs occasional recovery/replacement of entrapment area</li>
+            </ul>
+        </div>
+
+        <div class="subsection">
+            <h3>Typical Layout</h3>
+            <img src="/api/placeholder/500/300" alt="Typical pump layout diagram">
+            <p>Components:</p>
+            <ul>
+                <li>Main chamber</li>
+                <li>Turbo Pump</li>
+                <li>Valve</li>
+                <li>Rotary pump</li>
+                <li>Exhaust</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

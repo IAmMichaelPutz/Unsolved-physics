@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Rotationsanregungen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 6: Rotationsanregungen</h2>
+        
+        <p>Im Kochsalzmolekül ²³Na³⁵Cl besitzen die beiden Atome einen Gleichgewichtsabstand von r₀ = 5.6 Å</p>
+
+        <p><strong>(a)</strong> Wie groß ist das Trägheitsmoment I des Moleküls?</p>
+
+        <p><strong>(b)</strong> Wie groß ist die Energie für den Rotationszustand mit j = 1?</p>
+
+        <p><strong>(c)</strong> Die lineare Rückstellkraft des harmonischen Potentials zwischen den Kernen ist gegeben durch die Konstante k = 3.78 · 10³ kgs⁻². Wie groß sind die Energieabstände zwischen den Schwingungszuständen?</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p><strong>(a)</strong> Das Trägheitsmoment errechnet sich über:</p>
+        <p>$I = \mu r_0^2$</p>
+        
+        <p>Für die reduzierte Masse erhält man:</p>
+        <p>$\mu = \frac{m_{Na}m_{Cl}}{m_{Na} + m_{Cl}} = \frac{23\text{ u} \cdot 35\text{ u}}{23\text{ u} + 35\text{ u}} = \frac{805}{58}\text{ u} \approx 2.30 \cdot 10^{-26}\text{ kg}$</p>
+        
+        <p>Das Trägheitsmoment beträgt somit I = 7.23 · 10⁻⁴⁵ kgm².</p>
+
+        <p><strong>(b)</strong> Für die Rotationsenergie gilt:</p>
+        <p>$E_{rot}(j) = \frac{\hbar^2j(j+1)}{2I}$</p>
+        
+        <p>Die Energie des Rotationszustandes mit j = 1 beträgt mit dem in (a) berechneten Trägheitsmoment:</p>
+        <p>$E_{rot}(j=1) = 9.60\text{ meV}$</p>
+
+        <p><strong>(c)</strong> Für die Energie der Schwingung gilt:</p>
+        <p>$E_{vib}(n) = \hbar\omega(n + \frac{1}{2})$</p>
+        
+        <p>Wie beim harmonischen Oszillator haben die einzelnen Energien einen äquidistanten Abstand von ℏω. Für die Frequenz ω gilt nun:</p>
+        <p>$\omega = \sqrt{\frac{k}{\mu}}$</p>
+        
+        <p>Mit der in (a) berechneten reduzierten Masse μ und der angegebenen Konstanten k erhält man nun für den energetischen Abstand:</p>
+        <p>$\Delta E = \hbar\omega = \hbar\sqrt{\frac{k}{\mu}} \approx 0.27\text{ eV}$</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

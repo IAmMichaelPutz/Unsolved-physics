@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Zwischenwertsatz</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Zwischenwertsatz</h2>
+        <p>Beweisen Sie, dass die Funktion $f: (0,\infty) \to \mathbb{R}$ mit $f(x) := e^x - \ln x - 3$ im Intervall $[1,2]$ genau einen Fixpunkt hat.</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+
+        <p>Setze $g: (0,\infty) \to \mathbb{R}$ durch $g(x) := f(x) - x = e^x - \ln x - 3 - x$. Mit $e \in [\frac{5}{2},3]$ und weil der Logarithmus monoton wachsend ist, erhält man:</p>
+
+        $$g(1) = e^1 - \ln 1 - 3 - 1 = e - 3 - 1 \leq -1 \leq 0$$
+
+        <p>und</p>
+
+        $$g(2) = e^2 - \ln 2 - 3 - 2 \geq \left(\frac{5}{2}\right)^2 - 1 - 3 - 2 = \frac{25}{4} - 6 = \frac{1}{4} \geq 0$$
+
+        <p>Nach dem Zwischenwertsatz hat $g$ somit eine Nullstelle in $[1,2]$. Ferner haben wir $g'(x) = e^x - \frac{1}{x} - 1$. Da auf $[1,2]$ die Funktion $x \mapsto e^x$ wächst und die Funktion $x \mapsto \frac{1}{x}$ fällt, erhalten wir</p>
+
+        $$g'(x) \geq g'(1) = e^1 - \frac{1}{1} - 1 \geq \frac{5}{2} - 2 > 0$$
+
+        <p>für alle $x \in [1,2]$ und daher auf diesem Riemann-integrierbar. Mit partieller Integration erhält man die strenge Monotonie von $g$ auf $[1,2]$ und damit die Existenz von genau einer Nullstelle von $g$ in $[1,2]$.</p>
+
+        <p>Da die Nullstellen von $g$ genau den Fixpunkten von $f$ entsprechen, hat $f$ folglich genau einen Fixpunkt in $[1,2]$.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

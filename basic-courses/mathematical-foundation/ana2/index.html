@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsolved Physics Fun - Analysis 2</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    
+    <style>
+        :root {
+            --primary: #0099ff;
+            --secondary: #6366f1;
+            --background: #fafafa;
+            --text: #1a1a1a;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .header {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 500;
+            transition: color 0.2s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--primary);
+        }
+
+        .nav-button {
+            background: var(--primary);
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+
+        .page-title {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+
+        .topic-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        .topic-card h3 {
+            color: var(--text);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .topic-list {
+            list-style: none;
+        }
+
+        .topic-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .topic-list a {
+            text-decoration: none;
+            color: var(--text);
+            transition: color 0.2s ease;
+        }
+
+        .topic-list a:hover {
+            color: var(--primary);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            margin: 2rem 0;
+            color: var(--text);
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .topics-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .main-content {
+                padding: 6rem 1rem 3rem;
+            }
+
+            .page-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Unsolved Physics Fun</div>
+            <nav class="nav-menu">
+                <a href="/">Kurse</a>
+                <a href="/blog">Blog</a>
+                <a href="/jobs">Jobs</a>
+                <a href="/data">Datenportal</a>
+                <button class="nav-button">Login</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <h1 class="page-title">Analysis 2</h1>
+
+        <!-- Mehrdimensionale Analysis -->
+        <h2 class="section-title">Mehrdimensionale Analysis</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Partielle Ableitungen</h3>
+                <ul class="topic-list">
+                    <li><a href="Partielle Ableitungen 1.html">Partielle Ableitungen Grundlagen</a></li>
+                    <li><a href="Partielle Ableitungen 2.html">Höhere Ableitungen</a></li>
+                    <li><a href="Kettenregel.html">Kettenregel</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Differentialrechnung im Rⁿ</h3>
+                <ul class="topic-list">
+                    <li><a href="Gradient.html">Gradient und Richtungsableitung</a></li>
+                    <li><a href="Jacobi Matrix.html">Jacobi-Matrix</a></li>
+                    <li><a href="Hesse Matrix.html">Hesse-Matrix</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Extremwertaufgaben</h3>
+                <ul class="topic-list">
+                    <li><a href="Extrema mehrdim.html">Extrema mehrerer Variablen</a></li>
+                    <li><a href="Nebenbedingungen.html">Extrema unter Nebenbedingungen</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Integralrechnung -->
+        <h2 class="section-title">Mehrdimensionale Integration</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Mehrfachintegrale</h3>
+                <ul class="topic-list">
+                    <li><a href="Doppelintegrale.html">Doppelintegrale</a></li>
+                    <li><a href="Dreifachintegrale.html">Dreifachintegrale</a></li>
+                    <li><a href="Polarkoordinaten.html">Integration in Polarkoordinaten</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Integraltransformationen</h3>
+                <ul class="topic-list">
+                    <li><a href="Substitutionsregel.html">Mehrdimensionale Substitution</a></li>
+                    <li><a href="Koordinatentransformation.html">Koordinatentransformation</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Spezielle Integrale</h3>
+                <ul class="topic-list">
+                    <li><a href="Uneigentliche Integrale.html">Uneigentliche Mehrfachintegrale</a></li>
+                    <li><a href="Volumenberechnung.html">Volumenberechnung</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Vektoranalysis -->
+        <h2 class="section-title">Vektoranalysis</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Vektorfelder</h3>
+                <ul class="topic-list">
+                    <li><a href="Vektorfelder.html">Grundlagen Vektorfelder</a></li>
+                    <li><a href="Divergenz.html">Divergenz</a></li>
+                    <li><a href="Rotation.html">Rotation</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Kurvenintegrale</h3>
+                <ul class="topic-list">
+                    <li><a href="Wegintegrale.html">Wegintegrale</a></li>
+                    <li><a href="Wegunabhängigkeit.html">Wegunabhängigkeit</a></li>
+                    <li><a href="Potentialfelder.html">Potentialfelder</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Flächenintegrale</h3>
+                <ul class="topic-list">
+                    <li><a href="Flächenintegrale.html">Flächenintegrale 1. Art</a></li>
+                    <li><a href="Flussintegrale.html">Flächenintegrale 2. Art</a></li>
+                    <li><a href="Gaußscher Satz.html">Gaußscher Integralsatz</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Differentialgleichungen -->
+        <h2 class="section-title">Differentialgleichungen</h2>
+        <div class="topics-grid">
+            <div class="topic-card">
+                <h3>Gewöhnliche DGL</h3>
+                <ul class="topic-list">
+                    <li><a href="DGL 1 Ordnung.html">DGL 1. Ordnung</a></li>
+                    <li><a href="DGL 2 Ordnung.html">DGL 2. Ordnung</a></li>
+                    <li><a href="Lineare DGL.html">Lineare DGL</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Lösungsmethoden</h3>
+                <ul class="topic-list">
+                    <li><a href="Separable DGL.html">Separation der Variablen</a></li>
+                    <li><a href="Variation der Konstanten.html">Variation der Konstanten</a></li>
+                    <li><a href="Laplace Transformation.html">Laplace-Transformation</a></li>
+                </ul>
+            </div>
+
+            <div class="topic-card">
+                <h3>Systeme und Anwendungen</h3>
+                <ul class="topic-list">
+                    <li><a href="DGL Systeme.html">DGL-Systeme</a></li>
+                    <li><a href="Physikalische Anwendungen.html">Physikalische Anwendungen</a></li>
+                    <li><a href="Stabilität.html">Stabilität von Lösungen</a></li>
+                </ul>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

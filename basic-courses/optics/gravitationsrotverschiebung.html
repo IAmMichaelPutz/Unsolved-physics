@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Gravitationsrotverschiebung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Gravitationsrotverschiebung</h1>
+    
+    <div class="task">
+        <p>a) Wie groß ist die relative Frequenzverschiebung $\frac{\Delta\nu}{\nu}$ eines Photons, das sich im Gravitationsfeld der Erde um die Strecke $s = 5m$ senkrecht zur Erdoberfläche nach oben bewegt?</p>
+        
+        <p>b) Ist die Verschiebung beobachtbar für:</p>
+        <ul>
+            <li>Photonen aus einem atomaren Übergang des Natriums ($\lambda = 589,6\text{ nm}$, $\tau = 16,4\text{ ns}$)</li>
+            <li>$\gamma$-Quanten von einem Kernübergang von Zn ($E_\gamma = 93,32\text{ keV}$, $\tau = 14,6\text{ µs}$)</li>
+        </ul>
+        <p>Hinweis: Es gilt die Unschärferelation $\Delta E \cdot \tau = h$. Die Verschiebung ist beobachtbar falls $\frac{\Delta E}{E} \leq \frac{\Delta\nu}{\nu}$</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>a) Relative Frequenzverschiebung</h3>
+        <p>Die potentielle Energie eines Photons in der Nähe der Erdoberfläche ist $U_P = mgs$, wobei $g = 9,81 \frac{m}{s^2}$ die Gravitationskonstante ist und die Masse über $mc^2 = h\nu$ berechnet werden kann.</p>
+        
+        <p>Es gilt:</p>
+        <p>$h\nu_s = h\nu - mgs = h\nu(1 - \frac{\nu gs}{c^2})$</p>
+        
+        <p>Daraus folgt:</p>
+        <p>$\frac{\Delta\nu}{\nu} = -\frac{gs}{c^2} = 5,45 \cdot 10^{-15}$</p>
+
+        <h3>b) Beobachtbarkeit der Verschiebung</h3>
+        <p>Durch Umformen der Unschärferelation erhalten wir:</p>
+        <p>$\frac{\Delta E}{E} \approx \frac{h}{\tau h\nu} = \frac{\lambda}{\tau c}$</p>
+
+        <p><strong>Für den Natriumübergang:</strong></p>
+        <p>$\frac{\Delta E}{E} = 1,2 \cdot 10^{-7}$</p>
+        <p>Da dieser Wert viel größer als die spektrale Halbwertsbreite ist, kann man die Rotverschiebung nicht erkennen.</p>
+
+        <p><strong>Für den Kernübergang:</strong></p>
+        <p>$\frac{\Delta E}{E} = 3,4 \cdot 10^{-15}$</p>
+        <p>Dieser Wert liegt in der Größenordnung der spektralen Halbwertsbreite. Die Rotverschiebung ist hier also beobachtbar.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

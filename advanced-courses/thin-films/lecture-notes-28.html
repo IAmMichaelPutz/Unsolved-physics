@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 10 - Extended Content</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+        .formula-label {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+        .note {
+            font-style: italic;
+            color: #666;
+        }
+        .homework {
+            background: #f5f5f5;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .problem {
+            margin: 20px 0;
+            padding-left: 20px;
+            border-left: 3px solid #ccc;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Homework 4</h2>
+        
+        <div class="homework">
+            <div class="problem">
+                <h3>Problem 10: Clausius-Clapeyron Analysis</h3>
+                <div class="formula">
+                    \[p(T) \propto \exp\left(-\frac{\Delta H}{RT}\right)\]
+                    <div class="formula-label">Clausius-Clapeyron Equation</div>
+                </div>
+                
+                <p>Rates are proportional to vapor pressure. Rate ratio R:</p>
+                
+                <div class="formula">
+                    \[R \propto \Phi \propto p(T) \propto \exp\left(-\frac{\Delta H}{RT}\right)\]
+                </div>
+
+                <div class="subsection">
+                    <h4>Given Values:</h4>
+                    <ul>
+                        <li>ΔH<sub>Fe</sub> ~ 340 kJ/mol</li>
+                        <li>T₁ = 1823 K</li>
+                        <li>T₂ = T₁ + 100K = 1923 K</li>
+                    </ul>
+                </div>
+
+                <div class="formula">
+                    \[\frac{R_2}{R_1} = \frac{\exp\left(-\frac{\Delta H}{RT_2}\right)}{\exp\left(-\frac{\Delta H}{RT_1}\right)} = \exp\left[\frac{\Delta H}{R}\left(\frac{1}{T_1} - \frac{1}{T_2}\right)\right] \approx 3.21\]
+                </div>
+
+                <p>Since rates are proportional to area (R ∝ Φ·A ∝ A):</p>
+                <div class="formula">
+                    \[\frac{R_2}{R_1} = 3.21 = \frac{A_2}{A_1} \Rightarrow A_2 = 3.21\text{ cm}^2 \text{ (given } A_1 = 1\text{ cm}^2)\]
+                </div>
+            </div>
+
+            <div class="problem">
+                <h3>Problem 11: Gas Analysis</h3>
+                <p>Formula: γBa₂Cu₃ ⇒ γ:Ba:Cu = 1:2:3, α<sub>γ</sub>=α<sub>Ba</sub>=α<sub>Cu</sub></p>
+                
+                <div class="formula">
+                    \[\frac{3}{1} = \frac{\Phi_{Cu}}{\Phi_γ} = \frac{\alpha_{Cu}}{\alpha_γ} \cdot \frac{p_{Cu,0}}{p_{γ,0}} \cdot \sqrt{\frac{M_γ}{M_{Cu}}}\]
+                    <div class="formula-label">Raoult's Law Application</div>
+                </div>
+
+                <h4>Results:</h4>
+                <table>
+                    <tr>
+                        <th>Element</th>
+                        <th>Mass (u)</th>
+                        <th>p₀ (torr)</th>
+                        <th>p₀ (Pa)</th>
+                    </tr>
+                    <tr>
+                        <td>Cu</td>
+                        <td>63.5</td>
+                        <td>2.53×10⁻³</td>
+                        <td>0.338</td>
+                    </tr>
+                    <tr>
+                        <td>Ba</td>
+                        <td>137</td>
+                        <td>2.48×10⁻³</td>
+                        <td>0.33</td>
+                    </tr>
+                    <tr>
+                        <td>γ</td>
+                        <td>89</td>
+                        <td>10⁻³</td>
+                        <td>0.133</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Chemical Analysis</h2>
+        
+        <div class="subsection">
+            <h3>Clausius-Clapeyron Integration</h3>
+            <div class="formula">
+                \[p(T) = p_0 \exp\left(-\frac{\Delta H}{RT}\right)\]
+            </div>
+
+            <p>Boiling points data at 1bar:</p>
+            <table>
+                <tr>
+                    <th>Element</th>
+                    <th>ΔH (kJ/mol)</th>
+                    <th>T<sub>B</sub> (K)</th>
+                </tr>
+                <tr>
+                    <td>Ba</td>
+                    <td>140</td>
+                    <td>2118</td>
+                </tr>
+                <tr>
+                    <td>γ</td>
+                    <td>330</td>
+                    <td>3203</td>
+                </tr>
+                <tr>
+                    <td>Cu</td>
+                    <td>300</td>
+                    <td>2835</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+</body>
+</html>

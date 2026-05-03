@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 10 - Final Part</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 5px;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            padding: 10px;
+            background: #f8f8f8;
+        }
+        .formula-label {
+            font-size: 0.9em;
+            color: #666;
+            text-align: right;
+            margin-top: 5px;
+        }
+        .problem {
+            margin: 20px 0;
+            padding: 20px;
+            background: #f5f5f5;
+            border-radius: 5px;
+        }
+        .diagram {
+            margin: 20px 0;
+            padding: 20px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .note {
+            font-style: italic;
+            color: #666;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="section">
+        <h2>Problem 12: Geometric Analysis</h2>
+        
+        <div class="problem">
+            <h3>Part a) Configuration Analysis</h3>
+            <p>Given conditions:</p>
+            <ul>
+                <li>T = 1300K</li>
+                <li>p<sub>A</sub> = 10p<sub>B</sub></li>
+                <li>60:40 atom %</li>
+            </ul>
+
+            <div class="formula">
+                \[\frac{60}{40} = \frac{\Phi_A}{\Phi_B}\]
+            </div>
+
+            <div class="diagram">
+                <img src="/api/placeholder/400/300" alt="Geometric configuration diagram">
+                <p class="note">Configuration parameters:</p>
+                <ul>
+                    <li>h = 50cm</li>
+                    <li>Base width = 100cm</li>
+                    <li>r<sub>A</sub> = \[\sqrt{(x-50)^2 + 50^2}\]</li>
+                    <li>r<sub>B</sub> = \[\sqrt{(x+50)^2 + 50^2}\]</li>
+                </ul>
+            </div>
+
+            <div class="formula">
+                \[\frac{60}{40} = \frac{3}{2} = \frac{\Phi_A}{\Phi_B} = \frac{p_A}{p_B} \cdot \frac{r_B^2}{r_A^2} \cdot \frac{\cos \theta_A}{\cos \theta_B} = \frac{p_A}{p_B} \cdot \frac{r_B^3}{r_A^3}\]
+                <div class="formula-label">Geometric Flux Ratio</div>
+            </div>
+
+            <div class="formula">
+                \[\frac{3}{2} = 10 \frac{r_B^3}{r_A^3} \Rightarrow x = -34.7\text{ cm}\]
+                <div class="formula-label">Solution</div>
+            </div>
+        </div>
+
+        <div class="problem">
+            <h3>Part b) Enthalpy Analysis</h3>
+            <p>Given conditions:</p>
+            <ul>
+                <li>T = 1500K</li>
+                <li>p<sub>A</sub> = 15p<sub>B</sub></li>
+            </ul>
+
+            <div class="formula">
+                \[\ln\left(\frac{p(T)}{p_B}\right) = -\frac{\Delta H}{RT}\]
+            </div>
+
+            <div class="formula">
+                \[\frac{\Delta H_B}{RT} - \frac{\Delta H_A}{RT} = \frac{\Delta(\Delta H)}{RT} = \ln\left[\frac{p_A/p_{B,A}}{p_B/p_{B,B}}\right] = \ln\left[\frac{p_A}{p_B} \cdot \frac{p_{B,B}}{p_{B,A}}\right]\]
+            </div>
+
+            <p>For T = 1300K: ln(10) + c = ΔH/(R·1300K)</p>
+            <p>For T = 1500K: ln(15) + c = ΔH/(R·1500K)</p>
+
+            <div class="formula">
+                \[\Delta(\Delta H) = -32.8\text{ kJ/mol}\]
+                <div class="formula-label">Final Result</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Dreiecksungleichung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution, .remarks {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: block;
+            background-color: #f9f9f9;
+        }
+        .remarks {
+            background-color: #f5f5f5;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 2a</h2>
+        <p>Seien $\vec{x} = \begin{pmatrix} x_1 \\ x_2 \end{pmatrix}$ und $\vec{y} = \begin{pmatrix} y_1 \\ y_2 \end{pmatrix}$ Vektoren aus $\mathbb{R}^2$. Die euklidische Norm von $\vec{x}$ ist definiert als</p>
+        $$\|\vec{x}\| := \sqrt{x_1^2 + x_2^2}$$
+        <p>Die Summe von $\vec{x}$ und $\vec{y}$ ist definiert als</p>
+        $$\vec{x} + \vec{y} := \begin{pmatrix} x_1 + y_1 \\ x_2 + y_2 \end{pmatrix} \in \mathbb{R}^2$$
+        <p>a) Beweisen Sie mit Hilfe der Aufgabe 1 die Dreiecksungleichung für die euklidische Norm:</p>
+        $$\|\vec{x} + \vec{y}\| \leq \|\vec{x}\| + \|\vec{y}\|$$
+    </div>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Nach der Einsetzung der Definition lautet die Ungleichung</p>
+        $$\sqrt{(x_1 + y_1)^2 + (x_2 + y_2)^2} \leq \sqrt{x_1^2 + x_2^2} + \sqrt{y_1^2 + y_2^2}$$
+        
+        <p>Wir machen folgende Umformungen:</p>
+        $$\sqrt{(x_1 + y_1)^2 + (x_2 + y_2)^2} \leq \sqrt{x_1^2 + x_2^2} + \sqrt{y_1^2 + y_2^2} \quad /(..)^2$$
+        
+        $$(x_1 + y_1)^2 + (x_2 + y_2)^2 \leq x_1^2 + x_2^2 + 2\sqrt{x_1^2 + x_2^2}\sqrt{y_1^2 + y_2^2} + y_1^2 + y_2^2$$
+        $$-(x_1^2+y_1^2+x_2^2+y_2^2)$$
+        
+        $$2x_1y_1 + 2x_2y_2 \leq 2\sqrt{x_1^2 + x_2^2}\sqrt{y_1^2 + y_2^2} \quad /\frac{1}{2}(..)$$
+        
+        $$x_1y_1 + x_2y_2 \leq \sqrt{x_1^2 + x_2^2}\sqrt{y_1^2 + y_2^2} \quad /(..)^2$$
+        
+        $$(x_1y_1 + x_2y_2)^2 \leq (x_1^2 + x_2^2)(y_1^2 + y_2^2)$$
+        $$-(x_1^2y_1^2+x_2^2y_2^2)$$
+        
+        $$2x_1y_1x_2y_2 \leq x_1^2y_2^2 + x_2^2y_1^2 \quad /\frac{1}{2}(..)$$
+        
+        $$(x_1y_2)(x_2y_1) \leq \frac{1}{2}((x_1y_2)^2 + (x_2y_1)^2)$$
+        
+        <p>Die letzte Ungleichung folgt aber sofort aus Aufgabe 1 mit $x = x_1y_2$ und $y = x_2y_1$.</p>
+    </div>
+
+    <div class="remarks">
+        <h3>Bemerkungen zur Aufgabe 2:</h3>
+        
+        <p><strong>• Wie ist die euklidische Norm auf $\mathbb{R}^n$ definiert?</strong></p>
+        $$\|\vec{x}\| := \sqrt{\sum_{k=1}^n x_k^2} \quad \text{für } \vec{x} = \begin{pmatrix} x_1 \\ \vdots \\ x_n \end{pmatrix} \in \mathbb{R}^n$$
+
+        <p><strong>• Ungleichung (3) im Beweis folgt aus der Cauchy-Schwarzsche-Ungleichung</strong></p>
+        $$|\langle\vec{x}, \vec{y}\rangle| \leq \|\vec{x}\| \|\vec{y}\|$$
+
+        <p><strong>• Kann man den Beweis für die euklidische Norm auf $\mathbb{R}^n$ verallgemeinern?</strong></p>
+        <p>Ja. Gekürzt:</p>
+        $$\sqrt{\sum(x_k + y_k)^2} \leq \sqrt{\sum x_k^2} + \sqrt{\sum y_k^2}$$
+        $$\quad/(..)^2$$
+        $$\sum x_k^2 + \sum y_k^2 + 2\sum x_ky_k \leq \sum x_k^2 + \sum y_k^2 + 2\sqrt{\sum x_k^2}\sqrt{\sum y_k^2}$$
+        $$\quad/\text{Vereinf. \& }(..)^2$$
+        $$\left(\sum x_ky_k\right)^2 \leq \left(\sum x_k^2\right)\left(\sum y_k^2\right)$$
+        $$\quad/\text{Ausmultip.}$$
+        $$\sum x_k^2y_k^2 + \sum_{k\neq l} x_ky_kx_ly_l \leq \sum x_k^2y_k^2 + \sum_{k\neq l} x_k^2y_l^2$$
+        $$\quad/\text{Vereinf.}$$
+        $$\sum_{k<l} (x_ky_l)(x_ly_k) \leq \frac{1}{2}\sum_{k<l}((x_ky_l)^2 + (x_ly_k)^2)$$
+        
+        <p>Die erste Ungleichung folgt aus der letzten und die letzte folgt aus mehrfacher Anwendung der Aufgabe 1.</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+        .equation-number {
+            float: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-list">
+        <div id="exercise1" class="exercise-card">
+            <h3 class="exercise-title">1 Sliding Rope</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>A rope of length l and constant linear mass density λ slides without friction over a table edge downwards. Set up the equation of motion and solve it with the initial conditions:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        x(0) &= x_0 \quad 0 < x_0 < l \tag{1} \\
+                        \dot{x}(0) &= 0 \tag{2}
+                        \end{align}
+                    </div>
+                </div>
+                <div class="exercise-media">
+                        <img src="pics/sliding-rope.png" width="300" alt="Ebenes Pendel">
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <p>The x-axis points vertically upward in this case. From the constant mass density, we obtain for the energies:</p>
+                    <div class="math-block">
+                        \begin{align}
+                        T &= \frac{\lambda l}{2}\dot{x}^2 \tag{3} \\
+                        V &= -\lambda g\int_0^x x'\,dx' = -\frac{\lambda gx^2}{2} \tag{4}
+                        \end{align}
+                    </div>
+                    <p>For the Lagrange function therefore:</p>
+                    <div class="math-block">
+                        \[ \mathcal{L} = \frac{\lambda l}{2}\left(\dot{x}^2 + \frac{g}{l}x^2\right) \tag{5} \]
+                    </div>
+                    <p>The equation of motion then results in:</p>
+                    <div class="math-block">
+                        \[ \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{x}} - \frac{\partial\mathcal{L}}{\partial x} = \lambda l\ddot{x} - \lambda gx = 0 \quad \Leftrightarrow \quad \ddot{x} - \frac{g}{l}x = 0 \tag{6} \]
+                    </div>
+                    <p>With the ansatz x(t) = A·e^{st} we arrive at the solution:</p>
+                    <div class="math-block">
+                        \[ x(t) = A_1e^{\sqrt{\frac{g}{l}}t} + A_2e^{-\sqrt{\frac{g}{l}}t} \tag{7} \]
+                    </div>
+                    <p>The initial conditions yield: A₁ = A₂ = x₀/2 and thus:</p>
+                    <div class="math-block">
+                        \[ x(t) = x_0 \cdot \frac{e^{\sqrt{\frac{g}{l}}t} + e^{-\sqrt{\frac{g}{l}}t}}{2} = x_0 \cdot \cosh\left(\sqrt{\frac{g}{l}}t\right) \tag{8} \]
+                    </div>
+                </div>
+            </details>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Ebener Spiegel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .question {
+            margin-bottom: 10px;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ebener Spiegel</h1>
+
+    <div class="task">
+        <p>Vor einem ebenen Spiegel befindet sich im Abstand a ein Gegenstand der Größe y.</p>
+        
+        <div class="question">
+            <strong>a)</strong> Führen Sie die Bildkonstruktion durch. Entsteht ein virtuelles Bild?
+        </div>
+        <div class="question">
+            <strong>b)</strong> Ermitteln Sie die Bildweite a* mit Hilfe der Abbildungsgleichung.
+        </div>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p><strong>a)</strong> Es entsteht ein virtuelles Bild.</p>
+        <img src="/api/placeholder/400/200" alt="Bildkonstruktion am ebenen Spiegel">
+        
+        <p><strong>b)</strong> Abbildungsgleichung ist:</p>
+        <p>$\frac{1}{f} = \frac{1}{a} + \frac{1}{a^*}$</p>
+        
+        <p>Ein ebener Spiegel besitzt einen unendlichen Krümmungsradius. Damit gilt $f = \infty$. Es folgt daraus:</p>
+        <p>$a^* = -a$</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 8 - Complete Notes</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #666;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-label {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        .example {
+            background-color: #f5f5f5;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #666;
+        }
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lecture 8</h1>
+
+    <!-- Previous content remains the same -->
+
+    <div class="section">
+        <h2>Film Thickness Uniformity (continued)</h2>
+        
+        <div class="subsection">
+            <h3>Experimental Observation</h3>
+            <p>Oriented material transfer is described by a cosine law</p>
+            
+            <div class="formula">
+                \[ \frac{dM_s}{dA_s} = \frac{(n+1)M_e}{2\pi r^2} \cos\theta \cos^n\phi \]
+                <div class="formula-label">Material transfer equation with orientation factor</div>
+            </div>
+
+            <div class="highlight-box">
+                <p>For a plane source:</p>
+                \[ \frac{dM_s}{dA_s} = \frac{M_e}{πr^2}\cos(\theta)\cos(\phi) \]
+            </div>
+
+            <div class="subsection">
+                <h3>Source Configurations</h3>
+                <ul>
+                    <li>Plate: n = 1</li>
+                    <li>Boat: n = 1...3</li>
+                    <li>Cup: n = 3...7</li>
+                    <li>Knudsen cell: n >> 15 (e.g. for dangerous or very rare materials like uranium)</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Thickness Uniformity Analysis</h2>
+            
+            <div class="formula">
+                \[ dM_s = S \cdot dA_s \cdot d \]
+                <div class="formula-label">Mass-thickness relationship</div>
+            </div>
+
+            <div class="example">
+                <h3>Example: Point Source</h3>
+                \[ d = \frac{1}{S}\frac{dM_s}{dA_s} = \frac{1}{S}\frac{M_e}{4\pi r^2}\cos\theta \]
+                \[ d = \frac{1}{S}\frac{M_e}{4\pi}\frac{h}{(x^2+h^2)^{3/2}} \]
+                <p>Where:</p>
+                <ul>
+                    <li>S: density</li>
+                    <li>d: thickness</li>
+                    <li>h: height</li>
+                    <li>x: lateral distance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Homework Problems</h2>
+            
+            <div class="subsection">
+                <h3>Ex. 8: Gas Flow Analysis</h3>
+                <p>Option A: Exponential function solution for time values</p>
+                <p>Option B: Using ideal gas law PV = NkₐT</p>
+                
+                <div class="formula">
+                    \[ \Delta N = N_2-N_1 = (P_2-P_1)\frac{V}{k_aT} = \Delta P\frac{V}{k_aT} \]
+                    <div class="formula-label">Change in particle number</div>
+                </div>
+
+                <div class="highlight-box">
+                    \[ Q = \frac{\Delta N}{\Delta t}k_aT = \frac{P_2-P_1}{\Delta t}V \]
+                    <p>Leakage rate: 2·10⁻⁶ mbar ℓ/s</p>
+                </div>
+            </div>
+
+            <div class="subsection">
+                <h3>Ex. 9: Impingement Rates Comparison</h3>
+                <div class="formula">
+                    \[ \phi_g = \frac{P}{\sqrt{2\pi mk_BT}} = \frac{N_AP}{\sqrt{2\pi M_gRT}} \]
+                    \[ \phi_{He} = \rho\cdot\phi = \frac{N_AS_{He}}{M_{He}}\phi \]
+                    <div class="formula-label">Gas impingement rate equations</div>
+                </div>
+                
+                <p>With the following values:</p>
+                <ul>
+                    <li>S<sub>He</sub> = 2.7 g/cm³</li>
+                    <li>M<sub>He</sub> = 26.38 g/mole</li>
+                    <li>T = 293K</li>
+                </ul>
+                
+                <div class="highlight-box">
+                    <p>Result: P = 2.1·10⁻⁶ mbar</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

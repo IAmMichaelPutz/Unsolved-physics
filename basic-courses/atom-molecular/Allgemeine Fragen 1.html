@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Allgemeine Fragen zur Quantenmechanik</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 1: Allgemeine Fragen zur Quantenmechanik</h2>
+        
+        <p><strong>(a)</strong> Welche Relation muss ein Operator erfüllen damit die dazugehörige Observable eine Erhaltungsgröße darstellt?</p>
+        
+        <p><strong>(b)</strong> Was versteht man unter der Heisenbergschen Unschärferelation für Ort und Impuls?</p>
+        
+        <p><strong>(c)</strong> Wie werden Bosonen und Fermionen definiert und was besagt das Pauli-Prinzip?</p>
+        
+        <p><strong>(d)</strong> Erklären Sie die Quantenzahlen n, l, m. Welche Rolle spielen sie im Wasserstoffatom ohne Berücksichtigung von Korrekturen?</p>
+        
+        <p><strong>(e)</strong> Was versteht man allgemein unter einem Satz von guten Quantenzahlen? Was sind die guten Quantenzahlen für ein einfaches, wasserstoffähnliches Atom ohne und mit Berücksichtigung der Spin-Bahn-Kopplung?</p>
+        
+        <p><strong>(f)</strong> Nennen Sie mindestens zwei Gründe, weshalb stationäre Zustände in der Quantenmechanik eine so wichtige Rolle spielen.</p>
+        
+        <p><strong>(g)</strong> Was ist die Bedeutung der Wellenfunktion in der Quantenmechanik?</p>
+        
+        <p><strong>(h)</strong> Wie lauten die Auswahlregeln für elektrische Dipolübergänge?</p>
+        
+        <p><strong>(i)</strong> Wie lauten die Energie-Eigenwerte $E_n$ des eindimensionalen harmonischen Oszillators im stationären Zustand?</p>
+        
+        <p><strong>(j)</strong> Was versteht man unter entarteten Energieniveaus?</p>
+        
+        <p><strong>(k)</strong> Erklären Sie das Zustandekommen der Feinstruktur und der Hyperfeinstruktur im Wasserstoffatom. Wo liegt der Unterschied?</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p><strong>(a)</strong> Eine quantenmechanische Observable A ist eine Erhaltungsgröße wenn der dazugehörige Operator mit dem Hamiltonoperator kommutiert, also wenn $[Ĥ,Â] = 0$ gilt.</p>
+
+        <p><strong>(b)</strong> Die Heisenbergsche Unschärferelation lautet $\Delta x\Delta p \geq \hbar$. Sie besagt, dass Ort und Impuls nicht gleichzeitig exakt bestimmbar sind.</p>
+
+        <p><strong>(c)</strong> Bosonen sind Teilchen mit ganzzahligem Spin. Fermionen sind Teilchen mit halbzahligem Spin. Das Pauli-Prinzip besagt, dass die Fermionen-Vielteilchen-Zustandsfunktion unter Austausch zweier Teilchen antisymmetrisch sein muss.</p>
+
+        <p><strong>(d)</strong> Die Quantenzahl n = 1,2,... ist die Hauptquantenzahl. Sie bestimmt die Energiezustände. Die Quantenzahl l = 0,1,...,n-1 ist die Drehimpulsquantenzahl. Mit ihr lässt sich der Betrag des Drehimpulses über $|L| = \hbar\sqrt{l(l+1)}$ bestimmen. Die Quantenzahl m = -l,-l+1,...,l-1,l ist die magnetische Quantenzahl. Sie bestimmt die z-Komponente des Drehimpulses über $L_z = \hbar m$.</p>
+
+        <p><strong>(e)</strong> Gute Quantenzahlen sind immer mit Erhaltungsgrößen verbunden. Für wasserstoffähnliche Systeme ohne Spin-Bahn-Kopplung sind n, l, $m_l$ und $m_s$ gute Quantenzahlen. Berücksichtigt man die Spin-Bahn-Kopplung ist $m_j$ an Stelle von $m_l$ und $m_s$ eine gute Quantenzahl da l und s um j präzedieren.</p>
+
+        <p><strong>(f)</strong> 1. Die stationären Zustände sind die Energie-Eigenzustände, d.h. die Zustände mit scharfer Energie. Sind sie bekannt, dann kann man aus der Wellenfunktion des Systems die Wahrscheinlichkeiten für die möglichen Energie-Messwerte berechnen.<br>
+        2. Die stationären Zustände haben eine einfache Zeitentwicklung: Multiplikation mit dem Phasenfaktor $e^{-iE_nt/\hbar}$. Durch Entwicklung nach den stationären Zuständen kann man die zeitliche Entwicklung eines beliebigen Zustandes berechnen.</p>
+
+        <p><strong>(g)</strong> Die Wellenfunktion enthält alle Information über das betrachtete quantenmechanische System. Das Absolutquadrat der Ortswellenfunktion ergibt die Aufenthaltswahrscheinlichkeit(-sdichte) eines Teilchen.</p>
+
+        <p><strong>(h)</strong> Die Auswahlregeln lauten: $\Delta l = \pm1$, $\Delta m_{l,j} = 0,\pm1$, $\Delta s = 0$, $\Delta m_s = 0$, $\Delta j = 0,\pm1$ $(j = 0 \not\rightarrow j = 0)$.</p>
+
+        <p><strong>(i)</strong> Die Energie-Eigenwerte lauten $E_n = \hbar\omega(n + 1/2)$.</p>
+
+        <p><strong>(j)</strong> Entartete Energieniveaus sind verschiedene Zustände mit gleicher Energie in quantenmechanischen Systemen.</p>
+
+        <p><strong>(k)</strong> Feinstruktur: Im Ruhesystem des Elektrons erzeugt die Kreisbewegung des Kerns ein Magnetfeld am Elektron, welches mit dem magnetischen Moment des Elektrons wechselwirkt. Das magnetische Moment ist proportional zu dem Spin des Elektrons. Die Energieverschiebung ergibt sich aus $E = -\mu_s \cdot B$. Da das Elektron s = 1/2 hat, spalten die Niveaus in zwei Unterniveaus auf (Dubletts). Man koppelt J = L + S<br><br>
+        Hyperfeinstruktur: Kreisbewegung (bzw Kreisstrom) des Elektrons erzeugt am Kern ein Magnetfeld, welches mit dem magnetischen Moment des Kerns wechselwirkt. Das magnetische Moment des Kerns ist proportional zu dem Spin des Kerns I. Die Energieverschiebung ergibt sich aus E = -$\mu_i \cdot B$. Man koppelt F = I + J. Für Wasserstoff hat das Proton I = 1/2, d.h. es ergeben sich wieder zwei Unterniveaus.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

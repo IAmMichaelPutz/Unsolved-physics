@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Häufungswerte von Folgen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Häufungswerte von Folgen</h2>
+        <p>Bestimmen Sie alle Häufungswerte und, falls existent, den Limes superior und den Limes inferior der Folge $(a_n)_{n\in\mathbb{N}}$ mit</p>
+        
+        $$a_n := \begin{cases} 
+            \sqrt{n}\cdot\sinh(n), & n \text{ ungerade}, \\
+            (-1)^{n/2}\cdot\frac{n-3}{n+3}, & n \text{ gerade}.
+        \end{cases}$$
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Wir betrachten die drei Teilfolgen $(b_k)_{k\in\mathbb{N}}$, $(c_k)_{k\in\mathbb{N}}$ und $(d_k)_{k\in\mathbb{N}}$ definiert durch $b_k := a_{4k}$, $c_k := a_{4k-2}$ und $d_k := a_{2k-1}$ für alle $k \in \mathbb{N}$. Es gilt:</p>
+
+        $$b_k = \frac{4k-1}{4k+3} = \frac{4-\frac{1}{k}}{4+\frac{3}{k}} \to 1$$
+
+        und
+
+        $$c_k = (-1)\cdot\frac{4k-2-1}{4k-2+3} = -\frac{4k-3}{4k+1} = -\frac{4-\frac{3}{k}}{4+\frac{1}{k}} \to -1$$
+
+        <p>für $k \to \infty$. -1 und 1 sind damit Häufungswerte von $(a_n)_{n\in\mathbb{N}}$. Wegen $\sqrt{n} \geq 1$ für alle $n \in \mathbb{N}$ und weil die Folge $(\sinh(n))_{n\in\mathbb{N}}$ sowie jeder ihrer Teilfolgen nach oben unbeschränkt ist, hat die Teilfolge $c_k = \sqrt{(2k-1)}\cdot\sinh(2k-1)$ keine Konvergente Teilfolge.</p>
+
+        <p>Da jedes Folgenglied von $(a_n)_{n\in\mathbb{N}}$ in einer der drei oben definierten Teilfolge vorkommt, hat $(a_n)_{n\in\mathbb{N}}$ keine weiteren als die bereits genannten Häufungswerte und ist nach unten beschränkt.</p>
+
+        <p>Somit ist $\{-1,1\}$ die Menge der Häufungswerte und der Limes inferior ist -1. Der Limes superior existiert nicht (bzw. ist $\infty$), da $(a_n)_{n\in\mathbb{N}}$ nach oben unbeschränkt ist.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

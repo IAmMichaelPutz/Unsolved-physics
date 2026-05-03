@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        .exercise-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+        }
+        .exercise-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 20px;
+        }
+        .exercise-text {
+            flex: 2;
+        }
+        .exercise-media {
+            flex: 1;
+            min-width: 200px;
+        }
+        .math-block {
+            margin: 1em 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="exercise-list">
+        <!-- Exercise 1 -->
+        <div id="exercise1" class="exercise-card">
+            <h3 class="exercise-title">Particle on a Rod</h3>
+            <div class="exercise-content">
+                <div class="exercise-text">
+                    <p>A particle of mass m is constrained by a force to move frictionlessly along a massless rod. The rod rotates at a fixed angle θ to the z-axis with constant angular velocity ω. No other forces act!</p>
+                    <p>1. Derive the Lagrangian of the particle explicitly in spherical coordinates.</p>
+                    <p>2. Determine the equation of motion for the radius r(t) from the Lagrangian and solve it with initial conditions r(0) = r₀ and ṙ(0) = 0. Sketch the motion of the particle.</p>
+                </div>
+                <div class="exercise-media">
+                    <img src="/api/placeholder/200/200" alt="Particle on rotating rod">
+                </div>
+            </div>
+            <details>
+                <summary>Show Solution</summary>
+                <div class="solution">
+                    <h4>1. Kinetic Energy in Spherical Coordinates:</h4>
+                    <div class="math-block">
+                        \begin{align}
+                        T &= \frac{m}{2}(\dot{r}^2 + r^2\sin^2(\theta)\dot{\phi}^2 + r^2\dot{\theta}^2) \tag{1} \\
+                        &= \frac{m}{2}(\dot{r}^2 + r^2\sin^2(\theta)\omega^2) \tag{2}
+                        \end{align}
+                    </div>
+                    
+                    <p>Potential energy (no forces acting!):</p>
+                    <div class="math-block">
+                        \[ U = 0 \tag{3} \]
+                    </div>
+                    
+                    <p>Therefore, the Lagrangian:</p>
+                    <div class="math-block">
+                        \[ \mathcal{L} = T - U = \frac{m}{2}(\dot{r}^2 + r^2\sin^2(\theta)\omega^2) \tag{4} \]
+                    </div>
+
+                    <h4>2. Equation of Motion:</h4>
+                    <div class="math-block">
+                        \begin{align}
+                        \frac{d}{dt}\frac{\partial\mathcal{L}}{\partial\dot{r}} - \frac{\partial\mathcal{L}}{\partial r} &= m\ddot{r} - mr\sin^2(\theta)\omega^2 = 0 \tag{5} \\
+                        \ddot{r} - \omega^2\sin^2(\theta)r &= 0 \tag{6}
+                        \end{align}
+                    </div>
+
+                    <p>Solution with given initial conditions:</p>
+                    <div class="math-block">
+                        \[ r(t) = r_0\cosh(\omega\sin(\theta)t) \tag{7} \]
+                    </div>
+
+                    <p>The particle moves on a spiral path at fixed azimuthal angle θ with exponentially growing radius r(t).</p>
+                </div>
+            </details>
+        </div>
+
+    </div>
+</body>
+</html>

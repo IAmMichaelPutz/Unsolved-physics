@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="google-adsense-account" content="ca-pub-7814800663583364">
+    <title>Jobs - Unsolved Physics Fun</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" 
+        rel="stylesheet">
+        <!-- Hauptstyles (mit führendem Slash) -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- Spezifische Styles -->
+    <link rel="stylesheet" href="jobs.css">
+
+</head>
+<body>
+    
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">Unsolved Physics Fun</div>
+            <nav class="nav-menu">
+                <a href="/">Kurse</a>
+                <a href="/blog">Blog</a>
+                <a href="/jobs">Jobs</a>
+                <a href="/data">Datenportal</a>
+                <button class="nav-button">Login</button>
+            </nav>
+        </div>
+    </header> 
+    
+    <section class="hero">
+        <h1>Physik Arbeitgeber</h1>
+        <p>Finde attraktive Arbeitgeber für Praktika, Werkstudentenstellen oder den Jobeinstieg</p>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Suche nach Themen...">
+        </div>
+    </section>
+
+    <div class="page-content">
+        <section class="jobs-header">
+            <div id="search-filters">
+                <div class="search-container">
+                    <input type="text" id="search-input" placeholder="Stichwörter eingeben...">
+                </div>
+                <div class="filters-container">
+                    <select id="filter-land">
+                        <option value="">Land auswählen</option>
+                    </select>
+                    <select id="filter-bereich">
+                        <option value="">Bereich auswählen</option>
+                    </select>
+                    <select id="filter-schwerpunkt">
+                        <option value="">Schwerpunkt auswählen</option>
+                    </select>
+                    <button id="search-btn">Suchen</button>
+                </div>
+            </div>
+        </section>
+
+        <main>
+            <div id="job-container" class="job-grid">
+                <!-- Dynamische Job-Kacheln werden hier eingefügt -->
+            </div>
+        </main>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="/blog/index.html">Blog</a></li>
+                    <li><a href="/jobs/index.html">Jobs</a></li>
+                    <li><a href="/data/index.html">Datenportal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul class="footer-links">
+                    <li><a href="assets/impressum.html">Impressum</a></li>
+                    <li><a href="assets/datenschutz.html">Datenschutz</a></li>
+                    <li><a href="assets/nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Unsolved Physics Fun. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+    
+    <script src="app.js"></script>
+</body>
+</html>

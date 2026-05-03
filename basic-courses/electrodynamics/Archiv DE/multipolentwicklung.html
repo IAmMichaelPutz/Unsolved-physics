@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Multipolentwicklung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .task, .solution { border: 1px solid #ddd; padding: 15px; margin: 10px 0; border-radius: 5px; }
+        .solution { display: none; background-color: #f9f9f9; }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover { background-color: #45a049; }
+    </style>
+</head>
+<body>
+<div class="task">
+    <h2>Multipolentwicklung</h2>
+
+    Die sphärischen Multipolmomente sind definiert durch:
+    
+    $q_{lm} = \int d^3x\rho(\mathbf{r})r^lY^*_{lm}(\theta,\phi)$
+    
+    Berechnen Sie alle Multipolmomente der Ladungsverteilung:
+    
+    $\rho(\mathbf{r}) = \frac{e}{64\pi a^3}\left(\frac{r}{a}\right)^2e^{-r/a}\sin^2\theta$
+</div>
+
+<button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+<div class="solution" id="solution">
+    <h3>Lösung:</h3>
+
+    Zunächst fällt auf, dass die Ladungsverteilung nicht von φ abhängt. Bei der Berechnung der Multipolmomente tritt daher das Integral
+    
+    $\int_0^{2\pi} d\phi\, e^{im\phi} = 2\pi\delta_{m0}$
+    
+    auf. Alle Multipolmomente $q_{lm}$ mit $m \neq 0$ verschwinden also.
+
+    Weiter ist:
+    
+    $\sin^2\theta = 1 - \cos^2\theta = \frac{2}{3}(P_0(\cos\theta) - P_2(\cos\theta))$
+
+    Da die Legendre-Polynome die Orthogonalitätsbeziehung
+    
+    $\int_{-1}^1 dx\, P_n(x)P_m(x) = \frac{2}{2n+1}\delta_{nm}$
+    
+    erfüllen, können nur die beiden Multipolmomente $q_{00}$ und $q_{20}$ von Null verschieden sein. Der allgemeine Ausdruck für $q_{lm}$ wird:
+
+    $q_{lm} = 2\pi\delta_{m0}\int dr\, r^{l+2}\frac{e}{64\pi a^3}\left(\frac{r}{a}\right)^2e^{-r/a}\int d\cos\theta\,\frac{2}{3}(P_0(\cos\theta) - P_2(\cos\theta))\sqrt{\frac{2l+1}{4\pi}}P_l(\cos\theta)$
+    
+    $= \frac{ea\delta_{m0}}{24}\left(\delta_{l0} - \frac{\delta_{l2}}{5}\right)\sqrt{\frac{2l+1}{4\pi}}\int dx\, x^{l+4}e^{-x}$
+    
+    $= \frac{ea\delta_{m0}}{24}\left(\delta_{l0} - \frac{\delta_{l2}}{5}\right)\sqrt{\frac{2l+1}{4\pi}}(l+4)!$
+
+    Speziell ergibt sich:
+    
+    $q_{00} = \frac{e}{\sqrt{4\pi}}$
+    
+    $q_{20} = -ea^2\sqrt{\frac{45}{\pi}}$
+
+    Alle anderen Multipolmomente verschwinden.
+</div>
+
+<script>
+    function toggleSolution() {
+        var solution = document.getElementById("solution");
+        if (solution.style.display === "none" || solution.style.display === "") {
+            solution.style.display = "block";
+            MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+        } else {
+            solution.style.display = "none";
+        }
+    }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Hyperfeinaufspaltung</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hyperfeinaufspaltung</h1>
+
+    <div class="task">
+        <p>
+            Welches Magnetfeld entspricht bei der Hyperfeinaufspaltung des Grundzustands im Wasserstoffatom dem 'Grenzfall', bei dem die beiden Energieabstände der Hyperfein- und dessen Zeemanaufspaltungen gleich groß wären? Gehen sie bei ihren Berechnungen davon aus, dass der g-Faktor des Protons 5.58 ist.
+        </p>
+        <p><em>Hinweis:</em> Für die Berechnung der Kopplungskonstante benötigen sie das mittlere vom Elektron erzeugte Magnetfeld. Dieses ist proportional zur Aufenthaltswahrscheinlichkeit des felderzeugenden Elektrons am Kernort.</p>
+        <p>
+            Wieso wären? Könnte man das erzeugte Magnetfeld für einen 2p$_{3/2}$-Zustand genauso wie für den Grundzustand berechnen?
+        </p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <p>
+            Um die Hyerfeinaufspaltung zu bestimmen, kann man die Formel aus Aufgabe 5 benutzen. Die Hyperfeinaufspaltung lässt sich in erster Näherung berechnen als:
+        </p>
+        $$E_{HFS} = \frac{A_{HFS}}{2}\langle B_j \rangle(F(F+1) - j(j+1) - I(I+1))$$
+        $$A_{HFS} = -\frac{gP\mu_K}{\sqrt{j(j+1)}}\langle B_j \rangle$$
+
+        <p>
+            Dabei ist $\langle B_j \rangle$ das mittlere vom Elektron (oder allgemeiner: von der Elektronenhülle) am Kernort erzeugte Magnetfeld. Dies ist proportional zur Aufenthaltswahrscheinlichkeit des felderzeugenden Elektrons am Kernort und lässt sich schreiben als:
+        </p>
+        $$\langle B_j \rangle = \frac{|\vec{j}|}{\hbar}\mu_0g_j\mu_B\frac{2}{3}|\psi(0)|^2$$
+        $$|\psi(0)|^2 = \frac{Z^3}{\pi a_0^3n^3} \text{ Für } l, m_l = 0$$
+
+        <p>Wir lösen also die Aufgabe für den Grundzustand und erhalten:</p>
+        $$\Delta E_{HFS} = \Delta E_{Zeemann}$$
+        $$\Delta E_{HFS} = E_{HFS,F=1} - E_{HFS,F=0}$$
+        $$E_{HFS} = A_{HFS} = \frac{2}{3}\mu_0g_j\mu_Bg_I\mu_K\frac{Z^3}{\pi a_0^3n^3}$$
+
+        <p>Mit $n = 1$, $Z = 1$, $a_0 = 0.529 \cdot 10^{-10}$m, $g_j = 2$ und $g_I = g_P = 5.58$ ergibt sich:</p>
+        $$A_{HFS} = 5.87 \cdot 10^{-6}\text{eV}$$
+        $$\Delta E_{Zeeman} = g_j\mu_BB_z = g_s\mu_BB_z$$
+        $$B_z = \frac{A_{HFS}}{g_j\mu_B} = 0.051\text{T}$$
+
+        <p>
+            In der Zwischensituation $\Delta E_{HFS} = \Delta E_{Zeemann}$ ist keine der Quantenzahlen wirklich erhalten.
+        </p>
+        <p>
+            Für den 2p$_{3/2}$-Zustand kann das mittlere erzeugte Magnetfeld nicht wie für den Grundzustand berechnet werden. Die p-Elektronen haben nämlich eine Aufenthaltswahrscheinlichkeit von 0 am Kernort, und nur Effekte höherer Ordnung, die mindestens eine Größenordnung unter dem Fall für s-Elektronen liegen und deren Berechnung den Rahmen der Vorlesung übersteigt, tragen dort zur Hyperfeinaufspaltung bei.
+        </p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Konvergenz von Reihen</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Konvergenz von Reihen</h2>
+        <p>Untersuchen Sie die angegebenen Reihen auf Konvergenz und absolute Konvergenz. (je 1 Punkt)</p>
+        
+        <p>(a) $$\sum_{n=1}^{\infty} \frac{e^n}{(2n+1)!}$$</p>
+        
+        <p>(b) $$\sum_{n=1}^{\infty} \frac{1}{\sqrt{n-2^{-n}}}$$</p>
+        
+        <p>(c) $$\sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{1+n^2}}$$</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p><strong>(a) Behauptung:</strong> Die Reihe $$\sum_{n=1}^{\infty} \frac{e^n}{(2n+1)!}$$ konvergiert absolut.</p>
+        
+        <p><strong>Beweis:</strong> Es gilt</p>
+        $$\sum_{n=1}^{\infty} \left|\frac{e^n}{(2n+1)!}\right| \leq \sum_{n=1}^{\infty} \frac{e^n}{n!} = e^e$$
+        <p>Also konvergiert die Reihe nach dem Majorantenkriterium absolut.</p>
+        
+        <p><strong>(b) Behauptung:</strong> Die Reihe $$\sum_{n=1}^{\infty} \frac{1}{\sqrt{n-2^{-n}}}$$ divergiert.</p>
+        
+        <p><strong>Beweis:</strong> Es gilt</p>
+        $$\sum_{n=1}^{\infty} \frac{1}{\sqrt{n-2^{-n}}} \geq \sum_{n=1}^{\infty} \frac{1}{\sqrt{n}} \geq \sum_{n=1}^{\infty} \frac{1}{n}$$
+        <p>und letztere Reihe divergiert nach Vorlesung. Nach dem Minorantenkriterium divergiert daher auch die ursprüngliche Reihe.</p>
+        
+        <p><strong>(c) Behauptung:</strong> Die Reihe $$\sum_{n=1}^{\infty} \frac{(-1)^n}{\sqrt{1+n^2}}$$ konvergiert, aber nicht absolut.</p>
+        
+        <p><strong>Beweis:</strong> Wir setzen $(a_n)_{n\in\mathbb{N}}$ mit $a_n := \frac{1}{\sqrt{1+n^2}}$. Dies ist eine positive Nullfolge und für $n \in \mathbb{N}$ gilt:</p>
+        
+        $$1 + (n + 1)^2 > 1 + n^2 \Leftrightarrow \sqrt{1+(n+1)^2} > \sqrt{1+n^2} \Leftrightarrow a_{n+1} = \frac{1}{\sqrt{1+(n+1)^2}} < \frac{1}{\sqrt{1+n^2}} = a_n$$
+        
+        <p>Also ist $(a_n)_{n\in\mathbb{N}}$ streng monoton fallend und damit liefert das Leibniz-Kriterium die Konvergenz von $\sum_{n=1}^{\infty} (-1)^n a_n$.</p>
+        
+        <p>Hingegen gilt für $n \in \mathbb{N}$:</p>
+        $$a_n = \frac{1}{\sqrt{1+n^2}} \geq \frac{1}{\sqrt{2n}}$$
+        
+        <p>Dann folgt:</p>
+        $$\sum_{n=1}^{\infty} |(-1)^n a_n| = \sum_{n=1}^{\infty} a_n \geq \sum_{n=1}^{\infty} \frac{1}{\sqrt{2n}}$$
+        
+        <p>und letztere Reihe divergiert nach Vorlesung. Nach dem Minorantenkriterium divergiert daher auch die erste Reihe.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

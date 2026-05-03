@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - Unsolved Physics Fun</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="/assets/images/favicon-32x32.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Hauptstyles (mit führendem Slash) -->
+    <link rel="stylesheet" href="/style.css">
+    <!-- Spezifische Styles -->
+    <link rel="stylesheet" href="blog.css">
+
+    <style>
+        .content-section {
+            margin: 4rem 0;
+            padding: 0 2rem;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, #4a90e2, #67b246);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <a href="/" class="logo">Unsolved Physics Fun</a>
+            <nav class="nav-menu">
+                <a href="/">Kurse</a>
+                <a href="/blog">Blog</a>
+                <a href="/jobs">Jobs</a>
+                <a href="/data">Datenportal</a>
+                <button class="nav-button">Login</button>
+            </nav>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <h1>Physik Blogartikel</h1>
+        <p>Artikel zu den spannendsten ungeklärten Fragen der Physik</p>
+        <p>Artikel zu den technischen Fortschritten und Potentiale neuer Technologien</p>
+        <div class="search-box">
+            <input type="text" id="search" placeholder="Suche nach Themen...">
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Ungelöste Fragen der Physik</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="pics/dark-matter.jpg" alt="Dunkle Materie und Energie">
+                <a href="dark-matter/index.html">Dunkle Materie und Energie</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/quantum-gravitation.jpg" alt="Quanten Gravitation">
+                <a href="quantum-gravitation/index.html">Quanten Gravitation</a>
+            </div>
+
+            <div class="grid-item">
+                <img src="pics/superconductor.jpg" alt="Hochtemperatur Supraleiter">
+                <a href="high-temperature/index.html">Hochtemperatur Supraleiter</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/quantum-entanglement.jpg" alt="Quantenverschränkung">
+                <a href="quantum-entanglement/index.html">Quantenverschränkung</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/cp-problem.jpg" alt="CP Problem">
+                <a href="cp-problem/index.html">CP Problem</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/neutrino.jpg" alt="Neutrino Masse">
+                <a href="neutrino-mass/index.html">Neutrino Masse</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/matter-antimatter.jpg" alt="Matter-Antimatter Asymmetrie">
+                <a href="matter-antimatter/index.html">Matter-Antimatter Asymmetrie</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/big-bang.jpg" alt="The Big Bang">
+                <a href="big-bang/index.html">The Big Bang</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Fragen und Antworten zu aktuellen Themen der Physik</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="pics/stanford.png" alt="stanford">
+                <a href="stanford-qualifying-exam/index.html">Standford Qualifying Exam</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Ist das technisch Machbare wirtschaftlich sinnvoll?</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="pics/graphene.png" alt="stanford">
+                <a href="graphene/index.html">Graphene</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/hydrogen.png" alt="stanford">
+                <a href="hydrogen/index.html">Wasserstoff</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Energiespeicher</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Hochtemeperatursupraleiter</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/nuclear-fusion.jpg" alt="Nukleare Fusion">
+                <a href="fusion/index.html">Nukleare Fusion</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Grundlegende Antworten zu grundlegenden Fragen</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Quantenmechanik & Kosmologie</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Randbedingungen und warum sie entscheidend sind</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Emergenz</a>
+            </div>
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Die Natur des Menschen</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2 class="section-title">Bewertung aktueller Theorien</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Vereinheitlichte Theorie</a>
+            </div>   
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">String Theorie</a>
+            </div>   
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Quantum Loop Theorie</a>
+            </div>     
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Many World Theorie</a>
+            </div>   
+            <div class="grid-item">
+                <img src="pics/storage.png" alt="stanford">
+                <a href="storage/index.html">Kopernikanisches Prinzip</a>
+            </div>   
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="/jobs/index.html">Jobs</a></li>
+                    <li><a href="/data/index.html">Datenportal</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Rechtliches</h3>
+                <ul class="footer-links">
+                    <li><a href="assets/impressum.html">Impressum</a></li>
+                    <li><a href="assets/datenschutz.html">Datenschutz</a></li>
+                    <li><a href="assets/nutzungsbedingungen.html">Nutzungsbedingungen</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Kontakt</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Support</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Unsolved Physics Fun. Alle Rechte vorbehalten.</p>
+        </div>
+    </footer>
+</body>
+</html>

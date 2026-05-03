@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 8 - Maintaining Melt Stoichiometry</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #666;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .formula {
+            margin: 20px 0;
+            text-align: center;
+        }
+        .formula-label {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-number">Page 1</div>
+
+    <h1>Lecture 8</h1>
+    <div class="section">
+        <h2>3.1.3 Maintaining Melt Stoichiometry</h2>
+        
+        <div class="subsection">
+            <h3>Option A: Increase Melt Volume</h3>
+            <p>If melt volume is large compared to the mass of evaporated material, changes in stoichiometry are small</p>
+        </div>
+
+        <div class="subsection">
+            <h3>Option B: Add Material to Melt</h3>
+            <p>Feed, e.g., a solid alloy wire of desired composition or of the missing element at a constant volumetric rate to maintain vapor flux ratio</p>
+        </div>
+
+        <div class="subsection">
+            <h3>Option C: Use Different Sources</h3>
+            <p>e.g. in molecular beam epitaxy (MBE)</p>
+            <img src="/api/placeholder/400/200" alt="Molecular beam epitaxy diagram">
+            
+            <div class="highlight-box">
+                <p>However: rather complicated approach, needs many sources, power supplies, shutters, etc. + UHV conditions!</p>
+                <p>Advantage: really high quality films</p>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3>Option D: Fast Evaporation</h3>
+            <p>Do evaporation really fast with a lot of energy</p>
+            <p>e.g. Flash evaporation</p>
+            <p>Idea: use enough power to sublimate the material rapidly => no time for decomposition (PLD)</p>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>3.1.4 Film Thickness Uniformity</h2>
+        
+        <p>How does deposited thickness scale with distance from the source?</p>
+        
+        <div class="subsection">
+            <h3>Simple Model: Free-floating Point Source</h3>
+            <p>Evaporant particles are imagined to originate from a small region dAe of a spherical source of surface area Ae</p>
+            
+            <div class="formula">
+                \[ \frac{dM_s}{dA_s} = \frac{M_e}{4\pi r^2} \cos\theta \]
+                <div class="formula-label">Material deposition rate equation</div>
+            </div>
+
+            <div class="highlight-box">
+                <p>For a surface source:</p>
+                \[ \frac{d}{d_0} = \left[1 + \left(\frac{x}{h}\right)^2\right]^{-\frac{n+1}{2}} \]
+            </div>
+        </div>
+    </div>
+
+    <div class="highlight-box">
+        <h3>Alternatives for Improving Uniformity:</h3>
+        <ul>
+            <li>Multiple substrates</li>
+            <li>Multiple sources</li>
+            <li>Source geometry optimization</li>
+            <li>Moving/rotating substrate with respect to source during evaporation</li>
+        </ul>
+    </div>
+
+    <div class="section">
+        <h2>Homework 3</h2>
+        <div class="subsection">
+            <h3>Ex. 7: Differential Pumping</h3>
+            <div class="formula">
+                \[ C = \frac{\pi}{4}\sqrt{\frac{k_B T}{8}}\frac{D^3}{L}\sqrt{\frac{T}{m}} \]
+                <div class="formula-label">Conductance equation</div>
+            </div>
+            <p>D = 0.3cm</p>
+            <p>L = 5cm</p>
+            <p>T ≤ 300K</p>
+            <p>m = 29u (0.21 N₂ + 0.79 mN₂)</p>
+            <p>=> C = 0.078 ℓ/s</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Beweis durch Induktion</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Beweis durch Induktion</h2>
+        <p>Beweisen Sie: 157 ist ein Teiler von $12^{n+1} + 13^{2n-1}$ für alle $n \in \mathbb{N}$.</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        <p>Wir beweisen die Aussage mit vollständiger Induktion.</p>
+
+        <p><strong>Induktionsanfang:</strong> $n = 1$:</p>
+        <p>$12^{1+1} + 13^{2\cdot1-1} = 12^2 + 13^1 = 157$</p>
+
+        <p><strong>Induktionsvoraussetzung:</strong> Es sei 157 ein Teiler von $12^{n+1} + 13^{2n-1}$ für ein beliebiges, aber festes $n \in \mathbb{N}$.</p>
+
+        <p><strong>Induktionsschluss:</strong> $n \rightsquigarrow n + 1$:</p>
+        <p>Es gilt:</p>
+        $$12^{(n+1)+1} + 13^{2(n+1)-1} = 12 \cdot 12^{n+1} + 13^2 \cdot 13^{2n-1}$$
+        $$= 12 \cdot (12^{n+1} + 13^{2n-1}) + (13^2 - 12) \cdot 13^{2n-1}$$
+        $$= 12 \cdot (12^{n+1} + 13^{2n-1}) + 157 \cdot 13^{2n-1}$$
+
+        <p>Da 157 nach Induktionsvoraussetzung ein Teiler von $12^{n+1} + 13^{2n-1}$ ist und weil $13^{2n-1}$ eine natürliche Zahl ist, ist daher insgesamt 157 ein Teiler von $12^{(n+1)+1} + 13^{2(n+1)-1}$, was den Beweis abschließt.</p>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

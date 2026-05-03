@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Mehrelektronenatome</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+        .scheme {
+            font-family: monospace;
+            white-space: pre;
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Aufgabe 7: Mehrelektronenatome</h1>
+    
+    <div class="task">
+        <p><strong>a)</strong> Betrachten Sie die Konfiguration $1s^22s^22p3d$ von Kohlenstoff und bestimmen Sie die spektroskopischen Symbole $^{2S+1}L_J$, in die diese durch Coulomb-Abstoßung der Elektronen und Spin-Bahn-Kopplung zerfällt. Welche Dimension hat die Konfiguration?</p>
+
+        <p><strong>b)</strong> Die Grundzustandskonfiguration von zweifach ionisiertem Europium Eu$^{2+}$ ist $[Xe]4f^7$. Bestimmen Sie gemäß den Hund'schen Regeln das $^{2S+1}L_J$-Symbol des Grundzustands von Eu$^{2+}$. In wie viele Zeeman-Komponenten spaltet der Grundzustand auf, wenn man ein schwaches B-Feld anlegt und durch welche Quantenzahl werden die Zeeman-Komponenten charakterisiert?</p>
+
+        <p><strong>c)</strong> Geben Sie die vollständige Liste der spektroskopischen Symbole $^{2S+1}L_J$ an, von denen aus ein elektrischer Dipolübergang in den Grundzustand von Eu$^{2+}$ möglich ist. (Die Paritätsauswahlregel braucht nicht berücksichtigt zu werden)</p>
+    </div>
+
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+
+    <div class="solution" id="solution">
+        <h3>a) Spektroskopische Symbole</h3>
+        <p>Die gegebene Konfiguration $1s^22s^22p3d$ ist von der Form $[...]n_1l_1n_2l_2$, wobei $[...]$ für vollständig besetzte Orbitale steht. In diesem Fall gilt:</p>
+        <p>$L = |l_1 - l_2|, ..., |l_1 + l_2|$</p>
+        <p>$S = 0, 1$</p>
+        <p>$J = |L - S|, ..., L + S$</p>
+
+        <p>Mit $l_1 = 1$, $l_2 = 2$ ergibt sich folgendes Schema:</p>
+        <ul>
+            <li>$^1P$, $J = 1$ → $^1P_1$</li>
+            <li>$^3P$, $J = 0,1,2$ → $^3P_0$, $^3P_1$, $^3P_2$</li>
+            <li>$^1D$, $J = 2$ → $^1D_2$</li>
+            <li>$^3D$, $J = 1,2,3$ → $^3D_1$, $^3D_2$, $^3D_3$</li>
+            <li>$^1F$, $J = 3$ → $^1F_3$</li>
+            <li>$^3F$, $J = 2,3,4$ → $^3F_2$, $^3F_3$, $^3F_4$</li>
+        </ul>
+
+        <p>Die Dimension ist: $d = 3 + 1 + 3 + 5 + 5 + 3 + 5 + 7 + 7 + 5 + 7 + 9 = 60$</p>
+
+        <h3>b) Grundzustand von Eu$^{2+}$</h3>
+        <p>Es sind 7 Elektronenspins auf $2 \cdot 3 + 1 = 7$ Orbitale zu verteilen. Die Hund'schen Regeln führen zu:</p>
+        <p>$S = \frac{7}{2}$, $L = 0$</p>
+        <p>Weitere Anwendung der Hund'schen Regeln liefert:</p>
+        <p>$J = L + S = \frac{7}{2}$</p>
+        <p>Insgesamt also: $^8S_{7/2}$</p>
+
+        <p>Beim Anlegen eines schwachen B-Feldes spaltet dies in $2J + 1 = 8$ Zeeman-Komponenten auf, die durch Werte von $m_J = -\frac{7}{2}, ..., \frac{7}{2}$ charakterisiert werden.</p>
+
+        <h3>c) Mögliche Dipolübergänge</h3>
+        <p>Der Endzustand hat $S = \frac{7}{2}$, $L = 0$, $J = \frac{7}{2}$.</p>
+        <p>Aus den Auswahlregeln für elektrische Dipolstrahlung folgt für den möglichen Anfangszustand:</p>
+        <ul>
+            <li>$\Delta S = 0$ → $S' = \frac{7}{2}$</li>
+            <li>$\Delta L = \pm1$ → $L' = 1$</li>
+            <li>$\Delta J = \pm1$ → $J' = \frac{5}{2}, \frac{7}{2}, \frac{9}{2}$</li>
+        </ul>
+
+        <p>Es gibt also 6 mögliche spektroskopische Symbole für den Anfangszustand:</p>
+        <ul>
+            <li>$^8S_{5/2}$, $^8S_{7/2}$, $^8S_{9/2}$</li>
+            <li>$^8P_{5/2}$, $^8P_{7/2}$, $^8P_{9/2}$</li>
+        </ul>
+    </div>
+
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

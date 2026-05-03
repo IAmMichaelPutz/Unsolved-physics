@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Konvergente Folgen 3</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Aufgabe 1</h2>
+        <p>Seien $(a_n)_{n\in\mathbb{N}}$ und $(b_n)_{n\in\mathbb{N}}$ konvergente Folgen und $\lambda, \mu \in \mathbb{R}$. Zeigen Sie mit Hilfe der Definition:</p>
+        $$\lim_{n\to\infty}(\lambda a_n + \mu b_n) = \lambda \lim_{n\to\infty}a_n + \mu \lim_{n\to\infty}b_n$$
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Wir bezeichnen</p>
+        $$a := \lim_{n\to\infty}a_n, \quad b := \lim_{n\to\infty}b_n$$
+        
+        <p>Für $\lambda = 0$ lautet die Aussage</p>
+        $$\lim_{n\to\infty}\mu b_n = \mu \lim_{n\to\infty}b_n$$
+        
+        <p>was in der Vorlesung für alle $\mu \in \mathbb{R}$ gezeigt wurde. Den Fall $\lambda = 0$ behandelt man auf die gleiche Weise. Wir nehmen deswegen</p>
+        $$\lambda \neq 0 \text{ und } \mu \neq 0$$
+        
+        <p>im Folgenden an. Sei $\varepsilon > 0$. Wir müssen ein $N \in \mathbb{N}$ finden, so dass für alle $n \geq N$ gilt:</p>
+        $$|\lambda a_n + \mu b_n - (\lambda a + \mu b)| < \varepsilon$$
+        
+        <p>Da</p>
+        $$|\lambda a_n + \mu b_n - (\lambda a + \mu b)| = |\lambda(a_n - a) + \mu(b_n - b)| \leq |\lambda| |a_n - a| + |\mu| |b_n - b|$$
+        
+        <p>genügt ein $N \in \mathbb{N}$ zu finden, so dass für alle $n \geq N$ ist:</p>
+        $$|\lambda| |a_n - a| + |\mu| |b_n - b| < \varepsilon$$
+        
+        <p>Die Konvergenz von $(a_n)_{n\in\mathbb{N}}$ gibt uns ein $N_a \in \mathbb{N}$, so dass für alle $n \geq N_a$ gilt:</p>
+        $$|a_n - a| < \frac{\varepsilon}{2|\lambda|}$$
+        
+        <p>Gleichfalls gibt uns die Konvergenz von $(b_n)_{n\in\mathbb{N}}$ ein $N_b \in \mathbb{N}$, so dass für alle $n \geq N_b$ gilt:</p>
+        $$|b_n - b| < \frac{\varepsilon}{2|\mu|}$$
+        
+        <p>Wir setzen nun</p>
+        $$N := \max\{N_a, N_b\}$$
+        
+        <p>Für alle $n \geq N$ gelten zugleich $n \geq N_a$ und $n \geq N_b$. Daraus folgt:</p>
+        $$|\lambda| |a_n - a| + |\mu| |b_n - b| < |\lambda|\frac{\varepsilon}{2|\lambda|} + |\mu|\frac{\varepsilon}{2|\mu|} = \varepsilon$$
+        
+        <p>Wir haben gezeigt, wie man zu einem vorgegebenen $\varepsilon > 0$ ein $N \in \mathbb{N}$ konstruiert, so dass für alle $n \geq N$ gilt:</p>
+        $$|\lambda a_n + \mu b_n - (\lambda a + \mu b)| < \varepsilon$$
+        
+        <p>Dadurch ist die Aufgabe bewiesen.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Blatt 6 - Aufgabe 1</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+            messageStyle: "none"
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .task, .solution {
+            border: 1px solid #ddd;
+            padding: 15px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+        .solution {
+            display: none;
+            background-color: #f9f9f9;
+        }
+        .toggle-btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 10px 0;
+        }
+        .toggle-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="task">
+        <h2>Konvergenz von Reihen 4</h2>
+        <p>Sei $\sum_{n=1}^{\infty} a_n$ eine Reihe. Nehmen Sie an, dass ein $0 < \theta < 1$ und ein $n_0 \in \mathbb{N}$ existieren, so dass</p>
+        $$\sqrt[n]{|a_n|} \leq \theta \text{ für alle } n \geq n_0$$
+        <p>a) Beweisen Sie, dass $\sum_{n=1}^{\infty} a_n$ absolut konvergiert.</p>
+        <p>b) Zeigen Sie, dass die Bedingung</p>
+        $$\sqrt[n]{|a_n|} < 1 \text{ für alle } n \geq n_0$$
+        <p>nicht hinreichend für die Konvergenz der Reihe $\sum_{n=1}^{\infty} a_n$ ist. Ist dies eine notwendige Bedingung?</p>
+    </div>
+    
+    <button class="toggle-btn" onclick="toggleSolution()">Lösung anzeigen/verstecken</button>
+    
+    <div class="solution" id="solution">
+        <h3>Lösung</h3>
+        
+        <p>Zu a): Für alle $n \geq n_0$ gilt</p>
+        $$\sqrt[n]{|a_n|} \leq \theta \iff |a_n| \leq \theta^n$$
+        
+        <p>Dies folgt einfach aus der Formel</p>
+        $$a^n - b^n = (a-b)(a^{n-1}b^0 + ... + a^0b^{n-1}) \text{ für alle } a,b \in \mathbb{R}$$
+        
+        <p>Deshalb ist die Reihe $\sum_{n=1}^{\infty} \theta^n = \frac{1}{1-\theta} - 1$ eine konvergente Majorante für $\sum_{n=1}^{\infty} |a_n|$. Also konvergiert $\sum_{n=1}^{\infty} a_n$ absolut.</p>
+
+        <p>Zu b): Die harmonische Reihe</p>
+        $$a_n := \frac{1}{n} \text{ für alle } n \in \mathbb{N}$$
+        
+        <p>erfüllt</p>
+        $$\sqrt[n]{|a_n|} = \frac{1}{\sqrt[n]{n}} < 1 \text{ für alle } n \geq 2$$
+        
+        <p>Sie konvergiert aber nicht. Das zeigt, dass die Bedingung nicht hinreichend ist. Sei $\sum_{n=1}^{\infty} a_n$ eine konvergente Reihe. Dann ist</p>
+        $$\lim_{n \to \infty} a_n = 0$$
+        
+        <p>Dies ist aber äquivalent zu</p>
+        $$\lim_{n \to \infty} |a_n| = 0$$
+        
+        <p>Deshalb gibt es ein $n_0 \in \mathbb{N}$, so dass für alle $n \geq n_0$ gilt</p>
+        $$|a_n| \leq \frac{1}{2}$$
+        
+        <p>und weiter</p>
+        $$\sqrt[n]{|a_n|} \leq \frac{1}{\sqrt[n]{2}} < 1$$
+        
+        <p>Deswegen ist die Bedingung notwendig.</p>
+    </div>
+    
+    <script>
+        function toggleSolution() {
+            var solution = document.getElementById("solution");
+            if (solution.style.display === "none" || solution.style.display === "") {
+                solution.style.display = "block";
+                MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
+            } else {
+                solution.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>

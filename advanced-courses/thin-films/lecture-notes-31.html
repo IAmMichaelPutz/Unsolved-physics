@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lecture 11 - AC/HF/RF Sputtering</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+    <style>
+        body {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+        }
+        .page-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            color: #666;
+        }
+        .section {
+            margin: 30px 0;
+        }
+        .subsection {
+            margin: 20px 0;
+        }
+        .highlight-box {
+            border: 2px solid #ff0000;
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        .formula {
+            margin: 20px 0;
+            text-align: center;
+            padding: 10px;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+        }
+        .formula-label {
+            text-align: right;
+            color: #666;
+            font-size: 0.9em;
+            margin-top: 5px;
+        }
+        .diagram {
+            text-align: center;
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="page-number">Page 3-4</div>
+
+    <div class="section">
+        <h2>Detailed Sputter Gun Components</h2>
+        
+        <div class="diagram">
+            <img src="/api/placeholder/500/400" alt="Detailed sputter gun diagram">
+            <div class="formula-label">Sputter gun cross-section showing key components</div>
+        </div>
+
+        <div class="subsection">
+            <h3>Key Components:</h3>
+            <ul>
+                <li>Shield (for protection and better electrical control)</li>
+                <li>Target material</li>
+                <li>Spacer (Cu)</li>
+                <li>S pole and N pole configuration</li>
+                <li>Water cooling system (in/out)</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Sputtering Yield Analysis</h2>
+
+        <div class="subsection">
+            <h3>Definition and Parameters</h3>
+            <div class="formula">
+                \[ N_A = n_{gas} \cdot S \cdot C \]
+                <div class="formula-label">where C is the ratio of target concentration</div>
+            </div>
+
+            <h3>Reported Values</h3>
+            <ul>
+                <li>Full range: \(10^{-5} \leq S \leq 10^3\)</li>
+                <li>Typical values: \(0.1 \leq S \leq 10\)</li>
+            </ul>
+
+            <div class="highlight-box">
+                Note: Sputtering is a complex process with low/mid/high energy ranges, each with individual mechanisms. 
+                → We will approach it phenomenologically
+            </div>
+
+            <div class="formula">
+                \[ S \propto \rho_n \cdot \delta_n(E) \cdot \lambda_s \]
+                <div class="formula-label">
+                    where:
+                    \(\rho_n\) = atomic density,
+                    \(\delta_n(E)\) = energy loss in target,
+                    \(\lambda_s\) = (surface) binding energy
+                </div>
+            </div>
+        </div>
+
+        <div class="subsection">
+            <h3>Energy Considerations</h3>
+            
+            <div class="highlight-box">
+                <h4>Low Energy Case:</h4>
+                <p>If incident particle energy is too low:</p>
+                <ul>
+                    <li>No momentum transfer to target atoms</li>
+                    <li>Result: No sputtering occurs</li>
+                </ul>
+            </div>
+
+            <div class="highlight-box">
+                <h4>High Energy Case:</h4>
+                <p>If incident particle energy is too high:</p>
+                <ul>
+                    <li>Results in implantation</li>
+                    <li>No effective sputtering occurs</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>Summary</h2>
+        <ul>
+            <li>AC/RF sputtering enables the use of insulating targets</li>
+            <li>Magnetic field confinement improves efficiency</li>
+            <li>Sputtering yield depends on multiple factors including energy ranges</li>
+            <li>System design requires careful consideration of energy levels and target materials</li>
+        </ul>
+    </div>
+
+</body>
+</html>
