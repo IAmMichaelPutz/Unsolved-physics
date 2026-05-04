@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import coursesData from "@/data/courses.json";
 import tasksData from "@/data/tasks.json";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
@@ -54,6 +54,7 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   const [taskCopied, setTaskCopied] = useState(false);
   const [solutionCopied, setSolutionCopied] = useState(false);
+  const mathContainerRef = useRef<HTMLDivElement>(null);
 
   const handleCopy = async (html: string, setCopied: (v: boolean) => void) => {
     if (!html) return;
@@ -92,11 +93,12 @@ export default function Home() {
     if (typeof window !== "undefined" && window.MathJax) {
       mathJaxPromise = mathJaxPromise
         .then(() => {
+          const elements = mathContainerRef.current ? [mathContainerRef.current] : undefined;
           if (window.MathJax.typesetClear) {
-            window.MathJax.typesetClear();
+            window.MathJax.typesetClear(elements);
           }
           if (window.MathJax.typesetPromise) {
-            return window.MathJax.typesetPromise();
+            return window.MathJax.typesetPromise(elements);
           }
         })
         .catch((err: unknown) => console.error("MathJax queue error:", err));
@@ -307,7 +309,7 @@ export default function Home() {
               </div>
               
               {/* Task Content - With MathJax Fade-In Animation */}
-              <div className={`transition-all duration-700 ease-in-out transform ${isMathLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              <div ref={mathContainerRef} className={`transition-all duration-700 ease-in-out transform ${isMathLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
                 <div className="prose prose-slate prose-lg max-w-none mb-16 dark:prose-invert prose-headings:font-bold prose-a:text-indigo-600 hover:prose-a:text-indigo-500">
                    <div dangerouslySetInnerHTML={{ __html: lang === "en" && activeTask.content_en ? activeTask.content_en : activeTask.content }} />
                 </div>
@@ -369,6 +371,6 @@ export default function Home() {
 // Add global TypeScript definition for MathJax
 declare global {
   interface Window {
-    MathJax: { typesetClear?: () => void; typesetPromise?: () => Promise<void> };
+    MathJax: { typesetClear?: (elements?: HTMLElement[]) => void; typesetPromise?: (elements?: HTMLElement[]) => Promise<void> };
   }
 }

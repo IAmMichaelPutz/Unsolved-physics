@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { TopNav } from "@/components/TopNav";
+import Script from "next/script";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="de">
       <head>
-        <script
+        <Script
+          id="mathjax-config"
+          strategy="beforeInteractive"
           dangerouslySetInnerHTML={{
             __html: `
               window.MathJax = {
@@ -34,7 +37,11 @@ export default function RootLayout({
             `,
           }}
         />
-        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+        <Script
+          id="MathJax-script"
+          strategy="beforeInteractive"
+          src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"
+        />
       </head>
       <body className={inter.className}>
         <TopNav />
