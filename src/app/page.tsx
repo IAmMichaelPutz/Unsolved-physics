@@ -91,18 +91,29 @@ export default function Home() {
 
   const runMathJax = () => {
     if (typeof window !== "undefined" && window.MathJax) {
-      mathJaxPromise = mathJaxPromise
-        .then(() => {
-          const elements = mathContainerRef.current ? [mathContainerRef.current] : undefined;
-          if (window.MathJax.typesetClear) {
-            window.MathJax.typesetClear(elements);
-          }
-          if (window.MathJax.typesetPromise) {
-            return window.MathJax.typesetPromise(elements);
-          }
-        })
-        .catch((err: unknown) => console.error("MathJax queue error:", err));
-      return mathJaxPromise;
+      const targetElements = mathContainerRef.current ? [mathContainerRef.current] : undefined;
+      
+      const doTypeset = () => {
+        if (window.MathJax.typesetClear) {
+          window.MathJax.typesetClear(targetElements);
+        }
+        if (window.MathJax.typesetPromise) {
+          return window.MathJax.typesetPromise(targetElements);
+        }
+        return Promise.resolve();
+      };
+
+      if (window.MathJax.typesetPromise) {
+        mathJaxPromise = mathJaxPromise.then(doTypeset).catch(console.error);
+        return mathJaxPromise;
+      } else {
+        // MathJax is still loading, wait 500ms and try again
+        return new Promise((resolve) => {
+          setTimeout(() => {
+            runMathJax().then(resolve);
+          }, 500);
+        });
+      }
     }
     return Promise.resolve();
   };
