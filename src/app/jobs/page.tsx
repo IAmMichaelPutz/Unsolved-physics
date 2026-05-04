@@ -9,10 +9,11 @@ export default function JobsPage() {
   const [activeBereich, setActiveBereich] = useState<string | null>(null);
 
   // Extract unique "Bereich" categories
-  const bereiche = Array.from(new Set(jobsData.map((j: any) => j.Bereich).filter(Boolean))) as string[];
+  type JobData = typeof jobsData[0];
+  const bereiche = Array.from(new Set(jobsData.map((j: JobData) => j.Bereich).filter(Boolean))) as string[];
 
   // Filter jobs based on search query and active Bereich
-  const filteredJobs = jobsData.filter((job: any) => {
+  const filteredJobs = jobsData.filter((job: JobData) => {
     // 1. Filter by Bereich
     if (activeBereich && job.Bereich !== activeBereich) return false;
     
@@ -75,7 +76,7 @@ export default function JobsPage() {
         {/* Jobs Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8 mt-12">
           {filteredJobs.length > 0 ? (
-            filteredJobs.map((job: any, idx: number) => (
+            filteredJobs.map((job: JobData, idx: number) => (
               <Card key={idx} className="group hover:shadow-2xl hover:shadow-indigo-500/10 hover:-translate-y-1.5 transition-all duration-300 border-white/60 bg-white/70 backdrop-blur-xl flex flex-col">
                 <CardHeader className="pb-4">
                   <div className="flex justify-between items-start mb-4">

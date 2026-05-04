@@ -99,7 +99,7 @@ export default function Home() {
             return window.MathJax.typesetPromise();
           }
         })
-        .catch((err: any) => console.error("MathJax queue error:", err));
+        .catch((err: unknown) => console.error("MathJax queue error:", err));
       return mathJaxPromise;
     }
     return Promise.resolve();
@@ -109,6 +109,7 @@ export default function Home() {
   useEffect(() => {
     if (!activeTask) return;
     
+    // eslint-disable-next-line
     setIsMathLoaded(false); // Versteckt den Content mit sanfter CSS-Transition
     const timer = setTimeout(() => {
       runMathJax().then(() => {
@@ -162,15 +163,15 @@ export default function Home() {
                         setSearchQuery("");
                         setActiveTask(null);
                       }}
-                      disabled={topic.isActive === false}
+                      disabled={'isActive' in topic && topic.isActive === false}
                       className={`w-full flex items-center justify-between text-left px-3 py-2.5 rounded-xl text-sm transition-all duration-300 ease-out group ${
                         activeTopic === topic.id
                           ? "bg-indigo-600 text-white font-medium shadow-md shadow-indigo-600/20"
                           : "hover:bg-indigo-50 text-slate-600 hover:text-indigo-700 font-medium bg-transparent"
-                      } ${topic.isActive === false ? "opacity-40 cursor-not-allowed" : ""}`}
+                      } ${('isActive' in topic && topic.isActive === false) ? "opacity-40 cursor-not-allowed" : ""}`}
                     >
                       <span className="truncate pr-2">{lang === "de" ? topic.name.de : topic.name.en}</span>
-                      {topic.isActive === false && (
+                      {('isActive' in topic && topic.isActive === false) && (
                         <span className="text-[9px] uppercase bg-slate-200/80 text-slate-500 px-2 py-0.5 rounded-full font-bold">
                           {lang === "de" ? "Bald" : "Soon"}
                         </span>
@@ -313,7 +314,7 @@ export default function Home() {
 
                 {/* Task Solution */}
                 {(lang === "en" ? (activeTask.solution_en || activeTask.solution) : activeTask.solution) && (
-                  <Accordion type="multiple" onValueChange={handleAccordionChange} className="w-full mt-12">
+                  <Accordion onValueChange={handleAccordionChange} className="w-full mt-12">
                     <AccordionItem value="solution" className="border border-slate-200/60 rounded-2xl bg-white shadow-xl shadow-slate-200/40 overflow-hidden px-2 transition-all duration-300 hover:border-indigo-200">
                       <AccordionTrigger className="hover:no-underline px-6 py-6 group">
                         <div className="flex items-center gap-4">
@@ -368,6 +369,6 @@ export default function Home() {
 // Add global TypeScript definition for MathJax
 declare global {
   interface Window {
-    MathJax: any;
+    MathJax: { typesetClear?: () => void; typesetPromise?: () => Promise<void> };
   }
 }
