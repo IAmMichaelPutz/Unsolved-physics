@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
+import { SidebarNav } from "@/components/SidebarNav";
 
 // Typen
 type Task = typeof tasksData.tasks[0] & { 
@@ -146,18 +147,8 @@ export default function Home() {
     <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100/60 to-indigo-50/50 font-sans selection:bg-indigo-200 text-slate-900">
       {/* Sidebar - Courses (Glassmorphism) */}
       <div className="w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex flex-col z-20 flex-shrink-0">
-        <div className="p-8 border-b border-white/50 flex justify-between items-start">
-          <div>
-            <h1 className="font-extrabold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 tracking-tight leading-tight">Unsolved<br/>Physics.</h1>
-          </div>
-          <button 
-            onClick={() => setLang(lang === "de" ? "en" : "de")}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/80 hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-md text-sm font-bold text-slate-600 transition-all duration-300 border border-slate-200/60 shadow-sm"
-            title={lang === "de" ? "Switch to English" : "Auf Deutsch wechseln"}
-          >
-            {lang === "de" ? <FlagDE /> : <FlagEN />}
-            <span>{lang.toUpperCase()}</span>
-          </button>
+        <div className="p-8 pb-4">
+          <SidebarNav />
         </div>
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           <div className="p-6 space-y-8">
@@ -286,6 +277,16 @@ export default function Home() {
       <div className="flex-1 flex flex-col relative h-screen overflow-hidden bg-white/30">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-100/40 via-transparent to-transparent opacity-80 pointer-events-none"></div>
         
+        {/* Global Language Switcher top right */}
+        <button 
+          onClick={() => setLang(lang === "de" ? "en" : "de")}
+          className="absolute top-8 right-8 z-50 flex items-center gap-2 px-4 py-2 rounded-full bg-white/90 backdrop-blur-md hover:bg-indigo-50 hover:text-indigo-600 hover:shadow-lg hover:-translate-y-0.5 text-sm font-bold text-slate-600 transition-all duration-300 border border-slate-200/60 shadow-sm"
+          title={lang === "de" ? "Switch to English" : "Auf Deutsch wechseln"}
+        >
+          {lang === "de" ? <FlagDE /> : <FlagEN />}
+          <span>{lang.toUpperCase()}</span>
+        </button>
+
         {activeTask ? (
           <div className="flex-1 overflow-y-auto custom-scrollbar relative z-10">
             <div className="p-12 max-w-4xl mx-auto w-full pb-40">
