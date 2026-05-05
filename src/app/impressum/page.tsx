@@ -1,4 +1,4 @@
-﻿import { SidebarNav } from "@/components/SidebarNav";
+import { SidebarNav } from "@/components/SidebarNav";
 export default function ImpressumPage() {
   return (
     <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100/60 to-indigo-50/50 font-sans selection:bg-indigo-200 text-slate-900">
@@ -40,7 +40,7 @@ export default function ImpressumPage() {
                 Kontakt
               </h2>
               <p className="text-lg text-slate-600 font-medium pl-13">
-                E-Mail: <a href="mailto:mp@michael-putz.com" className="text-indigo-600 hover:text-indigo-500 transition-colors">mp@michael-putz.com</a>
+                E-Mail: <a href="mailto:info@unsolved-physics.fun" className="text-indigo-600 hover:text-indigo-500 transition-colors">info@unsolved-physics.fun</a>
               </p>
             </div>
             
