@@ -3,15 +3,22 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useLanguage } from './LanguageContext';
 
+import Image from 'next/image';
+
 export function SidebarNav() {
   const pathname = usePathname();
   const { lang } = useLanguage();
   
   return (
     <div className="mb-8">
-      <h1 className="font-extrabold text-3xl bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 tracking-tight leading-tight mb-6">
-        Unsolved<br/>Physics.
-      </h1>
+      <div className="flex items-center gap-3 mb-6">
+        <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 shadow-lg shadow-indigo-500/30 flex items-center justify-center relative overflow-hidden flex-shrink-0">
+          <Image src="/icon.png" alt="Logo" fill className="object-cover opacity-90" />
+        </div>
+        <h1 className="font-extrabold text-[22px] bg-clip-text text-transparent bg-gradient-to-r from-indigo-600 to-violet-600 tracking-tight leading-tight">
+          Unsolved<br/>Physics.
+        </h1>
+      </div>
       <div className="flex flex-col gap-2">
         <Link 
           href="/about" 

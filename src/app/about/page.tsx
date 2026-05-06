@@ -1,8 +1,8 @@
 "use client";
 import { SidebarNav } from "@/components/SidebarNav";
-import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/components/LanguageContext";
-import Image from "next/image";
 
 const FlagDE = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" className="w-5 h-3.5 rounded-[2px] shadow-sm object-cover overflow-hidden">
@@ -26,8 +26,7 @@ export default function AboutPage() {
   const { lang, setLang } = useLanguage();
 
   return (
-    <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100/60 to-indigo-50/50 font-sans selection:bg-indigo-200 text-slate-900 relative">
-      {/* Global Language Switcher top right */}
+    <div className="flex h-screen overflow-hidden bg-slate-50 font-sans selection:bg-indigo-200 text-slate-900 relative">
       <button 
         onClick={() => setLang(lang === "de" ? "en" : "de")}
         className="absolute top-8 right-8 z-50 flex items-center gap-2 px-3 py-1.5 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full shadow-sm hover:bg-white hover:scale-105 transition-all group"
@@ -38,54 +37,54 @@ export default function AboutPage() {
         {lang === "de" ? <FlagEN /> : <FlagDE />}
       </button>
 
-      <div className="w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex flex-col z-20 flex-shrink-0">
+      <div className="w-72 border-r border-slate-200 bg-white flex flex-col z-20 flex-shrink-0">
         <div className="p-8 pb-4">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 shadow-lg shadow-indigo-500/30 flex items-center justify-center relative overflow-hidden">
-              <Image src="/icon.png" alt="Logo" fill className="object-cover opacity-90" />
-            </div>
-            <h1 className="font-black text-xl tracking-tight leading-tight text-transparent bg-clip-text bg-gradient-to-br from-slate-900 to-slate-700">
-              Unsolved<br/>Physics
-            </h1>
-          </div>
+          <SidebarNav />
         </div>
-        <SidebarNav />
       </div>
 
-      <div className="flex-1 flex flex-col relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-gradient-to-bl from-indigo-200/40 via-purple-100/20 to-transparent rounded-full blur-3xl opacity-50 -z-10 translate-x-1/3 -translate-y-1/3 pointer-events-none" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-gradient-to-tr from-slate-200/40 via-indigo-50/20 to-transparent rounded-full blur-3xl opacity-50 -z-10 -translate-x-1/3 translate-y-1/3 pointer-events-none" />
-
-        <div className="flex-1 overflow-y-auto overflow-x-hidden">
-          <div className="max-w-4xl mx-auto px-12 py-16">
-            <h2 className="text-4xl font-black tracking-tight text-slate-900 mb-8">
-              {lang === "de" ? "Über das Projekt" : "About the Project"}
-            </h2>
-
-            <Card className="border-0 shadow-xl shadow-slate-200/50 bg-white/80 backdrop-blur-xl mb-8 p-8 md:p-12">
-              <CardContent className="p-0 prose prose-slate prose-lg max-w-none text-slate-700 leading-relaxed font-medium">
-                {lang === "de" ? (
-                  <div className="space-y-6">
-                    <p>
-                      Aufgaben der besten Universitäten der Welt wurden angepasst und so aufbereitet, dass sie Studierenden auf der ganzen Welt zur Verfügung stehen. Unser Ziel ist ein einheitliches Qualitätsniveau mit unbeschränkten Möglichkeiten zu üben, um das eigene physikalische Verständnis global zu verbessern und Menschen technische Bildung auf eine skalierbare Art und Weise zukommen zu lassen.
-                    </p>
-                    <p className="text-sm text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                      <strong>Hinweis:</strong> Diese Webseite befindet sich noch im Aufbau. Aufgaben sowie erklärende Bilder werden fortlaufend ergänzt. Der Rechtsstandort des Projekts ist Litauen. Eine Kommerzialisierung der hier angebotenen Inhalte ist nicht beabsichtigt.
-                    </p>
-                  </div>
-                ) : (
-                  <div className="space-y-6">
-                    <p>
-                      Tasks from the best universities in the world have been adapted and prepared so that they are available to students all over the world. Our goal is a uniform level of quality with unlimited opportunities to practice, in order to globally improve physical understanding and provide technical education to people in a scalable way.
-                    </p>
-                    <p className="text-sm text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100">
-                      <strong>Note:</strong> This website is currently under construction. Tasks and explanatory images are continuously being added. The legal location of the project is Lithuania. Commercialization of the content provided here is not intended.
-                    </p>
-                  </div>
-                )}
-              </CardContent>
-            </Card>
-
+      <div className="flex-1 overflow-y-auto custom-scrollbar relative z-10 bg-white">
+        <div className="p-12 max-w-4xl mx-auto w-full pb-40">
+          <div className="mb-10">
+            <div className="flex flex-wrap items-center gap-2 mb-6">
+              <Badge className="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 shadow-none font-bold px-3 py-1 text-xs rounded-full">
+                {lang === "de" ? "PROJEKT INFO" : "PROJECT INFO"}
+              </Badge>
+            </div>
+            <div className="flex justify-between items-start gap-4 mb-2">
+              <h1 className="text-[40px] font-extrabold tracking-tight text-slate-900 leading-tight">
+                {lang === "de" ? "Kommentare des Urhebers" : "Author's Comments"}
+              </h1>
+            </div>
+            <Separator className="mt-8 mb-10 bg-slate-200/60 h-[2px] w-24 rounded-full" />
+          </div>
+          
+          <div className="prose prose-slate prose-lg max-w-none mb-16 dark:prose-invert prose-headings:font-bold prose-a:text-indigo-600 hover:prose-a:text-indigo-500">
+            {lang === "de" ? (
+              <div className="space-y-6">
+                <p>
+                  Aufgaben der besten Universitäten der Welt wurden aufwendig adaptiert und didaktisch aufbereitet, um sie Studierenden auf der ganzen Welt frei zugänglich zu machen. Unser zentrales Ziel ist es, ein erstklassiges, einheitliches Qualitätsniveau zu etablieren. Durch die unbeschränkten Übungsmöglichkeiten möchten wir nicht nur das individuelle physikalische Verständnis fördern, sondern vor allem Menschen weltweit auf eine skalierbare, faire Art und Weise eine exzellente technische Bildung zukommen lassen.
+                </p>
+                <div className="mt-10 p-6 bg-slate-50 border border-slate-100 rounded-2xl text-slate-600 text-base shadow-sm">
+                  <h4 className="text-slate-800 font-bold mb-2 mt-0">Hinweis</h4>
+                  Diese Plattform befindet sich derzeit im Aufbau. Sowohl der Aufgabenpool als auch die erklärenden Abbildungen werden kontinuierlich erweitert und verbessert.<br/><br/>
+                  <strong>Rechtsstandort:</strong> Das Projekt hat seinen Rechtsstandort in Litauen.<br/>
+                  <strong>Non-Profit:</strong> Eine Kommerzialisierung der hier angebotenen Aufgaben und Bildungsinhalte ist ausdrücklich <u>nicht</u> beabsichtigt.
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-6">
+                <p>
+                  Tasks from the world's best universities have been extensively adapted and didactically prepared to make them freely accessible to students worldwide. Our central goal is to establish a first-class, uniform level of quality. Through unlimited practice opportunities, we aim not only to promote individual physical understanding but above all to provide people globally with excellent technical education in a scalable, fair manner.
+                </p>
+                <div className="mt-10 p-6 bg-slate-50 border border-slate-100 rounded-2xl text-slate-600 text-base shadow-sm">
+                  <h4 className="text-slate-800 font-bold mb-2 mt-0">Notice</h4>
+                  This platform is currently under construction. Both the task pool and the explanatory illustrations are continuously being expanded and improved.<br/><br/>
+                  <strong>Legal Location:</strong> The project has its legal location in Lithuania.<br/>
+                  <strong>Non-Profit:</strong> A commercialization of the educational content provided here is explicitly <u>not</u> intended.
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </div>
