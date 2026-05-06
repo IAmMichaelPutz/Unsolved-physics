@@ -7,6 +7,7 @@ import { LanguageProvider } from "@/components/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://unsolved-physics.fun"),
   title: "Unsolved Physics Fun",
   description: "Klausur- und Übungsaufgaben mit korrekten Lösungswegen für Natur- und Ingenieurswissenschaften",
 };
