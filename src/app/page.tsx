@@ -206,30 +206,36 @@ export default function Home() {
                   {lang === "de" ? category.title.de : category.title.en}
                 </h2>
                 <div className="space-y-1.5">
-                  {category.topics.map((topic) => (
+                  {category.topics.map((topic) => {
+                    const hasTasks = tasksData.tasks.some(t => t.topicId === topic.id);
+                    const isDisabled = !hasTasks || ('isActive' in topic && topic.isActive === false);
+                    
+                    return (
                     <button
                       key={topic.id}
                       onClick={() => {
+                        if (isDisabled) return;
                         setActiveTopic(topic.id);
                         setActiveClassification(null);
                         setSearchQuery("");
                         setActiveTask(null);
                       }}
-                      disabled={'isActive' in topic && topic.isActive === false}
+                      disabled={isDisabled}
                       className={`w-full flex items-center justify-between text-left px-3 py-2.5 rounded-xl text-sm transition-all duration-300 ease-out group ${
                         activeTopic === topic.id
                           ? "bg-indigo-600 text-white font-medium shadow-md shadow-indigo-600/20"
-                          : "hover:bg-indigo-50 text-slate-600 hover:text-indigo-700 font-medium bg-transparent"
-                      } ${('isActive' in topic && topic.isActive === false) ? "opacity-40 cursor-not-allowed" : ""}`}
+                          : isDisabled ? "text-slate-400 bg-transparent" : "hover:bg-indigo-50 text-slate-600 hover:text-indigo-700 font-medium bg-transparent"
+                      } ${isDisabled ? "opacity-40 cursor-not-allowed" : ""}`}
                     >
                       <span className="truncate pr-2">{lang === "de" ? topic.name.de : topic.name.en}</span>
-                      {('isActive' in topic && topic.isActive === false) && (
+                      {isDisabled && (
                         <span className="text-[9px] uppercase bg-slate-200/80 text-slate-500 px-2 py-0.5 rounded-full font-bold">
                           {lang === "de" ? "Bald" : "Soon"}
                         </span>
                       )}
                     </button>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
             ))}
