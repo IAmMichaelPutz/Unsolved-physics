@@ -18,6 +18,53 @@ type Task = typeof tasksData.tasks[0] & {
   classification?: string;
 };
 
+const translateCategory = (cat: string, lang: string) => {
+  const map: Record<string, string> = {
+    "basic-courses": "Basic Courses",
+    "advanced-courses": "Advanced Courses",
+    "math-methods": "Math Methods",
+  };
+  if (lang === "de") return cat.toUpperCase().replace('-', ' ');
+  return map[cat] || cat;
+};
+
+const translateClass = (cls: string, lang: string) => {
+  if (lang === "de") return cls;
+  const map: Record<string, string> = {
+    'Atome im Magnetfeld & H-Atom': 'Atoms in Magnetic Field & H-Atom',
+    'Fein- & Hyperfeinstruktur': 'Fine & Hyperfine Structure',
+    'Quantenmechanische Potentiale': 'Quantum Mechanical Potentials',
+    'Molekülphysik': 'Molecular Physics',
+    'Allgemeine Atomphysik': 'General Atomic Physics',
+    'Kernphysik & Zerfälle': 'Nuclear Physics & Decays',
+    'Grundlagen & Vermischtes': 'Basics & Miscellaneous',
+    'Elektrostatik in Materie': 'Electrostatics in Matter',
+    'Magnetostatik & Induktion': 'Magnetostatics & Induction',
+    'Elektrostatik': 'Electrostatics',
+    'Relativistische Elektrodynamik': 'Relativistic Electrodynamics',
+    'Elektromagnetische Wellen': 'Electromagnetic Waves',
+    'Starrer Körper': 'Rigid Body',
+    'Zentralfeld & Streuung': 'Central Field & Scattering',
+    'Schwingungen & Oszillatoren': 'Vibrations & Oscillators',
+    'Erhaltungssätze': 'Conservation Laws',
+    'Kinematik & Dynamik': 'Kinematics & Dynamics',
+    'Lagrange-Formalismus': 'Lagrangian Formalism',
+    'Hamilton-Mechanik': 'Hamiltonian Mechanics',
+    'Wellenoptik': 'Wave Optics',
+    'Geometrische Optik': 'Geometrical Optics',
+    'Vermischtes': 'Miscellaneous',
+    'Photonik & Strahlung': 'Photonics & Radiation',
+    'Wasserstoff & Atome': 'Hydrogen & Atoms',
+    'Grundlagen & Postulate': 'Basics & Postulates',
+    'Spin & Feinstruktur': 'Spin & Fine Structure',
+    '1D Potentiale': '1D Potentials',
+    'Streutheorie': 'Scattering Theory',
+    'Harmonischer Oszillator': 'Harmonic Oscillator',
+    'ANA1': 'Calculus 1'
+  };
+  return map[cls] || cls;
+};
+
 const FlagDE = () => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 5 3" className="w-5 h-3.5 rounded-[2px] shadow-sm object-cover overflow-hidden">
     <rect width="5" height="3" fill="#000"/>
@@ -230,7 +277,7 @@ export default function Home() {
                   onClick={() => setActiveClassification(c)}
                   className={`px-3 py-1 text-[11px] font-bold rounded-full transition-colors ${activeClassification === c ? 'bg-indigo-600 text-white shadow-sm shadow-indigo-600/20' : 'bg-indigo-50/80 text-indigo-600 hover:bg-indigo-100 border border-indigo-100'}`}
                 >
-                  {c}
+                  {translateClass(c, lang)}
                 </button>
               ))}
             </div>
@@ -258,11 +305,11 @@ export default function Home() {
                     </CardTitle>
                     <CardDescription className="flex gap-2 items-center mt-3 flex-wrap">
                       <Badge variant="secondary" className="bg-slate-100 hover:bg-slate-200 text-[10px] font-semibold text-slate-500 rounded-md px-2 py-0.5">
-                        {task.category.toUpperCase().replace('-', ' ')}
+                        {translateCategory(task.category, lang)}
                       </Badge>
                       {(task as Task).classification && (
                         <Badge variant="outline" className="border-indigo-200 text-indigo-600 bg-indigo-50/50 text-[10px] font-semibold rounded-md px-2 py-0.5">
-                          {(task as Task).classification}
+                          {translateClass((task as Task).classification!, lang)}
                         </Badge>
                       )}
                     </CardDescription>
@@ -294,7 +341,7 @@ export default function Home() {
               <div className="mb-10">
                 <div className="flex flex-wrap items-center gap-2 mb-6">
                   <Badge className="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 shadow-none font-bold px-3 py-1 text-xs rounded-full">
-                    {activeTask.category}
+                    {translateCategory(activeTask.category, lang)}
                   </Badge>
                   {lang === "en" && !activeTask.content_en && (
                     <Badge variant="outline" className="border-amber-200 bg-amber-50 text-amber-600 font-semibold px-3 py-1 text-xs rounded-full shadow-none">
