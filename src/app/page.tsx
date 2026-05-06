@@ -194,7 +194,7 @@ export default function Home() {
   return (
     <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100/60 to-indigo-50/50 font-sans selection:bg-indigo-200 text-slate-900">
       {/* Sidebar - Courses (Glassmorphism) */}
-      <div className="w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex flex-col z-20 flex-shrink-0">
+      <div className={`w-full lg:w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex-col z-20 flex-shrink-0 ${activeTopic ? 'hidden lg:flex' : 'flex'}`}>
         <div className="p-8 pb-4">
           <SidebarNav />
         </div>
@@ -244,8 +244,15 @@ export default function Home() {
       </div>
 
       {/* Main Content - Tasks List */}
-      <div className="w-[400px] border-r border-white/50 flex flex-col bg-slate-50/40 backdrop-blur-md flex-shrink-0 relative z-10">
+      <div className={`w-full lg:w-[400px] border-r border-white/50 flex-col bg-slate-50/40 backdrop-blur-md flex-shrink-0 relative z-10 ${(!activeTopic || activeTask) ? 'hidden lg:flex' : 'flex'}`}>
         <div className="p-8 border-b border-white/60 bg-white/40 sticky top-0 z-10">
+          <button 
+            onClick={() => setActiveTopic("")}
+            className="lg:hidden flex items-center gap-2 text-slate-500 hover:text-indigo-600 mb-4 font-semibold text-sm transition-colors"
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+            {lang === "de" ? "Zurück zu Kursen" : "Back to Courses"}
+          </button>
           <h2 className="font-extrabold text-2xl text-slate-800 mb-1">{lang === "de" ? "Aufgaben" : "Exercises"}</h2>
           <div className="flex items-center gap-2 mt-2">
             <span className="flex h-2 w-2 rounded-full bg-indigo-500"></span>
@@ -328,7 +335,7 @@ export default function Home() {
       </div>
 
       {/* Task Detail View */}
-      <div className="flex-1 flex flex-col relative h-screen overflow-hidden bg-white/30">
+      <div className={`w-full lg:flex-1 flex-col relative h-screen overflow-hidden bg-white/30 ${!activeTask ? 'hidden lg:flex' : 'flex'}`}>
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-indigo-100/40 via-transparent to-transparent opacity-80 pointer-events-none"></div>
         
         {/* Global Language Switcher top right */}
@@ -343,8 +350,15 @@ export default function Home() {
 
         {activeTask ? (
           <div className="flex-1 overflow-y-auto custom-scrollbar relative z-10">
-            <div className="p-12 max-w-4xl mx-auto w-full pb-40">
+            <div className="p-6 md:p-12 max-w-4xl mx-auto w-full pb-40">
               <div className="mb-10">
+                <button 
+                  onClick={() => setActiveTask(null)}
+                  className="lg:hidden flex items-center gap-2 text-slate-500 hover:text-indigo-600 mb-6 font-semibold text-sm transition-colors"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+                  {lang === "de" ? "Zurück zur Aufgabenliste" : "Back to Exercises"}
+                </button>
                 <div className="flex flex-wrap items-center gap-2 mb-6">
                   <Badge className="bg-indigo-100 hover:bg-indigo-200 text-indigo-700 shadow-none font-bold px-3 py-1 text-xs rounded-full">
                     {translateCategory(activeTask.category, lang)}
