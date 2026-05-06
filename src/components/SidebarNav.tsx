@@ -14,6 +14,12 @@ export function SidebarNav() {
       </h1>
       <div className="flex flex-col gap-2">
         <Link 
+          href="/about" 
+          className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${pathname === '/about' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'}`}
+        >
+          {lang === "de" ? "Über" : "About"}
+        </Link>
+        <Link 
           href="/" 
           className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${pathname === '/' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'}`}
         >
