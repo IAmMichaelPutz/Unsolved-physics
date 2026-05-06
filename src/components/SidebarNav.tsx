@@ -1,9 +1,11 @@
 "use client";
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
+import { useLanguage } from './LanguageContext';
 
 export function SidebarNav() {
   const pathname = usePathname();
+  const { lang } = useLanguage();
   
   return (
     <div className="mb-8">
@@ -15,19 +17,19 @@ export function SidebarNav() {
           href="/" 
           className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${pathname === '/' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'}`}
         >
-          Kurse
+          {lang === "de" ? "Kurse" : "Courses"}
         </Link>
         <Link 
           href="/jobs" 
           className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${pathname === '/jobs' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'}`}
         >
-          Jobs
+          {lang === "de" ? "Jobs" : "Jobs"}
         </Link>
         <Link 
           href="/impressum" 
           className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-all ${pathname === '/impressum' ? 'bg-indigo-600 text-white shadow-md shadow-indigo-600/20' : 'text-slate-600 hover:bg-indigo-50 hover:text-indigo-700'}`}
         >
-          Impressum
+          {lang === "de" ? "Impressum" : "Legal"}
         </Link>
       </div>
     </div>

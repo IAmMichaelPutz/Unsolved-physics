@@ -8,6 +8,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { SidebarNav } from "@/components/SidebarNav";
+import { useLanguage } from "@/components/LanguageContext";
 
 // Typen
 type Task = typeof tasksData.tasks[0] & { 
@@ -49,7 +50,7 @@ let mathJaxPromise = Promise.resolve();
 export default function Home() {
   const [activeTopic, setActiveTopic] = useState("electrodynamics");
   const [activeTask, setActiveTask] = useState<Task | null>(null);
-  const [lang, setLang] = useState<"de" | "en">("de");
+  const { lang, setLang } = useLanguage();
   const [isMathLoaded, setIsMathLoaded] = useState(false);
   const [activeClassification, setActiveClassification] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
