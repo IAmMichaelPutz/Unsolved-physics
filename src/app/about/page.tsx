@@ -65,13 +65,23 @@ export default function AboutPage() {
             <Card className="border-0 shadow-xl shadow-slate-200/50 bg-white/80 backdrop-blur-xl mb-8 p-8 md:p-12">
               <CardContent className="p-0 prose prose-slate prose-lg max-w-none text-slate-700 leading-relaxed font-medium">
                 {lang === "de" ? (
-                  <p>
-                    Aufgaben der besten Universitäten der Welt wurden angepasst und so aufbereitet, dass sie Studierenden auf der ganzen Welt zur Verfügung stehen. Unser Ziel ist ein einheitliches Qualitätsniveau mit unbeschränkten Möglichkeiten zu üben, um das eigene physikalische Verständnis global zu verbessern und Menschen technische Bildung auf eine skalierbare Art und Weise zukommen zu lassen.
-                  </p>
+                  <div className="space-y-6">
+                    <p>
+                      Aufgaben der besten Universitäten der Welt wurden angepasst und so aufbereitet, dass sie Studierenden auf der ganzen Welt zur Verfügung stehen. Unser Ziel ist ein einheitliches Qualitätsniveau mit unbeschränkten Möglichkeiten zu üben, um das eigene physikalische Verständnis global zu verbessern und Menschen technische Bildung auf eine skalierbare Art und Weise zukommen zu lassen.
+                    </p>
+                    <p className="text-sm text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                      <strong>Hinweis:</strong> Diese Webseite befindet sich noch im Aufbau. Aufgaben sowie erklärende Bilder werden fortlaufend ergänzt. Der Rechtsstandort des Projekts ist Litauen. Eine Kommerzialisierung der hier angebotenen Inhalte ist nicht beabsichtigt.
+                    </p>
+                  </div>
                 ) : (
-                  <p>
-                    Tasks from the best universities in the world have been adapted and prepared so that they are available to students all over the world. Our goal is a uniform level of quality with unlimited opportunities to practice, in order to globally improve physical understanding and provide technical education to people in a scalable way.
-                  </p>
+                  <div className="space-y-6">
+                    <p>
+                      Tasks from the best universities in the world have been adapted and prepared so that they are available to students all over the world. Our goal is a uniform level of quality with unlimited opportunities to practice, in order to globally improve physical understanding and provide technical education to people in a scalable way.
+                    </p>
+                    <p className="text-sm text-slate-500 bg-slate-50 p-4 rounded-xl border border-slate-100">
+                      <strong>Note:</strong> This website is currently under construction. Tasks and explanatory images are continuously being added. The legal location of the project is Lithuania. Commercialization of the content provided here is not intended.
+                    </p>
+                  </div>
                 )}
               </CardContent>
             </Card>
