@@ -7,7 +7,7 @@ import { LanguageProvider } from "@/components/LanguageContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Unsolved Physics Fun - SPA",
+  title: "Unsolved Physics Fun",
   description: "Klausur- und Übungsaufgaben mit korrekten Lösungswegen für Natur- und Ingenieurswissenschaften",
 };
 
