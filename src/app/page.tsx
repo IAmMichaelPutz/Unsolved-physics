@@ -98,7 +98,6 @@ export default function Home() {
   const [activeTopic, setActiveTopic] = useState("electrodynamics");
   const [activeTask, setActiveTask] = useState<Task | null>(null);
   const { lang, setLang } = useLanguage();
-  const [isMathLoaded, setIsMathLoaded] = useState(false);
   const [activeClassification, setActiveClassification] = useState<string | null>(null);
   const [searchQuery, setSearchQuery] = useState("");
   const [taskCopied, setTaskCopied] = useState(false);
@@ -168,17 +167,13 @@ export default function Home() {
     });
   };
 
-  // Elegantes Neuladen und Rendern von MathJax ohne Flackern
+  // Neuladen und Rendern von MathJax
   useEffect(() => {
     if (!activeTask) return;
     
-    // eslint-disable-next-line
-    setIsMathLoaded(false); // Versteckt den Content mit sanfter CSS-Transition
     const timer = setTimeout(() => {
-      runMathJax().then(() => {
-        setIsMathLoaded(true); // Weiches Einblenden der perfekten Formeln
-      });
-    }, 100);
+      runMathJax();
+    }, 50);
     
     return () => clearTimeout(timer);
   }, [activeTask, lang]);
@@ -389,8 +384,8 @@ export default function Home() {
                 <Separator className="mt-8 mb-10 bg-slate-200/60 h-[2px] w-24 rounded-full" />
               </div>
               
-              {/* Task Content - With MathJax Fade-In Animation */}
-              <div ref={mathContainerRef} className={`transition-all duration-700 ease-in-out transform ${isMathLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+              {/* Task Content */}
+              <div key={activeTask.id} ref={mathContainerRef} className="transition-all duration-300">
                 <div className="prose prose-slate prose-lg max-w-none mb-16 dark:prose-invert prose-headings:font-bold prose-a:text-indigo-600 hover:prose-a:text-indigo-500">
                    <div dangerouslySetInnerHTML={{ __html: lang === "en" && activeTask.content_en ? activeTask.content_en : activeTask.content }} />
                 </div>
