@@ -2,39 +2,210 @@
   "categories": [
     {
       "id": "basic-courses",
-      "title": { "de": "Basiskurse", "en": "Basic Courses" },
+      "title": {
+        "de": "Basiskurse",
+        "en": "Basic Courses"
+      },
       "topics": [
-        { "id": "mechanics", "name": { "de": "Mechanik", "en": "Mechanics" } },
-        { "id": "electrodynamics", "name": { "de": "Elektrodynamik", "en": "Electrodynamics" } },
-        { "id": "quantum-theory", "name": { "de": "Quantenmechanik", "en": "Quantum Mechanics" } },
-        { "id": "thermodynamics", "name": { "de": "Thermodynamik", "en": "Thermodynamics" } },
-        { "id": "atom-molecular", "name": { "de": "Atom- und Molekülphysik", "en": "Atomic and Molecular Physics" } },
-        { "id": "relativity-theory", "name": { "de": "Relativitätstheorie", "en": "Theory of Relativity" } },
-        { "id": "kernphysik", "name": { "de": "Kernphysik", "en": "Nuclear Physics" } },
-        { "id": "optics", "name": { "de": "Optik", "en": "Optics" } },
-        { "id": "mathematical-foundation", "name": { "de": "Mathematische Grundlagen", "en": "Mathematical Foundations" } },
-        { "id": "solid-state", "name": { "de": "Festkörperphysik", "en": "Solid State Physics" } }
+        {
+          "id": "mechanics",
+          "name": {
+            "de": "Mechanik",
+            "en": "Mechanics"
+          }
+        },
+        {
+          "id": "electrodynamics",
+          "name": {
+            "de": "Elektrodynamik",
+            "en": "Electrodynamics"
+          }
+        },
+        {
+          "id": "quantum-theory",
+          "name": {
+            "de": "Quantenmechanik",
+            "en": "Quantum Mechanics"
+          }
+        },
+        {
+          "id": "thermodynamics",
+          "name": {
+            "de": "Thermodynamik",
+            "en": "Thermodynamics"
+          }
+        },
+        {
+          "id": "atom-molecular",
+          "name": {
+            "de": "Atom- und Molekülphysik",
+            "en": "Atomic and Molecular Physics"
+          }
+        },
+        {
+          "id": "relativity-theory",
+          "name": {
+            "de": "Relativitätstheorie",
+            "en": "Theory of Relativity"
+          }
+        },
+        {
+          "id": "kernphysik",
+          "name": {
+            "de": "Kernphysik",
+            "en": "Nuclear Physics"
+          }
+        },
+        {
+          "id": "optics",
+          "name": {
+            "de": "Optik",
+            "en": "Optics"
+          }
+        },
+        {
+          "id": "mathematical-foundation",
+          "name": {
+            "de": "Mathematische Grundlagen",
+            "en": "Mathematical Foundations"
+          }
+        },
+        {
+          "id": "solid-state",
+          "name": {
+            "de": "Festkörperphysik",
+            "en": "Solid State Physics"
+          }
+        }
       ]
     },
     {
       "id": "advanced-courses",
-      "title": { "de": "Fortgeschrittene Kurse", "en": "Advanced Courses" },
+      "title": {
+        "de": "Fortgeschrittene Kurse",
+        "en": "Advanced Courses"
+      },
       "topics": [
-        { "id": "hydrodynamics", "name": { "de": "Hydrodynamik", "en": "Hydrodynamics" }, "isActive": true },
-        { "id": "thin-films", "name": { "de": "Dünne Filme", "en": "Thin Films" }, "isActive": true },
-        { "id": "superconductors", "name": { "de": "Supraleiter", "en": "Superconductors" }, "isActive": true },
-        { "id": "astrophysics", "name": { "de": "Astrophysik", "en": "Astrophysics" }, "isActive": false },
-        { "id": "general-relativity", "name": { "de": "Allgemeine Relativitätstheorie", "en": "General Relativity" }, "isActive": false },
-        { "id": "quantum-optics", "name": { "de": "Quantenoptik", "en": "Quantum Optics" }, "isActive": false },
-        { "id": "quantum-many-body-theory", "name": { "de": "Quantenvielteilchentheorie", "en": "Quantum Many-Body Theory" }, "isActive": false },
-        { "id": "physics-of-life", "name": { "de": "Physik des Lebens", "en": "Physics of Life" }, "isActive": false },
-        { "id": "artificial-intelligence", "name": { "de": "Künstliche Intelligenz", "en": "Artificial Intelligence" }, "isActive": false },
-        { "id": "fusion-physics", "name": { "de": "Fusions- und Plasmaphysik", "en": "Fusion and Plasma Physics" }, "isActive": false },
-        { "id": "low-temperature-physics", "name": { "de": "Tieftemperaturphysik", "en": "Low Temperature Physics" }, "isActive": false },
-        { "id": "theory-condensed-matter", "name": { "de": "Theorie der kondensierten Materie", "en": "Condensed Matter Theory" }, "isActive": false },
-        { "id": "solar-physics", "name": { "de": "Solarphysik", "en": "Solar Physics" }, "isActive": false },
-        { "id": "laser-technology", "name": { "de": "Lasertechnologie", "en": "Laser Technology" }, "isActive": false },
-        { "id": "optical-elements", "name": { "de": "Optische Elemente", "en": "Optical Elements" }, "isActive": false }
+        {
+          "id": "hydrodynamics",
+          "name": {
+            "de": "Hydrodynamik",
+            "en": "Hydrodynamics"
+          },
+          "isActive": true
+        },
+        {
+          "id": "thin-films",
+          "name": {
+            "de": "Dünne Filme",
+            "en": "Thin Films"
+          },
+          "isActive": true
+        },
+        {
+          "id": "superconductors",
+          "name": {
+            "de": "Supraleiter",
+            "en": "Superconductors"
+          },
+          "isActive": true
+        },
+        {
+          "id": "astrophysics",
+          "name": {
+            "de": "Astrophysik",
+            "en": "Astrophysics"
+          },
+          "isActive": false
+        },
+        {
+          "id": "general-relativity",
+          "name": {
+            "de": "Allgemeine Relativitätstheorie",
+            "en": "General Relativity"
+          },
+          "isActive": false
+        },
+        {
+          "id": "quantum-optics",
+          "name": {
+            "de": "Quantenoptik",
+            "en": "Quantum Optics"
+          },
+          "isActive": false
+        },
+        {
+          "id": "quantum-many-body-theory",
+          "name": {
+            "de": "Quantenvielteilchentheorie",
+            "en": "Quantum Many-Body Theory"
+          },
+          "isActive": false
+        },
+        {
+          "id": "physics-of-life",
+          "name": {
+            "de": "Physik des Lebens",
+            "en": "Physics of Life"
+          },
+          "isActive": false
+        },
+        {
+          "id": "artificial-intelligence",
+          "name": {
+            "de": "Künstliche Intelligenz",
+            "en": "Artificial Intelligence"
+          },
+          "isActive": false
+        },
+        {
+          "id": "fusion-physics",
+          "name": {
+            "de": "Fusions- und Plasmaphysik",
+            "en": "Fusion and Plasma Physics"
+          },
+          "isActive": false
+        },
+        {
+          "id": "low-temperature-physics",
+          "name": {
+            "de": "Tieftemperaturphysik",
+            "en": "Low Temperature Physics"
+          },
+          "isActive": false
+        },
+        {
+          "id": "theory-condensed-matter",
+          "name": {
+            "de": "Theorie der kondensierten Materie",
+            "en": "Condensed Matter Theory"
+          },
+          "isActive": false
+        },
+        {
+          "id": "solar-physics",
+          "name": {
+            "de": "Solarphysik",
+            "en": "Solar Physics"
+          },
+          "isActive": false
+        },
+        {
+          "id": "laser-technology",
+          "name": {
+            "de": "Lasertechnologie",
+            "en": "Laser Technology"
+          },
+          "isActive": false
+        },
+        {
+          "id": "optical-elements",
+          "name": {
+            "de": "Optische Elemente",
+            "en": "Optical Elements"
+          },
+          "isActive": false
+        }
       ]
     }
   ]

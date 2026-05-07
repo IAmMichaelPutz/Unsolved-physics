@@ -7,7 +7,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
-import { SidebarNav } from "@/components/SidebarNav";
+import { SidebarLogo, SidebarLinks } from "@/components/SidebarNav";
 import { useLanguage } from "@/components/LanguageContext";
 
 // Typen
@@ -190,9 +190,9 @@ export default function Home() {
   return (
     <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100/60 to-indigo-50/50 font-sans selection:bg-indigo-200 text-slate-900">
       {/* Sidebar - Courses (Glassmorphism) */}
-      <div className={`w-full lg:w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex-col z-20 flex-shrink-0 ${activeTopic ? 'hidden lg:flex' : 'flex'}`}>
+      <div className={`w-full lg:w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex-col z-20 flex-shrink-0 justify-between ${activeTopic ? 'hidden lg:flex' : 'flex'}`}>
         <div className="p-8 pb-4">
-          <SidebarNav />
+          <SidebarLogo />
         </div>
         <div className="flex-1 overflow-y-auto custom-scrollbar">
           <div className="p-6 space-y-8">
@@ -236,6 +236,9 @@ export default function Home() {
               </div>
             ))}
           </div>
+        </div>
+        <div className="p-8 pt-4 mt-auto">
+          <SidebarLinks />
         </div>
       </div>
 
@@ -386,7 +389,7 @@ export default function Home() {
               
               {/* Task Content */}
               <div key={activeTask.id} ref={mathContainerRef} className="transition-all duration-300">
-                <div className="prose prose-slate prose-lg max-w-none mb-16 dark:prose-invert prose-headings:font-bold prose-a:text-indigo-600 hover:prose-a:text-indigo-500">
+                <div className="prose prose-slate prose-lg max-w-none mb-16 dark:prose-invert prose-headings:font-bold prose-a:text-indigo-600 hover:prose-a:text-indigo-500 prose-strong:font-extrabold prose-strong:text-slate-900">
                    <div dangerouslySetInnerHTML={{ __html: lang === "en" && activeTask.content_en ? activeTask.content_en : activeTask.content }} />
                 </div>
 
@@ -416,7 +419,7 @@ export default function Home() {
                             <><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg> Kopieren</>
                           )}
                         </button>
-                        <div className="prose prose-slate prose-lg max-w-none dark:prose-invert mt-4">
+                        <div className="prose prose-slate prose-lg max-w-none mt-4 dark:prose-invert prose-headings:font-bold prose-a:text-indigo-600 hover:prose-a:text-indigo-500 prose-strong:font-extrabold prose-strong:text-slate-900">
                           <div dangerouslySetInnerHTML={{ __html: lang === "en" && activeTask.solution_en ? activeTask.solution_en : activeTask.solution }} />
                         </div>
                       </AccordionContent>

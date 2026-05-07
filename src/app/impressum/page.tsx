@@ -1,10 +1,13 @@
-import { SidebarNav } from "@/components/SidebarNav";
+import { SidebarLogo, SidebarLinks } from "@/components/SidebarNav";
 export default function ImpressumPage() {
   return (
     <div className="flex h-screen overflow-hidden bg-gradient-to-br from-slate-50 via-slate-100/60 to-indigo-50/50 font-sans selection:bg-indigo-200 text-slate-900">
       <div className="w-72 border-r border-white/60 bg-white/60 backdrop-blur-2xl shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex flex-col z-20 flex-shrink-0">
         <div className="p-8 pb-4">
-          <SidebarNav />
+          <SidebarLogo />
+        </div>
+        <div className="p-8 pt-4 mt-auto">
+          <SidebarLinks />
         </div>
         <div className="px-8 pb-8">
           <h2 className="text-sm font-bold text-slate-400 uppercase tracking-wider mb-4 mt-4">Impressum</h2>

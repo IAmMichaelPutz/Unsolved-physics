@@ -1,5 +1,5 @@
 "use client";
-import { SidebarNav } from "@/components/SidebarNav";
+import { SidebarLogo, SidebarLinks } from "@/components/SidebarNav";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { useLanguage } from "@/components/LanguageContext";
@@ -39,7 +39,10 @@ export default function AboutPage() {
 
       <div className="w-72 border-r border-slate-200 bg-white flex flex-col z-20 flex-shrink-0">
         <div className="p-8 pb-4">
-          <SidebarNav />
+          <SidebarLogo />
+        </div>
+        <div className="p-8 pt-4 mt-auto">
+          <SidebarLinks />
         </div>
       </div>
 
