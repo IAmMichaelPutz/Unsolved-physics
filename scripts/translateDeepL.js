@@ -2,7 +2,7 @@ const fs = require('fs');
 const path = require('path');
 const axios = require('axios');
 
-const API_KEY = '6d698f6f-85ed-4032-9c5d-ab6ac74997ec:fx';
+const API_KEY = '73e6c9e2-810b-4cc1-b7a1-a1df8e8c57bd:fx';
 const API_URL = 'https://api-free.deepl.com/v2/translate';
 const FILE_PATH = path.join(__dirname, '..', 'src', 'data', 'tasks.json');
 
@@ -66,7 +66,7 @@ async function runTranslation() {
             fs.writeFileSync(FILE_PATH, JSON.stringify(data, null, 2), 'utf8');
             
             // Short delay to avoid hitting rate limits
-            await new Promise(r => setTimeout(r, 200));
+            await new Promise(r => setTimeout(r, 1000));
             
         } catch (e) {
             console.log(`Abgebrochen bei Aufgabe ${i+1}. Bisher verarbeitete Zeichen in dieser Sitzung: ${totalChars}`);
