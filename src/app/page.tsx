@@ -184,8 +184,8 @@ export default function Home() {
   }, [activeTask, lang]);
 
   // Wenn der Lösungsweg aufgeklappt wird, müssen wir MathJax für den neuen DOM-Inhalt neu triggern
-  const handleAccordionChange = (val: string) => {
-    if (val === "solution") {
+  const handleAccordionChange = (val: string | string[] | undefined) => {
+    if (val === "solution" || (Array.isArray(val) && val.includes("solution"))) {
       setTimeout(() => {
         runMathJax();
       }, 100);
@@ -397,7 +397,7 @@ export default function Home() {
 
                 {/* Task Solution */}
                 {(lang === "en" ? (activeTask.solution_en || activeTask.solution) : activeTask.solution) && (
-                  <Accordion type="single" collapsible key={activeTask.id} onValueChange={handleAccordionChange} className="w-full mt-12">
+                  <Accordion key={activeTask.id} onValueChange={handleAccordionChange} className="w-full mt-12">
                     <AccordionItem value="solution" className="border border-slate-200/60 rounded-2xl bg-white shadow-xl shadow-slate-200/40 overflow-hidden px-2 transition-all duration-300 hover:border-indigo-200">
                       <AccordionTrigger className="hover:no-underline px-6 py-6 group">
                         <div className="flex items-center gap-4">
