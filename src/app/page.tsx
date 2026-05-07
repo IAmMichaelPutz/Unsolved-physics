@@ -138,8 +138,10 @@ export default function Home() {
     return true;
   });
 
-  const runMathJax = () => {
-    if (typeof window !== "undefined" && window.MathJax) {
+  const runMathJax = (): Promise<void> => {
+    if (typeof window === "undefined") return Promise.resolve();
+
+    if (window.MathJax) {
       const targetElements = mathContainerRef.current ? [mathContainerRef.current] : undefined;
       
       const doTypeset = () => {
@@ -155,16 +157,15 @@ export default function Home() {
       if (window.MathJax.typesetPromise) {
         mathJaxPromise = mathJaxPromise.then(doTypeset).catch(console.error);
         return mathJaxPromise;
-      } else {
-        // MathJax is still loading, wait 500ms and try again
-        return new Promise((resolve) => {
-          setTimeout(() => {
-            runMathJax().then(resolve);
-          }, 500);
-        });
       }
     }
-    return Promise.resolve();
+    
+    // MathJax is still loading or not fully initialized, wait and retry
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        runMathJax().then(resolve);
+      }, 300);
+    });
   };
 
   // Elegantes Neuladen und Rendern von MathJax ohne Flackern
