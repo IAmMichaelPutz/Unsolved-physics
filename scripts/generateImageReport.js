@@ -22,7 +22,7 @@ if (fs.existsSync(imagesDir)) {
 }
 
 // Analyze each task for image references and missing images
-const IMG_PATTERN = /src="([^"]+\.(png|jpg|jpeg|gif|svg|webp))"/gi;
+const IMG_PATTERN = /src="([^"]+)"/gi;
 
 const rows = tasks.map(task => {
     const combined = (task.content || '') + (task.solution || '');

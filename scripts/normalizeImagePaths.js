@@ -12,7 +12,7 @@ data.tasks.forEach(task => {
 
     const replaceImgSrcs = (html) => {
         if (!html) return html;
-        return html.replace(/src="([^"]+\.(png|jpg|jpeg|gif|svg|webp))"/gi, (match, oldSrc) => {
+        return html.replace(/src="([^"]+)"/gi, (match, oldSrc) => {
             // Already uses the correct standardized path
             if (oldSrc.startsWith(`/images/${task.id}`)) {
                 imgIndex++;
@@ -22,7 +22,8 @@ data.tasks.forEach(task => {
             imgIndex++;
             // If task has only 1 image: /images/task_XXX.png
             // Multiple images will be handled after full pass - for now generate with index
-            const ext = path.extname(oldSrc).toLowerCase() || '.png';
+            const oldExt = path.extname(oldSrc.split('?')[0]).toLowerCase();
+            const ext = (oldExt && oldExt.length <= 5) ? oldExt : '.png';
             const newSrc = imgIndex === 1
                 ? `/images/${task.id}${ext}`
                 : `/images/${task.id}_${imgIndex}${ext}`;
