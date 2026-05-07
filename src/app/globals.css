@@ -128,3 +128,36 @@
     @apply font-sans;
   }
 }@plugin "@tailwindcss/typography";
+
+/* ── Task Images: Responsive, centered, with caption ── */
+.prose img,
+.prose .image-placeholder img {
+  display: block;
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  max-height: 480px;         /* never taller than viewport-ish */
+  object-fit: contain;
+  margin: 1.5rem auto;       /* centered with vertical spacing */
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.06);
+  border: 1px solid rgba(0,0,0,0.06);
+  background: #fff;
+  padding: 8px;
+}
+
+/* Wrapper div for images – centers and constrains */
+.prose .image-placeholder {
+  text-align: center;
+  margin: 1.5rem 0;
+}
+
+/* On small screens, allow full width */
+@media (max-width: 768px) {
+  .prose img,
+  .prose .image-placeholder img {
+    max-height: 320px;
+    padding: 4px;
+  }
+}
+
