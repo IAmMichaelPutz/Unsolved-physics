@@ -8,6 +8,13 @@
       },
       "topics": [
         {
+          "id": "mathematical-foundation",
+          "name": {
+            "de": "Mathematische Grundlagen",
+            "en": "Mathematical Foundations"
+          }
+        },
+        {
           "id": "mechanics",
           "name": {
             "de": "Mechanik",
@@ -19,6 +26,20 @@
           "name": {
             "de": "Elektrodynamik",
             "en": "Electrodynamics"
+          }
+        },
+        {
+          "id": "optics",
+          "name": {
+            "de": "Optik",
+            "en": "Optics"
+          }
+        },
+        {
+          "id": "atom-molecular",
+          "name": {
+            "de": "Atom- und Molekülphysik",
+            "en": "Atomic and Molecular Physics"
           }
         },
         {
@@ -36,13 +57,6 @@
           }
         },
         {
-          "id": "atom-molecular",
-          "name": {
-            "de": "Atom- und Molekülphysik",
-            "en": "Atomic and Molecular Physics"
-          }
-        },
-        {
           "id": "relativity-theory",
           "name": {
             "de": "Relativitätstheorie",
@@ -54,20 +68,6 @@
           "name": {
             "de": "Kernphysik",
             "en": "Nuclear Physics"
-          }
-        },
-        {
-          "id": "optics",
-          "name": {
-            "de": "Optik",
-            "en": "Optics"
-          }
-        },
-        {
-          "id": "mathematical-foundation",
-          "name": {
-            "de": "Mathematische Grundlagen",
-            "en": "Mathematical Foundations"
           }
         },
         {
