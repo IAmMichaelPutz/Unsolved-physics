@@ -207,6 +207,31 @@
           "isActive": false
         }
       ]
+    },
+    {
+      "id": "exams",
+      "title": {
+        "de": "PhD & Qualifying Exams",
+        "en": "PhD & Qualifying Exams"
+      },
+      "topics": [
+        {
+          "id": "stanford-qualifying-exam",
+          "name": {
+            "de": "Stanford Qualifying Exam",
+            "en": "Stanford Qualifying Exam"
+          },
+          "isActive": true
+        },
+        {
+          "id": "mit-qualifying-exam",
+          "name": {
+            "de": "MIT Qualifying Exam",
+            "en": "MIT Qualifying Exam"
+          },
+          "isActive": true
+        }
+      ]
     }
   ]
 }
